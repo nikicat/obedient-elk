@@ -16,6 +16,8 @@ def get_data_path(ship):
 
 containers = []
 
+
+@aslist
 def make_elasticsearchs(ships, name):
     config = ConfigVolume(
         dest='/etc/elasticsearch',
@@ -43,7 +45,7 @@ def make_elasticsearchs(ships, name):
             memory=ship.memory * 3 // 4,
         )
 
-
+@aslist
 def make_zookeepers(ships, name):
     config = ConfigVolume(
         dest='/opt/zookeeper/conf',
@@ -76,25 +78,32 @@ def make_zookeepers(ships, name):
             },
         )
 
+
 def zookeeper_ships(ships):
-    for ship in ships:
-        if ship.name in ['elastic0', 'node01d', 'node01e'] or ship.islocal:
-            yield ship
+    for datacenter, ships in groupby(ships, lambda s: s.datacenter):
+        yield list(ships)[0]
 
 
 def make_elasticlog(ships, name):
+    elasticsearchs = make_elasticsearchs(ships, name)
+    zookeepers = make_zookeepers(zookeeper_ships(ships), name)
+
     global containers
-
-    containers.extend(make_elasticsearchs(ships, name))
-    containers.extend(make_zookeepers(zookeeper_ships(ships), name))
-
+    containers += elasticsearchs + zookeepers
     return containers
 
+@aslist
+def fill_datacenter(ships):
+    import transliterate
+    for ship in ships:
+        ship.datacenter = transliterate.translit(datacenter_from_racktables(ship.fqdn), 'ru', reversed=True).replace(' ', '-')
+        yield ship
+
 def production():
-    return make_elasticlog(list(ships_from_conductor('elasticlog-sysmon')), 'elasticlog-sysmon')
+    return make_elasticlog(fill_datacenter(ships_from_conductor('elasticlog-sysmon')), 'elasticlog-sysmon')
 
 def testing():
-    return make_elasticlog(list(ships_from_conductor('elasticlog-sysmon')) + [Ship(name='docker-1', fqdn='docker-1.i.fog.yandex.net', datacenter='sas-1-1-3')], 'elasticlog-sysmon')
+    return make_elasticlog(fill_datacenter(ships_from_nova('haze', {'elasticlog': 'testing'})), 'elasticlog-testing')
 
 def development():
     return make_elasticlog([LocalShip()], 'elasticlog-local')
