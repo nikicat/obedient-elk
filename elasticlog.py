@@ -1,14 +1,18 @@
+import re
+
 from dominator import *
 
 def get_data_path(ship):
-    if ship.islocal:
+    if isinstance(ship, LocalShip):
         return '/tmp'
-    elif ship.name[-1] == 'e':
+    elif re.match('node..e\.elasticlog\.yandex\.net', ship.fqdn):
         return '/local'
-    elif ship.name[-1] == 'd':
+    elif re.match('node..d\.elasticlog\.yandex\.net', ship.fqdn):
         return '/var/lib'
-    else:
+    elif re.match('elastic.\.i\.fog\.yandex\.net', ship.fqdn):
         return '/mnt'
+    elif re.match('.*\.haze\.yandex\.net', ship.fqdn):
+        return '/var/lib'
 
 containers = []
 
