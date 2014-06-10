@@ -1,18 +1,4 @@
-import re
-
 from dominator import *
-
-def get_data_path(ship):
-    if isinstance(ship, LocalShip):
-        return '/tmp'
-    elif re.match('node..e\.elasticlog\.yandex\.net', ship.fqdn):
-        return '/local'
-    elif re.match('node..d\.elasticlog\.yandex\.net', ship.fqdn):
-        return '/var/lib'
-    elif re.match('elastic.\.i\.fog\.yandex\.net', ship.fqdn):
-        return '/mnt'
-    elif re.match('.*\.haze\.yandex\.net', ship.fqdn):
-        return '/var/lib'
 
 containers = []
 
@@ -33,11 +19,11 @@ def make_elasticsearchs(ships, name):
             name='elasticsearch',
             ship=ship,
             repository='nikicat/elasticsearch',
-            tag='latest',
+            tag=get_image('nikicat/elasticsearch', 'latest'),
             volumes=[
                 DataVolume(
                     dest='/var/lib/elasticsearch',
-                    path=get_data_path(ship) + '/elasticsearch',
+                    path='/var/lib/elasticsearch',
                 ),
                 config,
             ],
@@ -61,11 +47,11 @@ def make_zookeepers(ships, name):
             name='zookeeper',
             ship=ship,
             repository='nikicat/zookeeper',
-            tag='latest',
+            tag=get_image('nikicat/zookeeper', 'latest'),
             volumes=[
                 DataVolume(
                     dest='/var/lib/zookeeper',
-                    path=get_data_path(ship) + '/zookeeper',
+                    path='/var/lib/zookeeper',
                 ),
                 config,
             ],
@@ -91,19 +77,3 @@ def make_elasticlog(ships, name):
     global containers
     containers += elasticsearchs + zookeepers
     return containers
-
-@aslist
-def fill_datacenter(ships):
-    import transliterate
-    for ship in ships:
-        ship.datacenter = transliterate.translit(datacenter_from_racktables(ship.fqdn), 'ru', reversed=True).replace(' ', '-')
-        yield ship
-
-def production():
-    return make_elasticlog(fill_datacenter(ships_from_conductor('elasticlog-sysmon')), 'elasticlog-sysmon')
-
-def testing():
-    return make_elasticlog(fill_datacenter(ships_from_nova('haze', {'elasticlog': 'testing'})), 'elasticlog-testing')
-
-def development():
-    return make_elasticlog([LocalShip()], 'elasticlog-local')
