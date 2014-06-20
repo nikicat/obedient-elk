@@ -1,6 +1,6 @@
 import re
 from dominator import *
-from elasticlog import make_elasticlog
+from .. import elk
 
 @aslist
 def fill_datacenter(ships):
@@ -33,7 +33,7 @@ def production():
                               ships_from_conductor('elasticlog-sysmon')), 'elasticlog-sysmon'))
 
 def testing():
-    return make_elasticlog(fill_datacenter(ships_from_nova('haze', {'elasticlog': 'testing'})), 'elasticlog-testing')
+    return elk.make_containers(fill_datacenter(ships_from_nova('haze', {'elasticlog': 'testing'})), 'elasticlog-testing')
 
 def development():
-    return override_data_path(make_elasticlog([LocalShip()], 'elasticlog-local'))
+    return override_data_path(elk.make_containers([LocalShip()], 'elasticlog-local'))
