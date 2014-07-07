@@ -2,3 +2,4 @@ __pycache__/
 elasticlog.yaml
 *.egg-info/
 cache.sqlite
+.tox/
