@@ -1,7 +1,8 @@
 import io
 
-from dominator.entities import *
-from dominator.utils import *
+from dominator.entities import (LocalShip, Image, SourceImage, ConfigVolume, DataVolume,
+                                Container, TextFile, TemplateFile)
+from dominator.utils import aslist, groupby
 from obedient import elasticsearch
 from obedient import zookeeper
 
@@ -28,7 +29,8 @@ def create(ships, name, httpport=80, httpsport=443, marvel_hosts=[]):
             'apt-get update',
             'apt-get install -yy nginx-extras',
             'rm -f /etc/nginx/sites-enabled/default',
-            'wget https://gist.githubusercontent.com/rrx/6217900/raw/78c2a4817dad9611ab602834d56d0f5b00bb3cc9/gencert.sh',
+            'wget https://gist.githubusercontent.com/rrx/6217900/raw/'
+            '78c2a4817dad9611ab602834d56d0f5b00bb3cc9/gencert.sh',
             'bash gencert.sh localhost || true',
             'cat localhost.crt localhost.key > /etc/ssl/private/server.pem',
         ],
@@ -109,6 +111,7 @@ def create(ships, name, httpport=80, httpsport=443, marvel_hosts=[]):
             elasticsearch_ports=nginx.ports,
         )
         nginx.volumes['sites'].files['elk.site'] = TemplateFile(TextFile('elk.site'), elasticsearch=es, kibana=kibana)
+
 
 def development():
     return create([LocalShip()], 'local', httpport=8080, httpsport=4433)
