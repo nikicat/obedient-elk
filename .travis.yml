@@ -8,7 +8,7 @@ env:
   global:
     secure: O/tz/k9uLSWMG0u51r2ay+1LqNfqMrrf/NMKKhY86oVGS307ZZRCLns7PbO9kfRkBi41UzWqgvSydgWrJ27rlBcoHoM4HtO5ACb53nuA1RYFBJ2aZ8gcbowydwZnTEULVXfaF8s+oByBqkoP33jrV1jXA6uTZ+RpJq8+nZnmcUA=
 install:
-- pip install tox
+- pip install tox bumpversion
 script: tox -v
 before_deploy:
 - git checkout master
