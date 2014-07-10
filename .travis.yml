@@ -25,7 +25,7 @@ deploy:
   provider: pypi
   user: nikicat
   password:
-    secure: i9zNWTqaqWjKp4hHVXA0wWvCFS5ic7ne3nc6WP7fanQLC5y1/tQxsnmMVN02aThfpNoCZKh82rWjs/wXXxUq5Q4egXFaOjMPoyIsb8EGHFi4y1FMW/wSnw/iBXFYruWf/k+JQz2t+dj1/EpHj4sLGMPRjANdK2+fwrDFNIlUIBs=
+    secure: UWXzVAAmdhHlEBWstPqZdscuS/1ObwswOJwlPrY+p0vNX62ii/Ks7eW+/Dp2FTUEwnRVEPvUgAJaG+Ee2iPpWXJHtNqqX6Xs5dE2/uKinEo/jkqwb1J4DZep4mQ2ieEyZm7RjtRFB7MZJnvEtMU5FLCB5XJBHQoz0lu7f5mkJ4Q=
   distributions: sdist
   on:
     condition: "$TOXENV = flake8"
@@ -33,4 +33,4 @@ deploy:
 notifications:
   hipchat:
     rooms:
-      secure: PafUqqru2uzvMt+lMC6zjHNskguNbvK6o8P2ChjlZ9pEqs0UNRH8gRQGAQKErRfC1baUrjz2zjfqdXFvQUIIYZS9X6h9GXReX+wfaU9/ZTCL4e/TDaauXIyVKTjSgmMsk2N9XkorDHexkrHDFOENbU5YWABbnuOcXcYTEJ/VhvM=
+      secure: YvdFF/1ngl3uP/HK8oQ1JIA9CNKD6LKMI+mlv0H1irJIVEImraehqOWmsVubEkUmFrA4to/PABGVBe8zgDfD2nkqbmC9gexzrLwSa/hXLlBPPQWNoaKXDEPYAkAClJx9xy/DQjeqQNpjIlI6cvZ/Jw8UOxstuAP/WBcUzI4fi0E=
