@@ -2,13 +2,13 @@ import io
 
 from dominator.entities import (LocalShip, Image, SourceImage, ConfigVolume, DataVolume,
                                 Container, TextFile, TemplateFile)
-from dominator.utils import aslist, groupby
+from dominator.utils import aslist, groupbysorted
 from obedient import elasticsearch
 from obedient import zookeeper
 
 
 def zookeeper_ships(ships):
-    for datacenter, ships in groupby(ships, lambda s: s.datacenter):
+    for datacenter, ships in groupbysorted(ships, lambda s: s.datacenter):
         yield list(ships)[0]
 
 
