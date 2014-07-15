@@ -1,4 +1,6 @@
 __pycache__/
+/build/
+/dist/
 elasticlog.yaml
 *.egg-info/
 cache.sqlite
