@@ -12,7 +12,7 @@ if __name__ == '__main__':
         platforms='linux',
         packages=['obedient.elk'],
         namespace_packages=['obedient'],
-        data_files={'obedient.elk': ['config.js', 'elk.site', 'nginx.conf']},
+        package_data={'obedient.elk': ['config.js', 'elk.site', 'nginx.conf']},
         install_requires=[
             'dominator[dump] >=4, <5',
             'obedient.elasticsearch',
