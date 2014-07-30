@@ -5,7 +5,7 @@ if __name__ == '__main__':
         name='obedient.elk',
         version='0.3',
         url='https://github.com/yandex-sysmon/obedient.elk',
-        license='GPLv3',
+        license='LGPLv3',
         author='Nikolay Bryskin',
         author_email='devel.niks@gmail.com',
         description='ELK (Elasticsearch-Logstash-Kibana) obedient for Dominator',
