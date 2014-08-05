@@ -13,9 +13,20 @@ def zookeeper_ships(ships):
 
 
 @aslist
-def create(ships, name, httpport=80, httpsport=443, marvel_hosts=[]):
-    zookeepers = zookeeper.create(zookeeper_ships(ships))
-    yield from zookeepers
+def create(
+    ships,
+    name,
+    httpport=80,
+    httpsport=443,
+    marvel_hosts=[],
+    zookeepers=[],
+    kibana_name='kibana',
+    nginx_name='nginx-elk',
+):
+
+    if len(zookeepers) == 0:
+        zookeepers = zookeeper.create(zookeeper_ships(ships))
+        yield from zookeepers
 
     elasticsearchs = elasticsearch.create(ships, zookeepers, name, httpport=9201, marvel_hosts=marvel_hosts)
     yield from elasticsearchs
@@ -74,7 +85,7 @@ def create(ships, name, httpport=80, httpsport=443, marvel_hosts=[]):
     for es in elasticsearchs:
 
         kibana = Container(
-            name='kibana',
+            name=kibana_name,
             ship=es.ship,
             image=kibana_image,
             volumes={'config': ConfigVolume(dest=kibana_image.volumes['config'])},
@@ -84,7 +95,7 @@ def create(ships, name, httpport=80, httpsport=443, marvel_hosts=[]):
         yield kibana
 
         nginx = Container(
-            name='nginx-elk',
+            name=nginx_name,
             image=nginx_image,
             ship=es.ship,
             volumes={
