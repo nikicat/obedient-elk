@@ -13,11 +13,20 @@ def zookeeper_ships(ships):
 
 
 @aslist
-def create(ships, name, httpport=80, httpsport=443, marvel_hosts=[]):
-    zookeepers = zookeeper.create(zookeeper_ships(ships))
-    yield from zookeepers
+def create(
+    ships,
+    cluster_name,
+    marvel_hosts=[],
+    zookeepers=[],
+    ports=None,
+):
 
-    elasticsearchs = elasticsearch.create(ships, zookeepers, name, httpport=9201, marvel_hosts=marvel_hosts)
+    if len(zookeepers) == 0:
+        zookeepers = zookeeper.create(zookeeper_ships(ships))
+        yield from zookeepers
+
+    elasticsearchs = elasticsearch.create(ships, zookeepers, cluster_name,
+                                          httpport=9201, marvel_hosts=marvel_hosts)
     yield from elasticsearchs
 
     nginx_image = SourceImage(
@@ -70,6 +79,7 @@ def create(ships, name, httpport=80, httpsport=443, marvel_hosts=[]):
         files={'server.pem': TemplateFile(TextFile(text='${this.ship.certificate}'))},
     )
     configjs = TextFile('config.js')
+    elk_site = TextFile('elk.site')
 
     for es in elasticsearchs:
 
@@ -84,7 +94,7 @@ def create(ships, name, httpport=80, httpsport=443, marvel_hosts=[]):
         yield kibana
 
         nginx = Container(
-            name='nginx-elk',
+            name='nginx',
             image=nginx_image,
             ship=es.ship,
             volumes={
@@ -98,19 +108,13 @@ def create(ships, name, httpport=80, httpsport=443, marvel_hosts=[]):
                 'elasticsearch.http': 9200,
                 'elasticsearch.https': 9443,
             },
-            extports={
-                'kibana.http': httpport,
-                'kibana.https': httpsport,
-            },
+            extports=ports,
             memory=1024**2*256,
         )
         yield nginx
 
-        kibana.volumes['config'].files['config.js'] = TemplateFile(
-            configjs,
-            elasticsearch_ports=nginx.ports,
-        )
-        nginx.volumes['sites'].files['elk.site'] = TemplateFile(TextFile('elk.site'), elasticsearch=es, kibana=kibana)
+        kibana.volumes['config'].files['config.js'] = TemplateFile(configjs, nginx=nginx)
+        nginx.volumes['sites'].files['elk.site'] = TemplateFile(elk_site, elasticsearch=es, kibana=kibana)
 
 
 def development():
