@@ -14,7 +14,7 @@ if __name__ == '__main__':
         namespace_packages=['obedient'],
         package_data={'obedient.elk': ['config.js', 'elk.site', 'nginx.conf']},
         install_requires=[
-            'dominator[full] >=4',
+            'dominator[full] >=7',
             'obedient.elasticsearch >=1.3',
             'obedient.zookeeper >=1.2',
         ],
