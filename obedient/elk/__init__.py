@@ -31,7 +31,7 @@ def create(
 
     nginx_image = SourceImage(
         name='nginx',
-        parent=Image('yandex/trusty'),
+        parent=Image(namespace='yandex', repository='trusty'),
         env={'DEBIAN_FRONTEND': 'noninteractive'},
         scripts=[
             'apt-add-repository -y ppa:nginx/stable',
