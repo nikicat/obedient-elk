@@ -1,8 +1,6 @@
-import io
-
 from dominator.entities import (LocalShip, Image, SourceImage, ConfigVolume, DataVolume,
-                                Container, TextFile, TemplateFile)
-from dominator.utils import aslist, groupbysorted
+                                Container, TextFile, TemplateFile, Shipment)
+from dominator.utils import aslist, groupbysorted, resource_string
 from obedient import elasticsearch
 from obedient import zookeeper
 
@@ -43,7 +41,7 @@ def create(
             'bash gencert.sh localhost || true',
             'cat localhost.crt localhost.key > /etc/ssl/private/server.pem',
         ],
-        files={'/etc/nginx/nginx.conf': 'nginx.conf'},
+        files={'/etc/nginx/nginx.conf': resource_string('nginx.conf')},
         ports={'http': '80'},
         volumes={
             'logs': '/var/log/nginx',
@@ -65,13 +63,13 @@ def create(
         volumes={'config': '/var/www/kibana/config'},
         ports={'http': 80},
     )
-    kibana_image.files['/etc/nginx/sites-enabled/kibana.site'] = io.BytesIO(
-        'server {{'
-        '  listen [::]:{} ipv6only=off;'
-        '  location / {{'
-        '    alias /var/www/kibana/;'
-        '  }}'
-        '}}'.format(kibana_image.ports['http']).encode())
+    kibana_image.files['/etc/nginx/sites-enabled/kibana.site'] = '''
+server {{
+  listen [::]:{} ipv6only=off;
+  location / {{
+    alias /var/www/kibana/;
+  }}
+}}'''.format(kibana_image.ports['http'])
 
     logs = DataVolume(nginx_image.volumes['logs'])
     ssl = ConfigVolume(
@@ -117,5 +115,5 @@ def create(
         nginx.volumes['sites'].files['elk.site'] = TemplateFile(elk_site, elasticsearch=es, kibana=kibana)
 
 
-def development():
-    return create([LocalShip()], 'local', httpport=8080, httpsport=4433)
+def make_local():
+    return Shipment('local', create([LocalShip()], 'local', ports={'kibana.http': 8080, 'kibana.https': 4433}))

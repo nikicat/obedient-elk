@@ -13,6 +13,9 @@ if __name__ == '__main__':
         packages=['obedient.elk'],
         namespace_packages=['obedient'],
         package_data={'obedient.elk': ['config.js', 'elk.site', 'nginx.conf']},
+        entry_points={'obedient': [
+            'local = obedient.elk:make_local',
+        ]},
         install_requires=[
             'dominator[full] >=7',
             'obedient.elasticsearch >=1.3',
