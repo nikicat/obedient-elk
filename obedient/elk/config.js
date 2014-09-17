@@ -30,8 +30,8 @@ function (Settings) {
      *
      */
       elasticsearch: "//"+window.location.hostname+":"+{
-          "http:": ${nginx.getport('elasticsearch.http')},
-          "https:": ${nginx.getport('elasticsearch.https')}
+          "http:": ${nginx.doors['elasticsearch.http'].externalport},
+          "https:": ${nginx.doors['elasticsearch.https'].externalport}
       }[window.location.protocol],
 
     /** @scratch /configuration/config.js/5

@@ -1,13 +1,16 @@
 from dominator.entities import (LocalShip, Image, SourceImage, ConfigVolume, DataVolume,
-                                Container, TextFile, TemplateFile, Shipment)
+                                Container, TemplateFile, Shipment, Door)
 from dominator.utils import aslist, groupbysorted, resource_string
 from obedient import elasticsearch
 from obedient import zookeeper
 
 
 def zookeeper_ships(ships):
-    for datacenter, ships in groupbysorted(ships, lambda s: s.datacenter):
-        yield list(ships)[0]
+    zooships = [list(ships)[0] for datacenter, ships in groupbysorted(ships, lambda s: s.datacenter)]
+    if len(zooships) % 2 == 0:
+        # If we have even datacenter count, then add one more ship for quorum
+        zooships.append([ship for ship in ships if ship not in zooships][0])
+    return zooships
 
 
 @aslist
@@ -18,13 +21,14 @@ def create(
     zookeepers=[],
     ports=None,
 ):
+    ports = ports or {}
 
     if len(zookeepers) == 0:
         zookeepers = zookeeper.create(zookeeper_ships(ships))
         yield from zookeepers
 
     elasticsearchs = elasticsearch.create(ships, zookeepers, cluster_name,
-                                          httpport=9201, marvel_hosts=marvel_hosts)
+                                          ports={'http': 9201, 'https': None}, marvel_hosts=marvel_hosts)
     yield from elasticsearchs
 
     nginx_image = SourceImage(
@@ -42,7 +46,7 @@ def create(
             'cat localhost.crt localhost.key > /etc/ssl/private/server.pem',
         ],
         files={'/etc/nginx/nginx.conf': resource_string('nginx.conf')},
-        ports={'http': '80'},
+        ports={'http': 80},
         volumes={
             'logs': '/var/log/nginx',
             'sites': '/etc/nginx/sites-enabled',
@@ -55,7 +59,7 @@ def create(
         name='kibana',
         parent=nginx_image,
         scripts=[
-            'curl https://download.elasticsearch.org/kibana/kibana/kibana-3.1.0.tar.gz | tar -zxf -',
+            'curl -s https://download.elasticsearch.org/kibana/kibana/kibana-3.1.0.tar.gz | tar -zxf -',
             'mkdir /var/www',
             'mv kibana-* /var/www/kibana',
             'ln -fs config/config.js /var/www/kibana/config.js',
@@ -74,10 +78,10 @@ server {{
     logs = DataVolume(nginx_image.volumes['logs'])
     ssl = ConfigVolume(
         dest=nginx_image.volumes['ssl'],
-        files={'server.pem': TemplateFile(TextFile(text='${this.ship.certificate}'))},
+        files={'server.pem': TemplateFile('${this.ship.certificate}')},
     )
-    configjs = TextFile('config.js')
-    elk_site = TextFile('elk.site')
+    configjs = resource_string('config.js')
+    elk_site = resource_string('elk.site')
 
     for es in elasticsearchs:
 
@@ -86,8 +90,9 @@ server {{
             ship=es.ship,
             image=kibana_image,
             volumes={'config': ConfigVolume(dest=kibana_image.volumes['config'])},
-            ports={'http': 80},
-            extports={'http': 1080}
+            doors={
+                'http': Door(schema='http', port=kibana_image.ports['http'], externalport=1080),
+            },
         )
         yield kibana
 
@@ -100,13 +105,16 @@ server {{
                 'logs': logs,
                 'ssl': ssl,
             },
-            ports={
-                'kibana.http': 80,
-                'kibana.https': 443,
-                'elasticsearch.http': 9200,
-                'elasticsearch.https': 9443,
+            doors={
+                'kibana.http': Door(schema='http', port=nginx_image.ports['http'],
+                                    externalport=ports.get('kibana.http')),
+                'kibana.https': Door(schema='https', port=443,
+                                     externalport=ports.get('kibana.https')),
+                'elasticsearch.http': Door(schema='http', port=9200,
+                                           externalport=ports.get('elsaticsearch.http')),
+                'elasticsearch.https': Door(schema='https', port=9443,
+                                            externalport=ports.get('elasticsearch.https')),
             },
-            extports=ports,
             memory=1024**2*256,
         )
         yield nginx
