@@ -6,7 +6,7 @@ from obedient import zookeeper
 
 
 def zookeeper_ships(ships):
-    zooships = [list(ships)[0] for datacenter, ships in groupbysorted(ships, lambda s: s.datacenter)]
+    zooships = [list(dcships)[0] for datacenter, dcships in groupbysorted(ships, lambda s: s.datacenter)]
     if len(zooships) % 2 == 0:
         # If we have even datacenter count, then add one more ship for quorum
         zooships.append([ship for ship in ships if ship not in zooships][0])
