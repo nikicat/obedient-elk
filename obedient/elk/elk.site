@@ -24,5 +24,5 @@ server {
 }
 </%def>
 
-${ server(this.doors['kibana.http'].port, this.doors['kibana.https'].port, 'http://{}:{}/'.format(kibana.ship.fqdn, kibana.doors['http'].externalport)) }
-${ server(this.doors['elasticsearch.http'].port, this.doors['elasticsearch.https'].port, 'http://{}:{}/'.format(elasticsearch.ship.fqdn, elasticsearch.doors['http'].externalport)) }
+${ server(this.doors['kibana.http'].port, this.doors['kibana.https'].port, this.links['kibana']) }
+${ server(this.doors['elasticsearch.http'].port, this.doors['elasticsearch.https'].port, this.links['elasticsearch']) }
