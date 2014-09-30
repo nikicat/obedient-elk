@@ -111,7 +111,7 @@ server {{
                 'kibana.https': Door(schema='https', port=443,
                                      externalport=ports.get('kibana.https')),
                 'elasticsearch.http': Door(schema='http', port=9200,
-                                           externalport=ports.get('elsaticsearch.http')),
+                                           externalport=ports.get('elasticsearch.http')),
                 'elasticsearch.https': Door(schema='https', port=9443,
                                             externalport=ports.get('elasticsearch.https')),
             },
