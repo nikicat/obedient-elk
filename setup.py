@@ -3,7 +3,7 @@ import setuptools
 if __name__ == '__main__':
     setuptools.setup(
         name='obedient.elk',
-        version='0.7.0',
+        version='1.0.0',
         url='https://github.com/yandex-sysmon/obedient.elk',
         license='LGPLv3',
         author='Nikolay Bryskin',
