@@ -1,7 +1,7 @@
 import textwrap
 import copy
 
-from dominator.entities import (LocalShip, Image, SourceImage, ConfigVolume, DataVolume, LogVolume, LogFile,
+from dominator.entities import (LocalShip, Image, SourceImage, ConfigVolume, DataVolume, LogVolume, LogFile, Task,
                                 Container, YamlFile, TemplateFile, TextFile, RotatedLogFile, Shipment, Door, Url)
 from dominator.utils import cached, aslist, groupbysorted, resource_string
 from obedient.zookeeper import create as create_zookeeper
@@ -301,8 +301,41 @@ def create_elk(name, ships, port_offset=0):
         for door in container.doors.values():
             door.externalport = door.port + port_offset
 
-    return containers
+    dump = Task(
+        name='dump',
+        image=SourceImage(
+            name='elasticdump',
+            parent=Image(namespace='yandex', repository='trusty'),
+            scripts=[
+                'apt-get update && apt-get install -y npm',
+                'ln -s nodejs /usr/bin/node',
+                'npm install elasticdump -g',
+            ],
+            files={
+                '/scripts/dump.sh': textwrap.dedent('''
+                    . /scripts/config/dump.env
+                    INDEX=$1
+                    if [ -z "$INDEX"  ]; then
+                        echo "Usage: dump <INDEX>"
+                        exit 1
+                    fi
+                    elasticdump --input=$URL/$INDEX --output=$
+                '''),
+            },
+            entrypoint='["bash", "/scripts/dump.sh"]',
+        ),
+        volumes={
+            'config': ConfigVolume(
+                dest='/scripts/config',
+                files={
+                    'dump.env': TextFile(text='URL={}'.format(nginxes[0].doors['elasticsearch.http'].urls['default'])),
+                },
+            ),
+        },
+    )
+
+    return Shipment(name, containers, tasks=[dump])
 
 
 def make_local(port_offset=50000):
-    return Shipment('elk-local', create_elk(ships=[LocalShip()], name='elk-local', port_offset=port_offset))
+    return create_elk(ships=[LocalShip()], name='elk-local', port_offset=port_offset)
