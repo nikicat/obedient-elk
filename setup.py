@@ -18,7 +18,6 @@ if __name__ == '__main__':
         ]},
         install_requires=[
             'dominator[full] >=10',
-            'obedient.elasticsearch >=1.4',
             'obedient.zookeeper >=1.5',
         ],
     )
