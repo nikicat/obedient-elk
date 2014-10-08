@@ -26,7 +26,6 @@ docker:
 
 # FQDN for LocalShip's - used for developing. Put here some local ip
 # different from 127.0.0.1/::1 that local containers could reach
-localship-fqdn: 172.17.42.1
-
-
-
+localship:
+    fqdn: 172.17.42.1
+    memory: 1000000000
