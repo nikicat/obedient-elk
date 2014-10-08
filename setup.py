@@ -17,7 +17,7 @@ if __name__ == '__main__':
             'local = obedient.elk:make_local',
         ]},
         install_requires=[
-            'dominator[full] >=10',
-            'obedient.zookeeper >=1.5',
+            'dominator[full] >=11.2',
+            'obedient.zookeeper >=2',
         ],
     )
