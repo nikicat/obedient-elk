@@ -12,12 +12,19 @@ if __name__ == '__main__':
         platforms='linux',
         packages=['obedient.elk'],
         namespace_packages=['obedient'],
-        package_data={'obedient.elk': ['config.js', 'elk.site', 'nginx.conf']},
+        package_data={'obedient.elk': [
+            'config.js',
+            'elk.site',
+            'nginx.conf',
+            'logging.yml',
+            'mapping.json',
+            'elasticsearch.sh',
+        ]},
         entry_points={'obedient': [
             'local = obedient.elk:make_local',
         ]},
         install_requires=[
-            'dominator[full] >=10',
-            'obedient.zookeeper >=1.5',
+            'dominator[full] >=11.5',
+            'obedient.zookeeper >=2',
         ],
     )
