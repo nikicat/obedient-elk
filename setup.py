@@ -21,10 +21,10 @@ if __name__ == '__main__':
             'elasticsearch.sh',
         ]},
         entry_points={'obedient': [
-            'local = obedient.elk:make_local',
+            'create = obedient.elk:create',
         ]},
         install_requires=[
-            'dominator[full] >=11.5',
+            'dominator[full] >=11.6',
             'obedient.zookeeper >=2',
         ],
     )

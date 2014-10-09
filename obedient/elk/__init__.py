@@ -2,7 +2,7 @@ import textwrap
 import copy
 import os.path
 
-from dominator.entities import (LocalShip, Image, SourceImage, ConfigVolume, DataVolume, LogVolume, LogFile, Task,
+from dominator.entities import (Image, SourceImage, ConfigVolume, DataVolume, LogVolume, LogFile, Task,
                                 Container, YamlFile, TemplateFile, TextFile, RotatedLogFile, Shipment, Door, Url)
 from dominator.utils import cached, groupbysorted, resource_string
 from obedient.zookeeper import create_zookeeper, clusterize_zookeepers
@@ -370,12 +370,17 @@ def create_elk(clustername, ships):
         for ship in ships:
             yield from ship.containers.values()
     containers = list(get_containers())
-    return Shipment(name=clustername, containers=containers, tasks=[dump])
+    return containers, [dump]
 
 
-def make_local(port_offset=50000):
-    ship = LocalShip()
-    shipment = create_elk(ships=[ship], clustername='elk-local')
-    ports = range(port_offset, port_offset+1000)
-    ship.expose_all(ports)
-    return shipment
+def create(ships, clustername, port_offset=50000):
+    allcontainers = []
+    alltasks = []
+    for ship in ships:
+        containers, tasks = create_elk(ships=[ship], clustername=clustername)
+        ports = range(port_offset, port_offset+1000)
+        ship.expose_all(ports)
+
+        allcontainers.extend(containers)
+        alltasks.extend(tasks)
+    return Shipment(name='', containers=allcontainers, tasks=alltasks)
