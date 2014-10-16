@@ -1,7 +1,7 @@
-<%def name="server(httpport, httpsport, proxypassurl)">
+<%def name="server(httpdoor, httpsdoor, proxypassurl)">
 server {
-    listen [::]:${ httpport } ipv6only=off;
-    listen [::]:${ httpsport } ssl ipv6only=off;
+    listen [::]:${ httpdoor.internalport } ipv6only=off;
+    listen [::]:${ httpsdoor.internalport } ssl ipv6only=off;
 
     ssl_certificate     ${this.volumes['ssl'].dest}/server.pem;
     ssl_certificate_key ${this.volumes['ssl'].dest}/server.pem;
@@ -24,5 +24,5 @@ server {
 }
 </%def>
 
-${ server(this.doors['kibana.http'].port, this.doors['kibana.https'].port, this.links['kibana']) }
-${ server(this.doors['elasticsearch.http'].port, this.doors['elasticsearch.https'].port, this.links['elasticsearch']) }
+${ server(this.doors['kibana.http'], this.doors['kibana.https'], this.links['kibana']) }
+${ server(this.doors['elasticsearch.http'], this.doors['elasticsearch.https'], this.links['elasticsearch']) }
