@@ -29,9 +29,9 @@ function (Settings) {
      *  +elasticsearch: {server: "http://localhost:9200", withCredentials: true}+
      *
      */
-      elasticsearch: {
-          "http:": "${this.links['elasticsearch.http']}",
-          "https:": "${this.links['elasticsearch.https']}"
+      elasticsearch: "//" + window.location.hostname + ":" + {
+          "http:": "${this.links['elasticsearch.http'].port}",
+          "https:": "${this.links['elasticsearch.https'].port}"
       }[window.location.protocol],
 
     /** @scratch /configuration/config.js/5
