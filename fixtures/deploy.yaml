@@ -5,15 +5,30 @@ interactions:
       Accept: ['*/*']
       Accept-Encoding: ['gzip, deflate']
       Connection: [keep-alive]
-      User-Agent: [python-requests/2.4.3 CPython/3.4.1 Linux/3.15.7-1-aufs_friendly]
+      User-Agent: [python-requests/2.4.3 CPython/3.4.2 Linux/3.15.7-1-aufs_friendly]
     method: GET
-    uri: http://localhost:4243/v1.12/containers/json?trunc_cmd=1&limit=-1&size=0&all=1
+    uri: http://localhost:4243/v1.12/containers/json?size=0&trunc_cmd=1&all=1&limit=-1
   response:
-    body: {string: '[]'}
+    body: {string: '[{"Command":"sh /root/run.sh","Created":1413479459,"Id":"972e9988ec23ba42d8e045a3d26c924ca5f4f140bb22105a8c08ebeb0030c515","Image":"registry.ape.yandex.net/nikicat/zookeeper:UvqVw5b02gBthEeGlWoGO0vVTbAPIuPaLGuh415+ObM=","Names":["/unnamed.zookeeper"],"Ports":[],"Status":"Exited
+        (-1) 23 seconds ago"}
+
+        ,{"Command":"nginx","Created":1413479458,"Id":"e9b106b45d50e141ac5b92b1ac574c1e6cad0f02153d852f2a50b9f67dd32d97","Image":"registry.ape.yandex.net/nikicat/nginx:q7258sN9t-GyvNfxnaRapKE9MOdprkU-0LGYLN0UjUU=","Names":["/unnamed.nginx"],"Ports":[],"Status":"Exited
+        (0) 25 seconds ago"}
+
+        ,{"Command":"nginx","Created":1413479457,"Id":"699c19f35f5913d3ef86c08af48750092801a8a3bcbb73c832c18e0960fff88b","Image":"registry.ape.yandex.net/nikicat/kibana:mKMYDAQuLraPCs35QSqWomHhhmyTksVGCCAnWeUjeDg=","Names":["/unnamed.kibana"],"Ports":[],"Status":"Exited
+        (0) 25 seconds ago"}
+
+        ,{"Command":"/scripts/elasticsearch.sh","Created":1413479456,"Id":"133031d4578118f5897c2c548024a6a058e06a8277b43c073b724452333e5771","Image":"registry.ape.yandex.net/nikicat/elasticsearch:S9I6AQSQPSGz0BYgZdBRKo6mHdYdGBJFcraMMIp7AMs=","Names":["/unnamed.elasticsearch"],"Ports":[],"Status":"Exited
+        (137) 29 seconds ago"}
+
+        ,{"Command":"bash","Created":1413379827,"Id":"030cac116ba84181628dca2357b79e21086ad6eac8e007c886f90c19b892b6e1","Image":"nbryskin/trusty:latest","Names":["/happy_torvalds"],"Ports":[],"Status":"Up
+        27 hours"}
+
+        ]'}
     headers:
-      Content-Length: ['2']
+      Content-Length: ['1396']
       Content-Type: [application/json]
-      Date: ['Thu, 09 Oct 2014 12:01:27 GMT']
+      Date: ['Thu, 16 Oct 2014 17:11:31 GMT']
     status: {code: 200, message: OK}
 - request:
     body: null
@@ -21,15 +36,30 @@ interactions:
       Accept: ['*/*']
       Accept-Encoding: ['gzip, deflate']
       Connection: [keep-alive]
-      User-Agent: [python-requests/2.4.3 CPython/3.4.1 Linux/3.15.7-1-aufs_friendly]
+      User-Agent: [python-requests/2.4.3 CPython/3.4.2 Linux/3.15.7-1-aufs_friendly]
     method: GET
-    uri: http://localhost:4243/v1.12/containers/json?trunc_cmd=1&limit=-1&size=0&all=1
+    uri: http://localhost:4243/v1.12/containers/json?size=0&trunc_cmd=1&all=1&limit=-1
   response:
-    body: {string: '[]'}
+    body: {string: '[{"Command":"sh /root/run.sh","Created":1413479459,"Id":"972e9988ec23ba42d8e045a3d26c924ca5f4f140bb22105a8c08ebeb0030c515","Image":"registry.ape.yandex.net/nikicat/zookeeper:UvqVw5b02gBthEeGlWoGO0vVTbAPIuPaLGuh415+ObM=","Names":["/unnamed.zookeeper"],"Ports":[],"Status":"Exited
+        (-1) 23 seconds ago"}
+
+        ,{"Command":"nginx","Created":1413479458,"Id":"e9b106b45d50e141ac5b92b1ac574c1e6cad0f02153d852f2a50b9f67dd32d97","Image":"registry.ape.yandex.net/nikicat/nginx:q7258sN9t-GyvNfxnaRapKE9MOdprkU-0LGYLN0UjUU=","Names":["/unnamed.nginx"],"Ports":[],"Status":"Exited
+        (0) 25 seconds ago"}
+
+        ,{"Command":"nginx","Created":1413479457,"Id":"699c19f35f5913d3ef86c08af48750092801a8a3bcbb73c832c18e0960fff88b","Image":"registry.ape.yandex.net/nikicat/kibana:mKMYDAQuLraPCs35QSqWomHhhmyTksVGCCAnWeUjeDg=","Names":["/unnamed.kibana"],"Ports":[],"Status":"Exited
+        (0) 25 seconds ago"}
+
+        ,{"Command":"/scripts/elasticsearch.sh","Created":1413479456,"Id":"133031d4578118f5897c2c548024a6a058e06a8277b43c073b724452333e5771","Image":"registry.ape.yandex.net/nikicat/elasticsearch:S9I6AQSQPSGz0BYgZdBRKo6mHdYdGBJFcraMMIp7AMs=","Names":["/unnamed.elasticsearch"],"Ports":[],"Status":"Exited
+        (137) 29 seconds ago"}
+
+        ,{"Command":"bash","Created":1413379827,"Id":"030cac116ba84181628dca2357b79e21086ad6eac8e007c886f90c19b892b6e1","Image":"nbryskin/trusty:latest","Names":["/happy_torvalds"],"Ports":[],"Status":"Up
+        27 hours"}
+
+        ]'}
     headers:
-      Content-Length: ['2']
+      Content-Length: ['1396']
       Content-Type: [application/json]
-      Date: ['Thu, 09 Oct 2014 12:01:27 GMT']
+      Date: ['Thu, 16 Oct 2014 17:11:31 GMT']
     status: {code: 200, message: OK}
 - request:
     body: null
@@ -37,15 +67,30 @@ interactions:
       Accept: ['*/*']
       Accept-Encoding: ['gzip, deflate']
       Connection: [keep-alive]
-      User-Agent: [python-requests/2.4.3 CPython/3.4.1 Linux/3.15.7-1-aufs_friendly]
+      User-Agent: [python-requests/2.4.3 CPython/3.4.2 Linux/3.15.7-1-aufs_friendly]
     method: GET
-    uri: http://localhost:4243/v1.12/containers/json?trunc_cmd=1&limit=-1&size=0&all=1
+    uri: http://localhost:4243/v1.12/containers/json?size=0&trunc_cmd=1&all=1&limit=-1
   response:
-    body: {string: '[]'}
+    body: {string: '[{"Command":"sh /root/run.sh","Created":1413479459,"Id":"972e9988ec23ba42d8e045a3d26c924ca5f4f140bb22105a8c08ebeb0030c515","Image":"registry.ape.yandex.net/nikicat/zookeeper:UvqVw5b02gBthEeGlWoGO0vVTbAPIuPaLGuh415+ObM=","Names":["/unnamed.zookeeper"],"Ports":[],"Status":"Exited
+        (-1) 23 seconds ago"}
+
+        ,{"Command":"nginx","Created":1413479458,"Id":"e9b106b45d50e141ac5b92b1ac574c1e6cad0f02153d852f2a50b9f67dd32d97","Image":"registry.ape.yandex.net/nikicat/nginx:q7258sN9t-GyvNfxnaRapKE9MOdprkU-0LGYLN0UjUU=","Names":["/unnamed.nginx"],"Ports":[],"Status":"Exited
+        (0) 25 seconds ago"}
+
+        ,{"Command":"nginx","Created":1413479457,"Id":"699c19f35f5913d3ef86c08af48750092801a8a3bcbb73c832c18e0960fff88b","Image":"registry.ape.yandex.net/nikicat/kibana:mKMYDAQuLraPCs35QSqWomHhhmyTksVGCCAnWeUjeDg=","Names":["/unnamed.kibana"],"Ports":[],"Status":"Exited
+        (0) 25 seconds ago"}
+
+        ,{"Command":"/scripts/elasticsearch.sh","Created":1413479456,"Id":"133031d4578118f5897c2c548024a6a058e06a8277b43c073b724452333e5771","Image":"registry.ape.yandex.net/nikicat/elasticsearch:S9I6AQSQPSGz0BYgZdBRKo6mHdYdGBJFcraMMIp7AMs=","Names":["/unnamed.elasticsearch"],"Ports":[],"Status":"Exited
+        (137) 29 seconds ago"}
+
+        ,{"Command":"bash","Created":1413379827,"Id":"030cac116ba84181628dca2357b79e21086ad6eac8e007c886f90c19b892b6e1","Image":"nbryskin/trusty:latest","Names":["/happy_torvalds"],"Ports":[],"Status":"Up
+        27 hours"}
+
+        ]'}
     headers:
-      Content-Length: ['2']
+      Content-Length: ['1396']
       Content-Type: [application/json]
-      Date: ['Thu, 09 Oct 2014 12:01:27 GMT']
+      Date: ['Thu, 16 Oct 2014 17:11:31 GMT']
     status: {code: 200, message: OK}
 - request:
     body: null
@@ -53,15 +98,30 @@ interactions:
       Accept: ['*/*']
       Accept-Encoding: ['gzip, deflate']
       Connection: [keep-alive]
-      User-Agent: [python-requests/2.4.3 CPython/3.4.1 Linux/3.15.7-1-aufs_friendly]
+      User-Agent: [python-requests/2.4.3 CPython/3.4.2 Linux/3.15.7-1-aufs_friendly]
     method: GET
-    uri: http://localhost:4243/v1.12/containers/json?trunc_cmd=1&limit=-1&size=0&all=1
+    uri: http://localhost:4243/v1.12/containers/json?size=0&trunc_cmd=1&all=1&limit=-1
   response:
-    body: {string: '[]'}
+    body: {string: '[{"Command":"sh /root/run.sh","Created":1413479459,"Id":"972e9988ec23ba42d8e045a3d26c924ca5f4f140bb22105a8c08ebeb0030c515","Image":"registry.ape.yandex.net/nikicat/zookeeper:UvqVw5b02gBthEeGlWoGO0vVTbAPIuPaLGuh415+ObM=","Names":["/unnamed.zookeeper"],"Ports":[],"Status":"Exited
+        (-1) 23 seconds ago"}
+
+        ,{"Command":"nginx","Created":1413479458,"Id":"e9b106b45d50e141ac5b92b1ac574c1e6cad0f02153d852f2a50b9f67dd32d97","Image":"registry.ape.yandex.net/nikicat/nginx:q7258sN9t-GyvNfxnaRapKE9MOdprkU-0LGYLN0UjUU=","Names":["/unnamed.nginx"],"Ports":[],"Status":"Exited
+        (0) 25 seconds ago"}
+
+        ,{"Command":"nginx","Created":1413479457,"Id":"699c19f35f5913d3ef86c08af48750092801a8a3bcbb73c832c18e0960fff88b","Image":"registry.ape.yandex.net/nikicat/kibana:mKMYDAQuLraPCs35QSqWomHhhmyTksVGCCAnWeUjeDg=","Names":["/unnamed.kibana"],"Ports":[],"Status":"Exited
+        (0) 25 seconds ago"}
+
+        ,{"Command":"/scripts/elasticsearch.sh","Created":1413479456,"Id":"133031d4578118f5897c2c548024a6a058e06a8277b43c073b724452333e5771","Image":"registry.ape.yandex.net/nikicat/elasticsearch:S9I6AQSQPSGz0BYgZdBRKo6mHdYdGBJFcraMMIp7AMs=","Names":["/unnamed.elasticsearch"],"Ports":[],"Status":"Exited
+        (137) 29 seconds ago"}
+
+        ,{"Command":"bash","Created":1413379827,"Id":"030cac116ba84181628dca2357b79e21086ad6eac8e007c886f90c19b892b6e1","Image":"nbryskin/trusty:latest","Names":["/happy_torvalds"],"Ports":[],"Status":"Up
+        27 hours"}
+
+        ]'}
     headers:
-      Content-Length: ['2']
+      Content-Length: ['1396']
       Content-Type: [application/json]
-      Date: ['Thu, 09 Oct 2014 12:01:27 GMT']
+      Date: ['Thu, 16 Oct 2014 17:11:31 GMT']
     status: {code: 200, message: OK}
 - request:
     body: null
@@ -69,15 +129,30 @@ interactions:
       Accept: ['*/*']
       Accept-Encoding: ['gzip, deflate']
       Connection: [keep-alive]
-      User-Agent: [python-requests/2.4.3 CPython/3.4.1 Linux/3.15.7-1-aufs_friendly]
+      User-Agent: [python-requests/2.4.3 CPython/3.4.2 Linux/3.15.7-1-aufs_friendly]
     method: GET
-    uri: http://localhost:4243/v1.12/containers/json?trunc_cmd=1&limit=-1&size=0&all=1
+    uri: http://localhost:4243/v1.12/containers/json?size=0&trunc_cmd=1&all=1&limit=-1
   response:
-    body: {string: '[]'}
+    body: {string: '[{"Command":"sh /root/run.sh","Created":1413479459,"Id":"972e9988ec23ba42d8e045a3d26c924ca5f4f140bb22105a8c08ebeb0030c515","Image":"registry.ape.yandex.net/nikicat/zookeeper:UvqVw5b02gBthEeGlWoGO0vVTbAPIuPaLGuh415+ObM=","Names":["/unnamed.zookeeper"],"Ports":[],"Status":"Exited
+        (-1) 23 seconds ago"}
+
+        ,{"Command":"nginx","Created":1413479458,"Id":"e9b106b45d50e141ac5b92b1ac574c1e6cad0f02153d852f2a50b9f67dd32d97","Image":"registry.ape.yandex.net/nikicat/nginx:q7258sN9t-GyvNfxnaRapKE9MOdprkU-0LGYLN0UjUU=","Names":["/unnamed.nginx"],"Ports":[],"Status":"Exited
+        (0) 25 seconds ago"}
+
+        ,{"Command":"nginx","Created":1413479457,"Id":"699c19f35f5913d3ef86c08af48750092801a8a3bcbb73c832c18e0960fff88b","Image":"registry.ape.yandex.net/nikicat/kibana:mKMYDAQuLraPCs35QSqWomHhhmyTksVGCCAnWeUjeDg=","Names":["/unnamed.kibana"],"Ports":[],"Status":"Exited
+        (0) 25 seconds ago"}
+
+        ,{"Command":"/scripts/elasticsearch.sh","Created":1413479456,"Id":"133031d4578118f5897c2c548024a6a058e06a8277b43c073b724452333e5771","Image":"registry.ape.yandex.net/nikicat/elasticsearch:S9I6AQSQPSGz0BYgZdBRKo6mHdYdGBJFcraMMIp7AMs=","Names":["/unnamed.elasticsearch"],"Ports":[],"Status":"Exited
+        (137) 29 seconds ago"}
+
+        ,{"Command":"bash","Created":1413379827,"Id":"030cac116ba84181628dca2357b79e21086ad6eac8e007c886f90c19b892b6e1","Image":"nbryskin/trusty:latest","Names":["/happy_torvalds"],"Ports":[],"Status":"Up
+        27 hours"}
+
+        ]'}
     headers:
-      Content-Length: ['2']
+      Content-Length: ['1396']
       Content-Type: [application/json]
-      Date: ['Thu, 09 Oct 2014 12:01:27 GMT']
+      Date: ['Thu, 16 Oct 2014 17:11:31 GMT']
     status: {code: 200, message: OK}
 - request:
     body: null
@@ -85,11 +160,38 @@ interactions:
       Accept: ['*/*']
       Accept-Encoding: ['gzip, deflate']
       Connection: [keep-alive]
-      User-Agent: [python-requests/2.4.3 CPython/3.4.1 Linux/3.15.7-1-aufs_friendly]
-    method: GET
-    uri: http://localhost:4243/v1.12/images/json?filter=registry.ape.yandex.net%2Fnikicat%2Felasticsearch&only_ids=0&all=1
+      Content-Length: ['0']
+      User-Agent: [python-requests/2.4.3 CPython/3.4.2 Linux/3.15.7-1-aufs_friendly]
+    method: DELETE
+    uri: http://localhost:4243/v1.12/containers/133031d4578118f5897c2c548024a6a058e06a8277b43c073b724452333e5771?link=False&v=False&force=False
   response:
-    body: {string: '[{"Created":1412781903,"Id":"14667876d8e903c3a31d5fd1e0a8388d1e6e20e63a0379a05316ada1d742cc77","ParentId":"1f9d4240629041483b53ca600351a8ce15a3df41c9b31c39eab329b0cbb08685","RepoTags":["registry.ape.yandex.net/nikicat/elasticsearch:W-s9tI6273G0XbXdI8AQeRzVjxk35g4woBo9aPXMeOo="],"Size":608,"VirtualSize":797864736}
+    body: {string: ''}
+    headers:
+      Date: ['Thu, 16 Oct 2014 17:11:31 GMT']
+    status: {code: 204, message: No Content}
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      User-Agent: [python-requests/2.4.3 CPython/3.4.2 Linux/3.15.7-1-aufs_friendly]
+    method: GET
+    uri: http://localhost:4243/v1.12/images/json?all=1&only_ids=0&filter=registry.ape.yandex.net%2Fnikicat%2Felasticsearch
+  response:
+    body: {string: '[{"Created":1413477402,"Id":"cf87a68c391b9394bd6242400873acea75ab16a8e0c70d44fc749e83bcdf0c89","ParentId":"76c8bc26735d820db77a9fd573d052c30d9b7aebfe64d81a331db423504c666c","RepoTags":["registry.ape.yandex.net/nikicat/elasticsearch:S9I6AQSQPSGz0BYgZdBRKo6mHdYdGBJFcraMMIp7AMs="],"Size":542,"VirtualSize":797864670}
+
+        ,{"Created":1413457105,"Id":"5e68db4f3cc8d4e53477ce95c2e7dbbb3d11ee19526882358ffafd27be2a74b1","ParentId":"ecb49c6b36ec26f9ff2179abea4c79e57472b1c5e89f24292dee708a4f9a657a","RepoTags":["registry.ape.yandex.net/nikicat/elasticsearch:yJsy3dmLobeb3C1rT+Sq5NpS16mf6UW+Dc8rrgFoTLY="],"Size":673,"VirtualSize":797864801}
+
+        ,{"Created":1413421294,"Id":"12de30e77060b73ab01df334a2180524c83fbc2e087b9d2f8447748764bf5d5b","ParentId":"534db9f24c27bdf80a5a19ab88bd30ca6068950585a0368d7df2ec15ae11022a","RepoTags":["registry.ape.yandex.net/nikicat/elasticsearch:ZXxCJKEDW4OfP9xB22GcGK+Cbg5dIsY9eVqaNof5CII="],"Size":666,"VirtualSize":797864794}
+
+        ,{"Created":1413421135,"Id":"c9f1428c4befddbd339f3efdee3372a4094ca1899df973a292c6c530a149407f","ParentId":"3914df5d3d41ded7fbc216f4513a0b8a4540f129810a6c2f02ff63d04c332fe6","RepoTags":["registry.ape.yandex.net/nikicat/elasticsearch:6xcSPTeXEJ9NwbeVZhgmEFb4Ic+tMl05TwUZDJOXZSg="],"Size":688,"VirtualSize":797864816}
+
+        ,{"Created":1413418721,"Id":"5e237d91aca4b9bee7bb96847fed69f4fe9099e4b004bebc17e2ecf500eb7740","ParentId":"e48dff2a55c78d78f0e3473dbca8db4879fa44c267aee0e0854094a0a71b06ed","RepoTags":["registry.ape.yandex.net/nikicat/elasticsearch:-NIiluLQJgzlHTCRvjqhi4d2jwF78VPNIPq3IbxR6M4="],"Size":671,"VirtualSize":797864799}
+
+        ,{"Created":1413416856,"Id":"798fc3278bf32b165857e7cd628051718fc347343306add7eab74e502dc0385e","ParentId":"8a24fb7c248dddc63aa0474020ed3539da343efa2c115679a0b91cf50342eee7","RepoTags":["registry.ape.yandex.net/nikicat/elasticsearch:wkiToIpjZo0foKpKwpPnx795IcEbDglyooREiKi06oE="],"Size":672,"VirtualSize":797864800}
+
+        ,{"Created":1412781903,"Id":"14667876d8e903c3a31d5fd1e0a8388d1e6e20e63a0379a05316ada1d742cc77","ParentId":"1f9d4240629041483b53ca600351a8ce15a3df41c9b31c39eab329b0cbb08685","RepoTags":["registry.ape.yandex.net/nikicat/elasticsearch:W-s9tI6273G0XbXdI8AQeRzVjxk35g4woBo9aPXMeOo="],"Size":608,"VirtualSize":797864736}
 
         ,{"Created":1412722598,"Id":"35099ef6721243754ca9511f5f00af5fac417c5c7c9ed3da05af607ddd609a8b","ParentId":"f4c73b37796bd9a297179cb97e992e667ee5edddea87cccc420c6a98fc431c3c","RepoTags":["registry.ape.yandex.net/nikicat/elasticsearch:zYJHYNA47K3iZkQHtJ94bGjCYqJWeUFDRV1NdCKFwo0="],"Size":608,"VirtualSize":797859252}
 
@@ -114,55 +216,55 @@ interactions:
         ]'}
     headers:
       Content-Type: [application/json]
-      Date: ['Thu, 09 Oct 2014 12:01:27 GMT']
+      Date: ['Thu, 16 Oct 2014 17:11:32 GMT']
       Transfer-Encoding: [chunked]
     status: {code: 200, message: OK}
 - request:
-    body: '{"MemorySwap": 0, "AttachStdin": true, "AttachStderr": true, "Image": "registry.ape.yandex.net/nikicat/elasticsearch:14667876d8e903c3a31d5fd1e0a8388d1e6e20e63a0379a05316ada1d742cc77",
-      "ExposedPorts": {"9201/tcp": {}, "9301/tcp": {}, "9401/tcp": {}}, "Memory":
-      750000000, "User": "", "Tty": false, "NetworkDisabled": false, "AttachStdout":
-      true, "StdinOnce": true, "OpenStdin": true, "Hostname": "elasticsearch-localship",
-      "Env": ["ES_HEAP_SIZE=500000000", "ES_CLASSPATH=/etc/elasticsearch/logging.yml",
-      "ES_JAVA_OPTS=-XX:NewRatio=5"]}'
+    body: '{"Env": ["ES_JAVA_OPTS=-XX:NewRatio=5", "ES_CLASSPATH=/etc/elasticsearch/logging.yml"],
+      "NetworkDisabled": false, "User": "", "StdinOnce": true, "AttachStdin": true,
+      "Image": "registry.ape.yandex.net/nikicat/elasticsearch:cf87a68c391b9394bd6242400873acea75ab16a8e0c70d44fc749e83bcdf0c89",
+      "Tty": false, "AttachStdout": true, "AttachStderr": true, "Memory": 134217728,
+      "Hostname": "elasticsearch-localship", "MemorySwap": 0, "OpenStdin": true, "ExposedPorts":
+      {"9401/tcp": {}, "9301/tcp": {}, "9201/tcp": {}}}'
     headers:
       Accept: ['*/*']
       Accept-Encoding: ['gzip, deflate']
       Connection: [keep-alive]
-      Content-Length: ['534']
+      Content-Length: ['508']
       Content-Type: [application/json]
-      User-Agent: [python-requests/2.4.3 CPython/3.4.1 Linux/3.15.7-1-aufs_friendly]
+      User-Agent: [python-requests/2.4.3 CPython/3.4.2 Linux/3.15.7-1-aufs_friendly]
     method: POST
-    uri: http://localhost:4243/v1.12/containers/create?name=clustername.elasticsearch
+    uri: http://localhost:4243/v1.12/containers/create?name=unnamed.elasticsearch
   response:
-    body: {string: '{"Id":"46f3e68a8b960d242eff76fe669ed08c516a13f20534dbd54e83958bbe044a1e","Warnings":["Your
+    body: {string: '{"Id":"d0076b40becc321b047d9600972fa5d4ed2816c3b43e0210acdd10a7cdfb3b49","Warnings":["Your
         kernel does not support swap limit capabilities. Limitation discarded."]}
 
 '}
     headers:
       Content-Length: ['165']
       Content-Type: [application/json]
-      Date: ['Thu, 09 Oct 2014 12:01:27 GMT']
+      Date: ['Thu, 16 Oct 2014 17:11:32 GMT']
     status: {code: 201, message: Created}
 - request:
-    body: '{"PublishAllPorts": false, "Privileged": false, "Binds": ["/tmp/config/clustername/elasticsearch/etc/elasticsearch:/etc/elasticsearch:ro",
-      "/tmp/data/clustername/elasticsearch/var/lib/elasticsearch:/var/lib/elasticsearch:rw",
-      "/tmp/data/clustername/elasticsearch/var/log/elasticsearch:/var/log/elasticsearch:rw"],
-      "PortBindings": {"9201/tcp": [{"HostPort": "50999", "HostIp": "::"}], "9301/tcp":
-      [{"HostPort": "50997", "HostIp": "::"}], "9401/tcp": [{"HostPort": "50998",
-      "HostIp": "::"}]}}'
+    body: '{"PublishAllPorts": false, "Privileged": false, "PortBindings": {"9401/tcp":
+      [{"HostPort": "51098", "HostIp": "::"}], "9201/tcp": [{"HostPort": "51099",
+      "HostIp": "::"}], "9301/tcp": [{"HostPort": "51097", "HostIp": "::"}]}, "Binds":
+      ["/tmp/data/unnamed/elasticsearch/var/lib/elasticsearch:/var/lib/elasticsearch:rw",
+      "/tmp/data/unnamed/elasticsearch/var/log/elasticsearch:/var/log/elasticsearch:rw",
+      "/tmp/config/unnamed/elasticsearch/etc/elasticsearch:/etc/elasticsearch:ro"]}'
     headers:
       Accept: ['*/*']
       Accept-Encoding: ['gzip, deflate']
       Connection: [keep-alive]
-      Content-Length: ['490']
+      Content-Length: ['478']
       Content-Type: [application/json]
-      User-Agent: [python-requests/2.4.3 CPython/3.4.1 Linux/3.15.7-1-aufs_friendly]
+      User-Agent: [python-requests/2.4.3 CPython/3.4.2 Linux/3.15.7-1-aufs_friendly]
     method: POST
-    uri: http://localhost:4243/v1.12/containers/46f3e68a8b960d242eff76fe669ed08c516a13f20534dbd54e83958bbe044a1e/start
+    uri: http://localhost:4243/v1.12/containers/d0076b40becc321b047d9600972fa5d4ed2816c3b43e0210acdd10a7cdfb3b49/start
   response:
     body: {string: ''}
     headers:
-      Date: ['Thu, 09 Oct 2014 12:01:27 GMT']
+      Date: ['Thu, 16 Oct 2014 17:11:32 GMT']
     status: {code: 204, message: No Content}
 - request:
     body: null
@@ -170,18 +272,30 @@ interactions:
       Accept: ['*/*']
       Accept-Encoding: ['gzip, deflate']
       Connection: [keep-alive]
-      User-Agent: [python-requests/2.4.3 CPython/3.4.1 Linux/3.15.7-1-aufs_friendly]
+      User-Agent: [python-requests/2.4.3 CPython/3.4.2 Linux/3.15.7-1-aufs_friendly]
     method: GET
-    uri: http://localhost:4243/v1.12/containers/json?trunc_cmd=1&limit=-1&size=0&all=1
+    uri: http://localhost:4243/v1.12/containers/json?size=0&trunc_cmd=1&all=1&limit=-1
   response:
-    body: {string: '[{"Command":"bash /scripts/elasticsearch.sh","Created":1412856087,"Id":"46f3e68a8b960d242eff76fe669ed08c516a13f20534dbd54e83958bbe044a1e","Image":"registry.ape.yandex.net/nikicat/elasticsearch:W-s9tI6273G0XbXdI8AQeRzVjxk35g4woBo9aPXMeOo=","Names":["/clustername.elasticsearch"],"Ports":[{"IP":"::","PrivatePort":9401,"PublicPort":50998,"Type":"tcp"},{"IP":"::","PrivatePort":9201,"PublicPort":50999,"Type":"tcp"},{"IP":"::","PrivatePort":9301,"PublicPort":50997,"Type":"tcp"}],"Status":"Up
+    body: {string: '[{"Command":"/scripts/elasticsearch.sh","Created":1413479492,"Id":"d0076b40becc321b047d9600972fa5d4ed2816c3b43e0210acdd10a7cdfb3b49","Image":"registry.ape.yandex.net/nikicat/elasticsearch:S9I6AQSQPSGz0BYgZdBRKo6mHdYdGBJFcraMMIp7AMs=","Names":["/unnamed.elasticsearch"],"Ports":[{"IP":"::","PrivatePort":9301,"PublicPort":51097,"Type":"tcp"},{"IP":"::","PrivatePort":9401,"PublicPort":51098,"Type":"tcp"},{"IP":"::","PrivatePort":9201,"PublicPort":51099,"Type":"tcp"}],"Status":"Up
         Less than a second"}
+
+        ,{"Command":"sh /root/run.sh","Created":1413479459,"Id":"972e9988ec23ba42d8e045a3d26c924ca5f4f140bb22105a8c08ebeb0030c515","Image":"registry.ape.yandex.net/nikicat/zookeeper:UvqVw5b02gBthEeGlWoGO0vVTbAPIuPaLGuh415+ObM=","Names":["/unnamed.zookeeper"],"Ports":[],"Status":"Exited
+        (-1) 24 seconds ago"}
+
+        ,{"Command":"nginx","Created":1413479458,"Id":"e9b106b45d50e141ac5b92b1ac574c1e6cad0f02153d852f2a50b9f67dd32d97","Image":"registry.ape.yandex.net/nikicat/nginx:q7258sN9t-GyvNfxnaRapKE9MOdprkU-0LGYLN0UjUU=","Names":["/unnamed.nginx"],"Ports":[],"Status":"Exited
+        (0) 26 seconds ago"}
+
+        ,{"Command":"nginx","Created":1413479457,"Id":"699c19f35f5913d3ef86c08af48750092801a8a3bcbb73c832c18e0960fff88b","Image":"registry.ape.yandex.net/nikicat/kibana:mKMYDAQuLraPCs35QSqWomHhhmyTksVGCCAnWeUjeDg=","Names":["/unnamed.kibana"],"Ports":[],"Status":"Exited
+        (0) 26 seconds ago"}
+
+        ,{"Command":"bash","Created":1413379827,"Id":"030cac116ba84181628dca2357b79e21086ad6eac8e007c886f90c19b892b6e1","Image":"nbryskin/trusty:latest","Names":["/happy_torvalds"],"Ports":[],"Status":"Up
+        27 hours"}
 
         ]'}
     headers:
-      Content-Length: ['512']
+      Content-Length: ['1578']
       Content-Type: [application/json]
-      Date: ['Thu, 09 Oct 2014 12:01:27 GMT']
+      Date: ['Thu, 16 Oct 2014 17:11:32 GMT']
     status: {code: 200, message: OK}
 - request:
     body: null
@@ -189,11 +303,28 @@ interactions:
       Accept: ['*/*']
       Accept-Encoding: ['gzip, deflate']
       Connection: [keep-alive]
-      User-Agent: [python-requests/2.4.3 CPython/3.4.1 Linux/3.15.7-1-aufs_friendly]
-    method: GET
-    uri: http://localhost:4243/v1.12/images/json?filter=registry.ape.yandex.net%2Fnikicat%2Fkibana&only_ids=0&all=1
+      Content-Length: ['0']
+      User-Agent: [python-requests/2.4.3 CPython/3.4.2 Linux/3.15.7-1-aufs_friendly]
+    method: DELETE
+    uri: http://localhost:4243/v1.12/containers/699c19f35f5913d3ef86c08af48750092801a8a3bcbb73c832c18e0960fff88b?link=False&v=False&force=False
   response:
-    body: {string: '[{"Created":1412781971,"Id":"195e06d0e1877472ae4d49c99b8252f1256381cf189cd8cb7696678d8c5c73bc","ParentId":"966cc4e06eba64961143fbc22d86117c774a5f074b9662bb92e7846d1811304e","RepoTags":["registry.ape.yandex.net/nikicat/kibana:-pd88h+AJ-X9jPLGH2lwFcs5oSb2q8M4D0Xw1jcD52U="],"Size":89,"VirtualSize":514976836}
+    body: {string: ''}
+    headers:
+      Date: ['Thu, 16 Oct 2014 17:11:32 GMT']
+    status: {code: 204, message: No Content}
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      User-Agent: [python-requests/2.4.3 CPython/3.4.2 Linux/3.15.7-1-aufs_friendly]
+    method: GET
+    uri: http://localhost:4243/v1.12/images/json?all=1&only_ids=0&filter=registry.ape.yandex.net%2Fnikicat%2Fkibana
+  response:
+    body: {string: '[{"Created":1413416848,"Id":"a70db396aab7cf7c9e1d05af7b9e1f44303dd11145f9c06753aac5a0ae556942","ParentId":"785d3201e976729ab1b8e5737eedbd550bb46d39ea12e252693e7d75ed477cc5","RepoTags":["registry.ape.yandex.net/nikicat/kibana:mKMYDAQuLraPCs35QSqWomHhhmyTksVGCCAnWeUjeDg="],"Size":89,"VirtualSize":514980396}
+
+        ,{"Created":1412781971,"Id":"195e06d0e1877472ae4d49c99b8252f1256381cf189cd8cb7696678d8c5c73bc","ParentId":"966cc4e06eba64961143fbc22d86117c774a5f074b9662bb92e7846d1811304e","RepoTags":["registry.ape.yandex.net/nikicat/kibana:-pd88h+AJ-X9jPLGH2lwFcs5oSb2q8M4D0Xw1jcD52U="],"Size":89,"VirtualSize":514976836}
 
         ,{"Created":1412722372,"Id":"e7a5b41a56032f2b03e37217bfa935ec8bc03c71541a028664cb94c31e9c2e8c","ParentId":"b604c08d8bfda5bbf6d9a4f0a970e8d10bb2f5e17f4f5628c84dc75579995527","RepoTags":["registry.ape.yandex.net/nikicat/kibana:2fla0GGuEkDa+0e7KEG507zFGlgPbzrR0GVFmFywi+E="],"Size":89,"VirtualSize":514971313}
 
@@ -220,49 +351,51 @@ interactions:
         ]'}
     headers:
       Content-Type: [application/json]
-      Date: ['Thu, 09 Oct 2014 12:01:28 GMT']
+      Date: ['Thu, 16 Oct 2014 17:11:33 GMT']
       Transfer-Encoding: [chunked]
     status: {code: 200, message: OK}
 - request:
-    body: '{"MemorySwap": 0, "AttachStdin": true, "AttachStderr": true, "Image": "registry.ape.yandex.net/nikicat/kibana:195e06d0e1877472ae4d49c99b8252f1256381cf189cd8cb7696678d8c5c73bc",
-      "ExposedPorts": {"81/tcp": {}}, "Memory": 0, "User": "", "Tty": false, "NetworkDisabled":
-      false, "AttachStdout": true, "StdinOnce": true, "OpenStdin": true, "Hostname":
-      "kibana-localship", "Env": []}'
+    body: '{"Env": [], "NetworkDisabled": false, "User": "", "StdinOnce": true, "AttachStdin":
+      true, "Image": "registry.ape.yandex.net/nikicat/kibana:a70db396aab7cf7c9e1d05af7b9e1f44303dd11145f9c06753aac5a0ae556942",
+      "Tty": false, "AttachStdout": true, "AttachStderr": true, "Memory": 134217728,
+      "Hostname": "kibana-localship", "MemorySwap": 0, "OpenStdin": true, "ExposedPorts":
+      {"81/tcp": {}}}'
     headers:
       Accept: ['*/*']
       Accept-Encoding: ['gzip, deflate']
       Connection: [keep-alive]
-      Content-Length: ['376']
+      Content-Length: ['384']
       Content-Type: [application/json]
-      User-Agent: [python-requests/2.4.3 CPython/3.4.1 Linux/3.15.7-1-aufs_friendly]
+      User-Agent: [python-requests/2.4.3 CPython/3.4.2 Linux/3.15.7-1-aufs_friendly]
     method: POST
-    uri: http://localhost:4243/v1.12/containers/create?name=clustername.kibana
+    uri: http://localhost:4243/v1.12/containers/create?name=unnamed.kibana
   response:
-    body: {string: '{"Id":"b0dd1175e62967089a94d6f290051444c6aa426a5dd5c5ee811802064fa7cd7f","Warnings":null}
+    body: {string: '{"Id":"a69ee056b0e98059821a8a91615d73ef51072e1ffb451e3e1afe6e9c5b3bbf02","Warnings":["Your
+        kernel does not support swap limit capabilities. Limitation discarded."]}
 
 '}
     headers:
-      Content-Length: ['90']
+      Content-Length: ['165']
       Content-Type: [application/json]
-      Date: ['Thu, 09 Oct 2014 12:01:28 GMT']
+      Date: ['Thu, 16 Oct 2014 17:11:33 GMT']
     status: {code: 201, message: Created}
 - request:
-    body: '{"PublishAllPorts": false, "Privileged": false, "Binds": ["/tmp/config/clustername/kibana/var/www/kibana/config:/var/www/kibana/config:ro",
-      "/tmp/data/clustername/kibana/var/log/nginx:/var/log/nginx:rw"], "PortBindings":
-      {"81/tcp": [{"HostPort": "50996", "HostIp": "::"}]}}'
+    body: '{"PublishAllPorts": false, "Privileged": false, "PortBindings": {"81/tcp":
+      [{"HostPort": "51096", "HostIp": "::"}]}, "Binds": ["/tmp/config/unnamed/kibana/var/www/kibana/config:/var/www/kibana/config:ro",
+      "/tmp/data/unnamed/kibana/var/log/nginx:/var/log/nginx:rw"]}'
     headers:
       Accept: ['*/*']
       Accept-Encoding: ['gzip, deflate']
       Connection: [keep-alive]
-      Content-Length: ['273']
+      Content-Length: ['265']
       Content-Type: [application/json]
-      User-Agent: [python-requests/2.4.3 CPython/3.4.1 Linux/3.15.7-1-aufs_friendly]
+      User-Agent: [python-requests/2.4.3 CPython/3.4.2 Linux/3.15.7-1-aufs_friendly]
     method: POST
-    uri: http://localhost:4243/v1.12/containers/b0dd1175e62967089a94d6f290051444c6aa426a5dd5c5ee811802064fa7cd7f/start
+    uri: http://localhost:4243/v1.12/containers/a69ee056b0e98059821a8a91615d73ef51072e1ffb451e3e1afe6e9c5b3bbf02/start
   response:
     body: {string: ''}
     headers:
-      Date: ['Thu, 09 Oct 2014 12:01:28 GMT']
+      Date: ['Thu, 16 Oct 2014 17:11:33 GMT']
     status: {code: 204, message: No Content}
 - request:
     body: null
@@ -270,21 +403,30 @@ interactions:
       Accept: ['*/*']
       Accept-Encoding: ['gzip, deflate']
       Connection: [keep-alive]
-      User-Agent: [python-requests/2.4.3 CPython/3.4.1 Linux/3.15.7-1-aufs_friendly]
+      User-Agent: [python-requests/2.4.3 CPython/3.4.2 Linux/3.15.7-1-aufs_friendly]
     method: GET
-    uri: http://localhost:4243/v1.12/containers/json?trunc_cmd=1&limit=-1&size=0&all=1
+    uri: http://localhost:4243/v1.12/containers/json?size=0&trunc_cmd=1&all=1&limit=-1
   response:
-    body: {string: '[{"Command":"nginx","Created":1412856088,"Id":"b0dd1175e62967089a94d6f290051444c6aa426a5dd5c5ee811802064fa7cd7f","Image":"registry.ape.yandex.net/nikicat/kibana:-pd88h+AJ-X9jPLGH2lwFcs5oSb2q8M4D0Xw1jcD52U=","Names":["/clustername.kibana"],"Ports":[{"IP":"::","PrivatePort":81,"PublicPort":50996,"Type":"tcp"},{"PrivatePort":80,"Type":"tcp"}],"Status":"Up
+    body: {string: '[{"Command":"nginx","Created":1413479493,"Id":"a69ee056b0e98059821a8a91615d73ef51072e1ffb451e3e1afe6e9c5b3bbf02","Image":"registry.ape.yandex.net/nikicat/kibana:mKMYDAQuLraPCs35QSqWomHhhmyTksVGCCAnWeUjeDg=","Names":["/unnamed.kibana"],"Ports":[{"IP":"::","PrivatePort":81,"PublicPort":51096,"Type":"tcp"},{"PrivatePort":80,"Type":"tcp"}],"Status":"Up
         Less than a second"}
 
-        ,{"Command":"bash /scripts/elasticsearch.sh","Created":1412856087,"Id":"46f3e68a8b960d242eff76fe669ed08c516a13f20534dbd54e83958bbe044a1e","Image":"registry.ape.yandex.net/nikicat/elasticsearch:W-s9tI6273G0XbXdI8AQeRzVjxk35g4woBo9aPXMeOo=","Names":["/clustername.elasticsearch"],"Ports":[{"IP":"::","PrivatePort":9201,"PublicPort":50999,"Type":"tcp"},{"IP":"::","PrivatePort":9301,"PublicPort":50997,"Type":"tcp"},{"IP":"::","PrivatePort":9401,"PublicPort":50998,"Type":"tcp"}],"Status":"Up
-        Less than a second"}
+        ,{"Command":"/scripts/elasticsearch.sh","Created":1413479492,"Id":"d0076b40becc321b047d9600972fa5d4ed2816c3b43e0210acdd10a7cdfb3b49","Image":"registry.ape.yandex.net/nikicat/elasticsearch:S9I6AQSQPSGz0BYgZdBRKo6mHdYdGBJFcraMMIp7AMs=","Names":["/unnamed.elasticsearch"],"Ports":[{"IP":"::","PrivatePort":9201,"PublicPort":51099,"Type":"tcp"},{"IP":"::","PrivatePort":9301,"PublicPort":51097,"Type":"tcp"},{"IP":"::","PrivatePort":9401,"PublicPort":51098,"Type":"tcp"}],"Status":"Up
+        1 seconds"}
+
+        ,{"Command":"sh /root/run.sh","Created":1413479459,"Id":"972e9988ec23ba42d8e045a3d26c924ca5f4f140bb22105a8c08ebeb0030c515","Image":"registry.ape.yandex.net/nikicat/zookeeper:UvqVw5b02gBthEeGlWoGO0vVTbAPIuPaLGuh415+ObM=","Names":["/unnamed.zookeeper"],"Ports":[],"Status":"Exited
+        (-1) 25 seconds ago"}
+
+        ,{"Command":"nginx","Created":1413479458,"Id":"e9b106b45d50e141ac5b92b1ac574c1e6cad0f02153d852f2a50b9f67dd32d97","Image":"registry.ape.yandex.net/nikicat/nginx:q7258sN9t-GyvNfxnaRapKE9MOdprkU-0LGYLN0UjUU=","Names":["/unnamed.nginx"],"Ports":[],"Status":"Exited
+        (0) 27 seconds ago"}
+
+        ,{"Command":"bash","Created":1413379827,"Id":"030cac116ba84181628dca2357b79e21086ad6eac8e007c886f90c19b892b6e1","Image":"nbryskin/trusty:latest","Names":["/happy_torvalds"],"Ports":[],"Status":"Up
+        27 hours"}
 
         ]'}
     headers:
-      Content-Length: ['888']
+      Content-Length: ['1657']
       Content-Type: [application/json]
-      Date: ['Thu, 09 Oct 2014 12:01:28 GMT']
+      Date: ['Thu, 16 Oct 2014 17:11:33 GMT']
     status: {code: 200, message: OK}
 - request:
     body: null
@@ -292,11 +434,28 @@ interactions:
       Accept: ['*/*']
       Accept-Encoding: ['gzip, deflate']
       Connection: [keep-alive]
-      User-Agent: [python-requests/2.4.3 CPython/3.4.1 Linux/3.15.7-1-aufs_friendly]
-    method: GET
-    uri: http://localhost:4243/v1.12/images/json?filter=registry.ape.yandex.net%2Fnikicat%2Fnginx&only_ids=0&all=1
+      Content-Length: ['0']
+      User-Agent: [python-requests/2.4.3 CPython/3.4.2 Linux/3.15.7-1-aufs_friendly]
+    method: DELETE
+    uri: http://localhost:4243/v1.12/containers/e9b106b45d50e141ac5b92b1ac574c1e6cad0f02153d852f2a50b9f67dd32d97?link=False&v=False&force=False
   response:
-    body: {string: '[{"Created":1412781963,"Id":"fc2e2662b0af1463f801433df48226ac8838deca97690a29306458673af359be","ParentId":"b1adc2203c48690d94baef604c8a253c3aa58eb4118d03f836f1e0c6de9e49d8","RepoTags":["registry.ape.yandex.net/nikicat/nginx:kkepg6UZbfQG42K0+tZfzBv+HsbTH9IX4MHphFogJyo="],"Size":1044,"VirtualSize":509231397}
+    body: {string: ''}
+    headers:
+      Date: ['Thu, 16 Oct 2014 17:11:33 GMT']
+    status: {code: 204, message: No Content}
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      User-Agent: [python-requests/2.4.3 CPython/3.4.2 Linux/3.15.7-1-aufs_friendly]
+    method: GET
+    uri: http://localhost:4243/v1.12/images/json?all=1&only_ids=0&filter=registry.ape.yandex.net%2Fnikicat%2Fnginx
+  response:
+    body: {string: '[{"Created":1413416830,"Id":"30f5f93f4745a4d7ca62bcfcdf2aee0f04a99b4c8c03195532b57e0adaf08056","ParentId":"5364b3cc6f1b06efdd5de13581271b64ac73530a7324380e56bc0669f79d1ab9","RepoTags":["registry.ape.yandex.net/nikicat/nginx:q7258sN9t-GyvNfxnaRapKE9MOdprkU-0LGYLN0UjUU="],"Size":1044,"VirtualSize":509231397}
+
+        ,{"Created":1412781963,"Id":"fc2e2662b0af1463f801433df48226ac8838deca97690a29306458673af359be","ParentId":"b1adc2203c48690d94baef604c8a253c3aa58eb4118d03f836f1e0c6de9e49d8","RepoTags":["registry.ape.yandex.net/nikicat/nginx:kkepg6UZbfQG42K0+tZfzBv+HsbTH9IX4MHphFogJyo="],"Size":1044,"VirtualSize":509231397}
 
         ,{"Created":1412722365,"Id":"4238e5ebf8d18b453c774f0f1b47a38fb069904bc6e7c8ce7a1655111e13f8ba","ParentId":"d0dac275240a81966992ba441d05fa49c4ddb511b6e6d0c3b47bdb8a1d16dbef","RepoTags":["registry.ape.yandex.net/nikicat/nginx:KnWDvBNSPBwLvD64rMRVMu0rSNd8xAItGKZw2Bu+Tr8="],"Size":1044,"VirtualSize":509225874}
 
@@ -319,53 +478,53 @@ interactions:
         ]'}
     headers:
       Content-Type: [application/json]
-      Date: ['Thu, 09 Oct 2014 12:01:29 GMT']
+      Date: ['Thu, 16 Oct 2014 17:11:34 GMT']
       Transfer-Encoding: [chunked]
     status: {code: 200, message: OK}
 - request:
-    body: '{"MemorySwap": 0, "AttachStdin": true, "AttachStderr": true, "Image": "registry.ape.yandex.net/nikicat/nginx:fc2e2662b0af1463f801433df48226ac8838deca97690a29306458673af359be",
-      "ExposedPorts": {"443/tcp": {}, "9200/tcp": {}, "9443/tcp": {}, "80/tcp": {}},
-      "Memory": 268435456, "User": "", "Tty": false, "NetworkDisabled": false, "AttachStdout":
-      true, "StdinOnce": true, "OpenStdin": true, "Hostname": "nginx-localship", "Env":
-      []}'
+    body: '{"Env": [], "NetworkDisabled": false, "User": "", "StdinOnce": true, "AttachStdin":
+      true, "Image": "registry.ape.yandex.net/nikicat/nginx:30f5f93f4745a4d7ca62bcfcdf2aee0f04a99b4c8c03195532b57e0adaf08056",
+      "Tty": false, "AttachStdout": true, "AttachStderr": true, "Memory": 134217728,
+      "Hostname": "nginx-localship", "MemorySwap": 0, "OpenStdin": true, "ExposedPorts":
+      {"80/tcp": {}, "9443/tcp": {}, "443/tcp": {}, "9200/tcp": {}}}'
     headers:
       Accept: ['*/*']
       Accept-Encoding: ['gzip, deflate']
       Connection: [keep-alive]
       Content-Length: ['429']
       Content-Type: [application/json]
-      User-Agent: [python-requests/2.4.3 CPython/3.4.1 Linux/3.15.7-1-aufs_friendly]
+      User-Agent: [python-requests/2.4.3 CPython/3.4.2 Linux/3.15.7-1-aufs_friendly]
     method: POST
-    uri: http://localhost:4243/v1.12/containers/create?name=clustername.nginx
+    uri: http://localhost:4243/v1.12/containers/create?name=unnamed.nginx
   response:
-    body: {string: '{"Id":"62e98bb35085287b83686696a09c22cb99acf4db57828166fdf1c3edebd583c2","Warnings":["Your
+    body: {string: '{"Id":"db6190ec8d4a28267acda04c749aba527755e5bcba0a2c610e4eb85f21af2e12","Warnings":["Your
         kernel does not support swap limit capabilities. Limitation discarded."]}
 
 '}
     headers:
       Content-Length: ['165']
       Content-Type: [application/json]
-      Date: ['Thu, 09 Oct 2014 12:01:29 GMT']
+      Date: ['Thu, 16 Oct 2014 17:11:34 GMT']
     status: {code: 201, message: Created}
 - request:
-    body: '{"PublishAllPorts": false, "Privileged": false, "Binds": ["/tmp/config/clustername/nginx/etc/nginx/sites-enabled:/etc/nginx/sites-enabled:ro",
-      "/tmp/data/clustername/nginx/var/log/nginx:/var/log/nginx:rw", "/tmp/config/clustername/nginx/etc/nginx/certs:/etc/nginx/certs:ro"],
-      "PortBindings": {"443/tcp": [{"HostPort": "50992", "HostIp": "::"}], "9443/tcp":
-      [{"HostPort": "50994", "HostIp": "::"}], "9200/tcp": [{"HostPort": "50995",
-      "HostIp": "::"}], "80/tcp": [{"HostPort": "50993", "HostIp": "::"}]}}'
+    body: '{"PublishAllPorts": false, "Privileged": false, "PortBindings": {"9200/tcp":
+      [{"HostPort": "51095", "HostIp": "::"}], "9443/tcp": [{"HostPort": "51094",
+      "HostIp": "::"}], "443/tcp": [{"HostPort": "51092", "HostIp": "::"}], "80/tcp":
+      [{"HostPort": "51093", "HostIp": "::"}]}, "Binds": ["/tmp/config/unnamed/nginx/etc/nginx/sites-enabled:/etc/nginx/sites-enabled:ro",
+      "/tmp/data/unnamed/nginx/var/log/nginx:/var/log/nginx:rw", "/tmp/config/unnamed/nginx/etc/nginx/certs:/etc/nginx/certs:ro"]}'
     headers:
       Accept: ['*/*']
       Accept-Encoding: ['gzip, deflate']
       Connection: [keep-alive]
-      Content-Length: ['502']
+      Content-Length: ['490']
       Content-Type: [application/json]
-      User-Agent: [python-requests/2.4.3 CPython/3.4.1 Linux/3.15.7-1-aufs_friendly]
+      User-Agent: [python-requests/2.4.3 CPython/3.4.2 Linux/3.15.7-1-aufs_friendly]
     method: POST
-    uri: http://localhost:4243/v1.12/containers/62e98bb35085287b83686696a09c22cb99acf4db57828166fdf1c3edebd583c2/start
+    uri: http://localhost:4243/v1.12/containers/db6190ec8d4a28267acda04c749aba527755e5bcba0a2c610e4eb85f21af2e12/start
   response:
     body: {string: ''}
     headers:
-      Date: ['Thu, 09 Oct 2014 12:01:29 GMT']
+      Date: ['Thu, 16 Oct 2014 17:11:34 GMT']
     status: {code: 204, message: No Content}
 - request:
     body: null
@@ -373,24 +532,30 @@ interactions:
       Accept: ['*/*']
       Accept-Encoding: ['gzip, deflate']
       Connection: [keep-alive]
-      User-Agent: [python-requests/2.4.3 CPython/3.4.1 Linux/3.15.7-1-aufs_friendly]
+      User-Agent: [python-requests/2.4.3 CPython/3.4.2 Linux/3.15.7-1-aufs_friendly]
     method: GET
-    uri: http://localhost:4243/v1.12/containers/json?trunc_cmd=1&limit=-1&size=0&all=1
+    uri: http://localhost:4243/v1.12/containers/json?size=0&trunc_cmd=1&all=1&limit=-1
   response:
-    body: {string: '[{"Command":"nginx","Created":1412856089,"Id":"62e98bb35085287b83686696a09c22cb99acf4db57828166fdf1c3edebd583c2","Image":"registry.ape.yandex.net/nikicat/nginx:kkepg6UZbfQG42K0+tZfzBv+HsbTH9IX4MHphFogJyo=","Names":["/clustername.nginx"],"Ports":[{"IP":"::","PrivatePort":443,"PublicPort":50992,"Type":"tcp"},{"IP":"::","PrivatePort":80,"PublicPort":50993,"Type":"tcp"},{"IP":"::","PrivatePort":9200,"PublicPort":50995,"Type":"tcp"},{"IP":"::","PrivatePort":9443,"PublicPort":50994,"Type":"tcp"}],"Status":"Up
+    body: {string: '[{"Command":"nginx","Created":1413479494,"Id":"db6190ec8d4a28267acda04c749aba527755e5bcba0a2c610e4eb85f21af2e12","Image":"registry.ape.yandex.net/nikicat/nginx:q7258sN9t-GyvNfxnaRapKE9MOdprkU-0LGYLN0UjUU=","Names":["/unnamed.nginx"],"Ports":[{"IP":"::","PrivatePort":80,"PublicPort":51093,"Type":"tcp"},{"IP":"::","PrivatePort":9200,"PublicPort":51095,"Type":"tcp"},{"IP":"::","PrivatePort":9443,"PublicPort":51094,"Type":"tcp"},{"IP":"::","PrivatePort":443,"PublicPort":51092,"Type":"tcp"}],"Status":"Up
         Less than a second"}
 
-        ,{"Command":"nginx","Created":1412856088,"Id":"b0dd1175e62967089a94d6f290051444c6aa426a5dd5c5ee811802064fa7cd7f","Image":"registry.ape.yandex.net/nikicat/kibana:-pd88h+AJ-X9jPLGH2lwFcs5oSb2q8M4D0Xw1jcD52U=","Names":["/clustername.kibana"],"Ports":[{"IP":"::","PrivatePort":81,"PublicPort":50996,"Type":"tcp"},{"PrivatePort":80,"Type":"tcp"}],"Status":"Up
+        ,{"Command":"nginx","Created":1413479493,"Id":"a69ee056b0e98059821a8a91615d73ef51072e1ffb451e3e1afe6e9c5b3bbf02","Image":"registry.ape.yandex.net/nikicat/kibana:mKMYDAQuLraPCs35QSqWomHhhmyTksVGCCAnWeUjeDg=","Names":["/unnamed.kibana"],"Ports":[{"PrivatePort":80,"Type":"tcp"},{"IP":"::","PrivatePort":81,"PublicPort":51096,"Type":"tcp"}],"Status":"Up
         1 seconds"}
 
-        ,{"Command":"bash /scripts/elasticsearch.sh","Created":1412856087,"Id":"46f3e68a8b960d242eff76fe669ed08c516a13f20534dbd54e83958bbe044a1e","Image":"registry.ape.yandex.net/nikicat/elasticsearch:W-s9tI6273G0XbXdI8AQeRzVjxk35g4woBo9aPXMeOo=","Names":["/clustername.elasticsearch"],"Ports":[{"IP":"::","PrivatePort":9201,"PublicPort":50999,"Type":"tcp"},{"IP":"::","PrivatePort":9301,"PublicPort":50997,"Type":"tcp"},{"IP":"::","PrivatePort":9401,"PublicPort":50998,"Type":"tcp"}],"Status":"Up
-        1 seconds"}
+        ,{"Command":"/scripts/elasticsearch.sh","Created":1413479492,"Id":"d0076b40becc321b047d9600972fa5d4ed2816c3b43e0210acdd10a7cdfb3b49","Image":"registry.ape.yandex.net/nikicat/elasticsearch:S9I6AQSQPSGz0BYgZdBRKo6mHdYdGBJFcraMMIp7AMs=","Names":["/unnamed.elasticsearch"],"Ports":[{"IP":"::","PrivatePort":9201,"PublicPort":51099,"Type":"tcp"},{"IP":"::","PrivatePort":9301,"PublicPort":51097,"Type":"tcp"},{"IP":"::","PrivatePort":9401,"PublicPort":51098,"Type":"tcp"}],"Status":"Up
+        2 seconds"}
+
+        ,{"Command":"sh /root/run.sh","Created":1413479459,"Id":"972e9988ec23ba42d8e045a3d26c924ca5f4f140bb22105a8c08ebeb0030c515","Image":"registry.ape.yandex.net/nikicat/zookeeper:UvqVw5b02gBthEeGlWoGO0vVTbAPIuPaLGuh415+ObM=","Names":["/unnamed.zookeeper"],"Ports":[],"Status":"Exited
+        (-1) 26 seconds ago"}
+
+        ,{"Command":"bash","Created":1413379827,"Id":"030cac116ba84181628dca2357b79e21086ad6eac8e007c886f90c19b892b6e1","Image":"nbryskin/trusty:latest","Names":["/happy_torvalds"],"Ports":[],"Status":"Up
+        27 hours"}
 
         ]'}
     headers:
-      Content-Length: ['1400']
+      Content-Length: ['1892']
       Content-Type: [application/json]
-      Date: ['Thu, 09 Oct 2014 12:01:29 GMT']
+      Date: ['Thu, 16 Oct 2014 17:11:34 GMT']
     status: {code: 200, message: OK}
 - request:
     body: null
@@ -398,11 +563,28 @@ interactions:
       Accept: ['*/*']
       Accept-Encoding: ['gzip, deflate']
       Connection: [keep-alive]
-      User-Agent: [python-requests/2.4.3 CPython/3.4.1 Linux/3.15.7-1-aufs_friendly]
-    method: GET
-    uri: http://localhost:4243/v1.12/images/json?filter=registry.ape.yandex.net%2Fnikicat%2Fzookeeper&only_ids=0&all=1
+      Content-Length: ['0']
+      User-Agent: [python-requests/2.4.3 CPython/3.4.2 Linux/3.15.7-1-aufs_friendly]
+    method: DELETE
+    uri: http://localhost:4243/v1.12/containers/972e9988ec23ba42d8e045a3d26c924ca5f4f140bb22105a8c08ebeb0030c515?link=False&v=False&force=False
   response:
-    body: {string: '[{"Created":1412781784,"Id":"5f2b1e26aa06514f339fe00d0ef6696a4f710fde92a887f4079bc3fdae90c87a","ParentId":"0002f07b8f22f8ffc35cca47723596409e779a99571d33885d17e3f1f4ce4970","RepoTags":["registry.ape.yandex.net/nikicat/zookeeper:PPhSAX-Z8Klt6tChEV2BBsZyW9uAW7A66BOFThYGd9w="],"Size":149,"VirtualSize":626996710}
+    body: {string: ''}
+    headers:
+      Date: ['Thu, 16 Oct 2014 17:11:34 GMT']
+    status: {code: 204, message: No Content}
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      User-Agent: [python-requests/2.4.3 CPython/3.4.2 Linux/3.15.7-1-aufs_friendly]
+    method: GET
+    uri: http://localhost:4243/v1.12/images/json?all=1&only_ids=0&filter=registry.ape.yandex.net%2Fnikicat%2Fzookeeper
+  response:
+    body: {string: '[{"Created":1413416864,"Id":"06f1a7980b50e73906e3e7072d083173aec0250787235a3dc8b0b5d9eadd55a0","ParentId":"c09cb7af4321b7ab2d4b8ffa6fd040c027e9319c3b39237e4b01f6a8abf800e2","RepoTags":["registry.ape.yandex.net/nikicat/zookeeper:UvqVw5b02gBthEeGlWoGO0vVTbAPIuPaLGuh415+ObM="],"Size":149,"VirtualSize":626996710}
+
+        ,{"Created":1412781784,"Id":"5f2b1e26aa06514f339fe00d0ef6696a4f710fde92a887f4079bc3fdae90c87a","ParentId":"0002f07b8f22f8ffc35cca47723596409e779a99571d33885d17e3f1f4ce4970","RepoTags":["registry.ape.yandex.net/nikicat/zookeeper:PPhSAX-Z8Klt6tChEV2BBsZyW9uAW7A66BOFThYGd9w="],"Size":149,"VirtualSize":626996710}
 
         ,{"Created":1412701412,"Id":"e087118d0e4fdadd483cc38c7d8776852d29d412e7f5a0bd5391aa683c6716ec","ParentId":"6a8393da6fe37db420d60e3ec45b583e536e064f08f7c37038bf30dc27c321b4","RepoTags":["registry.ape.yandex.net/nikicat/zookeeper:wLhjA76OutFsP2Uc9ZJsAUMOgQQPmhoEXLTtAsH2HqM="],"Size":149,"VirtualSize":626970603}
 
@@ -437,53 +619,53 @@ interactions:
         ]'}
     headers:
       Content-Type: [application/json]
-      Date: ['Thu, 09 Oct 2014 12:01:30 GMT']
+      Date: ['Thu, 16 Oct 2014 17:11:35 GMT']
       Transfer-Encoding: [chunked]
     status: {code: 200, message: OK}
 - request:
-    body: '{"MemorySwap": 0, "AttachStdin": true, "AttachStderr": true, "Image": "registry.ape.yandex.net/nikicat/zookeeper:5f2b1e26aa06514f339fe00d0ef6696a4f710fde92a887f4079bc3fdae90c87a",
-      "ExposedPorts": {"2888/tcp": {}, "50989/tcp": {}, "2181/tcp": {}, "3888/tcp":
-      {}}, "Memory": 1073741824, "User": "", "Tty": false, "NetworkDisabled": false,
-      "AttachStdout": true, "StdinOnce": true, "OpenStdin": true, "Hostname": "zookeeper-localship",
-      "Env": []}'
+    body: '{"Env": [], "NetworkDisabled": false, "User": "", "StdinOnce": true, "AttachStdin":
+      true, "Image": "registry.ape.yandex.net/nikicat/zookeeper:06f1a7980b50e73906e3e7072d083173aec0250787235a3dc8b0b5d9eadd55a0",
+      "Tty": false, "AttachStdout": true, "AttachStderr": true, "Memory": 134217728,
+      "Hostname": "zookeeper-localship", "MemorySwap": 0, "OpenStdin": true, "ExposedPorts":
+      {"2888/tcp": {}, "3888/tcp": {}, "51089/tcp": {}, "2181/tcp": {}}}'
     headers:
       Accept: ['*/*']
       Accept-Encoding: ['gzip, deflate']
       Connection: [keep-alive]
-      Content-Length: ['442']
+      Content-Length: ['441']
       Content-Type: [application/json]
-      User-Agent: [python-requests/2.4.3 CPython/3.4.1 Linux/3.15.7-1-aufs_friendly]
+      User-Agent: [python-requests/2.4.3 CPython/3.4.2 Linux/3.15.7-1-aufs_friendly]
     method: POST
-    uri: http://localhost:4243/v1.12/containers/create?name=clustername.zookeeper
+    uri: http://localhost:4243/v1.12/containers/create?name=unnamed.zookeeper
   response:
-    body: {string: '{"Id":"5b191f1c866ef8f28b78a2a2c30ded3a22108d29e81dd28178f9eb5d121a2f4f","Warnings":["Your
+    body: {string: '{"Id":"590adc1a4d447903a4169be92426b7b2e560dd9c70f5e0a6f215306eb9af8e81","Warnings":["Your
         kernel does not support swap limit capabilities. Limitation discarded."]}
 
 '}
     headers:
       Content-Length: ['165']
       Content-Type: [application/json]
-      Date: ['Thu, 09 Oct 2014 12:01:30 GMT']
+      Date: ['Thu, 16 Oct 2014 17:11:35 GMT']
     status: {code: 201, message: Created}
 - request:
-    body: '{"PublishAllPorts": false, "Privileged": false, "Binds": ["/tmp/config/clustername/zookeeper/opt/zookeeper/conf:/opt/zookeeper/conf:ro",
-      "/tmp/data/clustername/zookeeper/var/lib/zookeeper:/var/lib/zookeeper:rw", "/tmp/data/clustername/zookeeper/var/log/zookeeper:/var/log/zookeeper:rw"],
-      "PortBindings": {"2888/tcp": [{"HostPort": "50988", "HostIp": "::"}], "50989/tcp":
-      [{"HostPort": "50989", "HostIp": "::"}], "2181/tcp": [{"HostPort": "50991",
-      "HostIp": "::"}], "3888/tcp": [{"HostPort": "50990", "HostIp": "::"}]}}'
+    body: '{"PublishAllPorts": false, "Privileged": false, "PortBindings": {"2181/tcp":
+      [{"HostPort": "51091", "HostIp": "::"}], "3888/tcp": [{"HostPort": "51090",
+      "HostIp": "::"}], "51089/tcp": [{"HostPort": "51089", "HostIp": "::"}], "2888/tcp":
+      [{"HostPort": "51088", "HostIp": "::"}]}, "Binds": ["/tmp/data/unnamed/zookeeper/var/lib/zookeeper:/var/lib/zookeeper:rw",
+      "/tmp/data/unnamed/zookeeper/var/log/zookeeper:/var/log/zookeeper:rw", "/tmp/config/unnamed/zookeeper/opt/zookeeper/conf:/opt/zookeeper/conf:ro"]}'
     headers:
       Accept: ['*/*']
       Accept-Encoding: ['gzip, deflate']
       Connection: [keep-alive]
-      Content-Length: ['518']
+      Content-Length: ['506']
       Content-Type: [application/json]
-      User-Agent: [python-requests/2.4.3 CPython/3.4.1 Linux/3.15.7-1-aufs_friendly]
+      User-Agent: [python-requests/2.4.3 CPython/3.4.2 Linux/3.15.7-1-aufs_friendly]
     method: POST
-    uri: http://localhost:4243/v1.12/containers/5b191f1c866ef8f28b78a2a2c30ded3a22108d29e81dd28178f9eb5d121a2f4f/start
+    uri: http://localhost:4243/v1.12/containers/590adc1a4d447903a4169be92426b7b2e560dd9c70f5e0a6f215306eb9af8e81/start
   response:
     body: {string: ''}
     headers:
-      Date: ['Thu, 09 Oct 2014 12:01:31 GMT']
+      Date: ['Thu, 16 Oct 2014 17:11:36 GMT']
     status: {code: 204, message: No Content}
 - request:
     body: null
@@ -491,44 +673,29 @@ interactions:
       Accept: ['*/*']
       Accept-Encoding: ['gzip, deflate']
       Connection: [keep-alive]
-      User-Agent: [python-requests/2.4.3 CPython/3.4.1 Linux/3.15.7-1-aufs_friendly]
+      User-Agent: [python-requests/2.4.3 CPython/3.4.2 Linux/3.15.7-1-aufs_friendly]
     method: GET
-    uri: http://localhost:4243/v1.12/containers/json?trunc_cmd=1&limit=-1&size=0&all=1
+    uri: http://localhost:4243/v1.12/containers/json?size=0&trunc_cmd=1&all=1&limit=-1
   response:
-    body: {string: '[{"Command":"sh /root/run.sh","Created":1412856090,"Id":"5b191f1c866ef8f28b78a2a2c30ded3a22108d29e81dd28178f9eb5d121a2f4f","Image":"registry.ape.yandex.net/nikicat/zookeeper:PPhSAX-Z8Klt6tChEV2BBsZyW9uAW7A66BOFThYGd9w=","Names":["/clustername.zookeeper"],"Ports":[{"IP":"::","PrivatePort":50989,"PublicPort":50989,"Type":"tcp"},{"PrivatePort":4888,"Type":"tcp"},{"IP":"::","PrivatePort":2181,"PublicPort":50991,"Type":"tcp"},{"IP":"::","PrivatePort":2888,"PublicPort":50988,"Type":"tcp"},{"IP":"::","PrivatePort":3888,"PublicPort":50990,"Type":"tcp"}],"Status":"Up
+    body: {string: '[{"Command":"sh /root/run.sh","Created":1413479495,"Id":"590adc1a4d447903a4169be92426b7b2e560dd9c70f5e0a6f215306eb9af8e81","Image":"registry.ape.yandex.net/nikicat/zookeeper:UvqVw5b02gBthEeGlWoGO0vVTbAPIuPaLGuh415+ObM=","Names":["/unnamed.zookeeper"],"Ports":[{"IP":"::","PrivatePort":2181,"PublicPort":51091,"Type":"tcp"},{"IP":"::","PrivatePort":2888,"PublicPort":51088,"Type":"tcp"},{"IP":"::","PrivatePort":3888,"PublicPort":51090,"Type":"tcp"},{"IP":"::","PrivatePort":51089,"PublicPort":51089,"Type":"tcp"},{"PrivatePort":4888,"Type":"tcp"}],"Status":"Up
         Less than a second"}
 
-        ,{"Command":"nginx","Created":1412856089,"Id":"62e98bb35085287b83686696a09c22cb99acf4db57828166fdf1c3edebd583c2","Image":"registry.ape.yandex.net/nikicat/nginx:kkepg6UZbfQG42K0+tZfzBv+HsbTH9IX4MHphFogJyo=","Names":["/clustername.nginx"],"Ports":[{"IP":"::","PrivatePort":9200,"PublicPort":50995,"Type":"tcp"},{"IP":"::","PrivatePort":9443,"PublicPort":50994,"Type":"tcp"},{"IP":"::","PrivatePort":443,"PublicPort":50992,"Type":"tcp"},{"IP":"::","PrivatePort":80,"PublicPort":50993,"Type":"tcp"}],"Status":"Up
+        ,{"Command":"nginx","Created":1413479494,"Id":"db6190ec8d4a28267acda04c749aba527755e5bcba0a2c610e4eb85f21af2e12","Image":"registry.ape.yandex.net/nikicat/nginx:q7258sN9t-GyvNfxnaRapKE9MOdprkU-0LGYLN0UjUU=","Names":["/unnamed.nginx"],"Ports":[{"IP":"::","PrivatePort":443,"PublicPort":51092,"Type":"tcp"},{"IP":"::","PrivatePort":80,"PublicPort":51093,"Type":"tcp"},{"IP":"::","PrivatePort":9200,"PublicPort":51095,"Type":"tcp"},{"IP":"::","PrivatePort":9443,"PublicPort":51094,"Type":"tcp"}],"Status":"Up
         1 seconds"}
 
-        ,{"Command":"nginx","Created":1412856088,"Id":"b0dd1175e62967089a94d6f290051444c6aa426a5dd5c5ee811802064fa7cd7f","Image":"registry.ape.yandex.net/nikicat/kibana:-pd88h+AJ-X9jPLGH2lwFcs5oSb2q8M4D0Xw1jcD52U=","Names":["/clustername.kibana"],"Ports":[{"IP":"::","PrivatePort":81,"PublicPort":50996,"Type":"tcp"},{"PrivatePort":80,"Type":"tcp"}],"Status":"Up
+        ,{"Command":"nginx","Created":1413479493,"Id":"a69ee056b0e98059821a8a91615d73ef51072e1ffb451e3e1afe6e9c5b3bbf02","Image":"registry.ape.yandex.net/nikicat/kibana:mKMYDAQuLraPCs35QSqWomHhhmyTksVGCCAnWeUjeDg=","Names":["/unnamed.kibana"],"Ports":[{"IP":"::","PrivatePort":81,"PublicPort":51096,"Type":"tcp"},{"PrivatePort":80,"Type":"tcp"}],"Status":"Up
         2 seconds"}
 
-        ,{"Command":"bash /scripts/elasticsearch.sh","Created":1412856087,"Id":"46f3e68a8b960d242eff76fe669ed08c516a13f20534dbd54e83958bbe044a1e","Image":"registry.ape.yandex.net/nikicat/elasticsearch:W-s9tI6273G0XbXdI8AQeRzVjxk35g4woBo9aPXMeOo=","Names":["/clustername.elasticsearch"],"Ports":[{"IP":"::","PrivatePort":9201,"PublicPort":50999,"Type":"tcp"},{"IP":"::","PrivatePort":9301,"PublicPort":50997,"Type":"tcp"},{"IP":"::","PrivatePort":9401,"PublicPort":50998,"Type":"tcp"}],"Status":"Up
+        ,{"Command":"/scripts/elasticsearch.sh","Created":1413479492,"Id":"d0076b40becc321b047d9600972fa5d4ed2816c3b43e0210acdd10a7cdfb3b49","Image":"registry.ape.yandex.net/nikicat/elasticsearch:S9I6AQSQPSGz0BYgZdBRKo6mHdYdGBJFcraMMIp7AMs=","Names":["/unnamed.elasticsearch"],"Ports":[{"IP":"::","PrivatePort":9201,"PublicPort":51099,"Type":"tcp"},{"IP":"::","PrivatePort":9301,"PublicPort":51097,"Type":"tcp"},{"IP":"::","PrivatePort":9401,"PublicPort":51098,"Type":"tcp"}],"Status":"Up
         3 seconds"}
+
+        ,{"Command":"bash","Created":1413379827,"Id":"030cac116ba84181628dca2357b79e21086ad6eac8e007c886f90c19b892b6e1","Image":"nbryskin/trusty:latest","Names":["/happy_torvalds"],"Ports":[],"Status":"Up
+        27 hours"}
 
         ]'}
     headers:
-      Content-Length: ['1977']
       Content-Type: [application/json]
-      Date: ['Thu, 09 Oct 2014 12:01:31 GMT']
-    status: {code: 200, message: OK}
-- request:
-    body: null
-    headers:
-      Accept: ['*/*']
-      Accept-Encoding: ['gzip, deflate']
-      Connection: [keep-alive]
-      User-Agent: [python-requests/2.4.3 CPython/3.4.1 Linux/3.15.7-1-aufs_friendly]
-    method: GET
-    uri: http://localhost:4243/v1.12/containers/46f3e68a8b960d242eff76fe669ed08c516a13f20534dbd54e83958bbe044a1e/json
-  response:
-    body: {string: '{"Args":["/scripts/elasticsearch.sh"],"Config":{"AttachStderr":true,"AttachStdin":true,"AttachStdout":true,"Cmd":["/scripts/elasticsearch.sh"],"CpuShares":0,"Cpuset":"","Domainname":"","Entrypoint":["bash"],"Env":["ES_HEAP_SIZE=500000000","ES_CLASSPATH=/etc/elasticsearch/logging.yml","ES_JAVA_OPTS=-XX:NewRatio=5","PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin","INITRD=No","FAKE_CHROOT=1","HOME=/root","LC_ALL=C.UTF-8"],"ExposedPorts":{"9201/tcp":{},"9301/tcp":{},"9401/tcp":{}},"Hostname":"elasticsearch-localship","Image":"registry.ape.yandex.net/nikicat/elasticsearch:14667876d8e903c3a31d5fd1e0a8388d1e6e20e63a0379a05316ada1d742cc77","Memory":750000000,"MemorySwap":-1,"NetworkDisabled":false,"OnBuild":null,"OpenStdin":true,"PortSpecs":null,"StdinOnce":true,"Tty":false,"User":"","Volumes":{"/etc/elasticsearch":{},"/var/lib/elasticsearch":{},"/var/log/elasticsearch":{}},"WorkingDir":"/root"},"Created":"2014-10-09T12:01:27.626460075Z","Driver":"aufs","ExecDriver":"native-0.2","HostConfig":{"Binds":["/tmp/config/clustername/elasticsearch/etc/elasticsearch:/etc/elasticsearch:ro","/tmp/data/clustername/elasticsearch/var/lib/elasticsearch:/var/lib/elasticsearch:rw","/tmp/data/clustername/elasticsearch/var/log/elasticsearch:/var/log/elasticsearch:rw"],"CapAdd":null,"CapDrop":null,"ContainerIDFile":"","Devices":null,"Dns":null,"DnsSearch":null,"Links":null,"LxcConf":null,"NetworkMode":"","PortBindings":{"9201/tcp":[{"HostIp":"::","HostPort":"50999"}],"9301/tcp":[{"HostIp":"::","HostPort":"50997"}],"9401/tcp":[{"HostIp":"::","HostPort":"50998"}]},"Privileged":false,"PublishAllPorts":false,"VolumesFrom":null},"HostnamePath":"/var/lib/docker/containers/46f3e68a8b960d242eff76fe669ed08c516a13f20534dbd54e83958bbe044a1e/hostname","HostsPath":"/var/lib/docker/containers/46f3e68a8b960d242eff76fe669ed08c516a13f20534dbd54e83958bbe044a1e/hosts","Id":"46f3e68a8b960d242eff76fe669ed08c516a13f20534dbd54e83958bbe044a1e","Image":"14667876d8e903c3a31d5fd1e0a8388d1e6e20e63a0379a05316ada1d742cc77","MountLabel":"","Name":"/clustername.elasticsearch","NetworkSettings":{"Bridge":"docker0","Gateway":"172.17.42.1","IPAddress":"172.17.0.126","IPPrefixLen":16,"PortMapping":null,"Ports":{"9201/tcp":[{"HostIp":"::","HostPort":"50999"}],"9301/tcp":[{"HostIp":"::","HostPort":"50997"}],"9401/tcp":[{"HostIp":"::","HostPort":"50998"}]}},"Path":"bash","ProcessLabel":"","ResolvConfPath":"/etc/resolv.conf","State":{"ExitCode":0,"FinishedAt":"0001-01-01T00:00:00Z","Paused":false,"Pid":21500,"Running":true,"StartedAt":"2014-10-09T12:01:27.903643958Z"},"Volumes":{"/etc/elasticsearch":"/tmp/config/clustername/elasticsearch/etc/elasticsearch","/var/lib/elasticsearch":"/tmp/data/clustername/elasticsearch/var/lib/elasticsearch","/var/log/elasticsearch":"/tmp/data/clustername/elasticsearch/var/log/elasticsearch"},"VolumesRW":{"/etc/elasticsearch":false,"/var/lib/elasticsearch":true,"/var/log/elasticsearch":true}}
-
-'}
-    headers:
-      Content-Type: [application/json]
-      Date: ['Thu, 09 Oct 2014 12:01:31 GMT']
+      Date: ['Thu, 16 Oct 2014 17:11:36 GMT']
       Transfer-Encoding: [chunked]
     status: {code: 200, message: OK}
 - request:
@@ -537,82 +704,16 @@ interactions:
       Accept: ['*/*']
       Accept-Encoding: ['gzip, deflate']
       Connection: [keep-alive]
-      User-Agent: [python-requests/2.4.3 CPython/3.4.1 Linux/3.15.7-1-aufs_friendly]
+      User-Agent: [python-requests/2.4.3 CPython/3.4.2 Linux/3.15.7-1-aufs_friendly]
     method: GET
-    uri: http://localhost:4243/v1.12/images/14667876d8e903c3a31d5fd1e0a8388d1e6e20e63a0379a05316ada1d742cc77/json
+    uri: http://localhost:4243/v1.12/containers/d0076b40becc321b047d9600972fa5d4ed2816c3b43e0210acdd10a7cdfb3b49/json
   response:
-    body: {string: '{"Architecture":"amd64","Author":"","Comment":"","Config":{"AttachStderr":false,"AttachStdin":false,"AttachStdout":false,"Cmd":["/scripts/elasticsearch.sh"],"CpuShares":0,"Cpuset":"","Domainname":"","Entrypoint":["bash"],"Env":["PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin","INITRD=No","FAKE_CHROOT=1","HOME=/root","LC_ALL=C.UTF-8"],"ExposedPorts":{"9201/tcp":{},"9301/tcp":{},"9401/tcp":{}},"Hostname":"9818fcbe520e","Image":"1f9d4240629041483b53ca600351a8ce15a3df41c9b31c39eab329b0cbb08685","Memory":0,"MemorySwap":0,"NetworkDisabled":false,"OnBuild":[],"OpenStdin":false,"PortSpecs":null,"StdinOnce":false,"Tty":false,"User":"","Volumes":{"/etc/elasticsearch":{},"/var/lib/elasticsearch":{},"/var/log/elasticsearch":{}},"WorkingDir":"/root"},"Container":"5242669368a563d4eef2437110ace838641bf1e75890e165aad4fbc4892cb605","ContainerConfig":{"AttachStderr":false,"AttachStdin":false,"AttachStdout":false,"Cmd":["/bin/sh","-c","#(nop)
-        ADD  in /scripts/elasticsearch.sh"],"CpuShares":0,"Cpuset":"","Domainname":"","Entrypoint":["bash"],"Env":["PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin","INITRD=No","FAKE_CHROOT=1","HOME=/root","LC_ALL=C.UTF-8"],"ExposedPorts":{"9201/tcp":{},"9301/tcp":{},"9401/tcp":{}},"Hostname":"9818fcbe520e","Image":"1f9d4240629041483b53ca600351a8ce15a3df41c9b31c39eab329b0cbb08685","Memory":0,"MemorySwap":0,"NetworkDisabled":false,"OnBuild":[],"OpenStdin":false,"PortSpecs":null,"StdinOnce":false,"Tty":false,"User":"","Volumes":{"/etc/elasticsearch":{},"/var/lib/elasticsearch":{},"/var/log/elasticsearch":{}},"WorkingDir":"/root"},"Created":"2014-10-08T15:25:03.825731007Z","DockerVersion":"1.1.2-dev","Id":"14667876d8e903c3a31d5fd1e0a8388d1e6e20e63a0379a05316ada1d742cc77","Os":"linux","Parent":"1f9d4240629041483b53ca600351a8ce15a3df41c9b31c39eab329b0cbb08685","Size":608}
-
-'}
-    headers:
-      Content-Length: ['1847']
-      Content-Type: [application/json]
-      Date: ['Thu, 09 Oct 2014 12:01:31 GMT']
-    status: {code: 200, message: OK}
-- request:
-    body: null
-    headers:
-      Accept: ['*/*']
-      Accept-Encoding: ['gzip, deflate']
-      Connection: [keep-alive]
-      User-Agent: [python-requests/2.4.3 CPython/3.4.1 Linux/3.15.7-1-aufs_friendly]
-    method: GET
-    uri: http://localhost:4243/v1.12/images/14667876d8e903c3a31d5fd1e0a8388d1e6e20e63a0379a05316ada1d742cc77/json
-  response:
-    body: {string: '{"Architecture":"amd64","Author":"","Comment":"","Config":{"AttachStderr":false,"AttachStdin":false,"AttachStdout":false,"Cmd":["/scripts/elasticsearch.sh"],"CpuShares":0,"Cpuset":"","Domainname":"","Entrypoint":["bash"],"Env":["PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin","INITRD=No","FAKE_CHROOT=1","HOME=/root","LC_ALL=C.UTF-8"],"ExposedPorts":{"9201/tcp":{},"9301/tcp":{},"9401/tcp":{}},"Hostname":"9818fcbe520e","Image":"1f9d4240629041483b53ca600351a8ce15a3df41c9b31c39eab329b0cbb08685","Memory":0,"MemorySwap":0,"NetworkDisabled":false,"OnBuild":[],"OpenStdin":false,"PortSpecs":null,"StdinOnce":false,"Tty":false,"User":"","Volumes":{"/etc/elasticsearch":{},"/var/lib/elasticsearch":{},"/var/log/elasticsearch":{}},"WorkingDir":"/root"},"Container":"5242669368a563d4eef2437110ace838641bf1e75890e165aad4fbc4892cb605","ContainerConfig":{"AttachStderr":false,"AttachStdin":false,"AttachStdout":false,"Cmd":["/bin/sh","-c","#(nop)
-        ADD  in /scripts/elasticsearch.sh"],"CpuShares":0,"Cpuset":"","Domainname":"","Entrypoint":["bash"],"Env":["PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin","INITRD=No","FAKE_CHROOT=1","HOME=/root","LC_ALL=C.UTF-8"],"ExposedPorts":{"9201/tcp":{},"9301/tcp":{},"9401/tcp":{}},"Hostname":"9818fcbe520e","Image":"1f9d4240629041483b53ca600351a8ce15a3df41c9b31c39eab329b0cbb08685","Memory":0,"MemorySwap":0,"NetworkDisabled":false,"OnBuild":[],"OpenStdin":false,"PortSpecs":null,"StdinOnce":false,"Tty":false,"User":"","Volumes":{"/etc/elasticsearch":{},"/var/lib/elasticsearch":{},"/var/log/elasticsearch":{}},"WorkingDir":"/root"},"Created":"2014-10-08T15:25:03.825731007Z","DockerVersion":"1.1.2-dev","Id":"14667876d8e903c3a31d5fd1e0a8388d1e6e20e63a0379a05316ada1d742cc77","Os":"linux","Parent":"1f9d4240629041483b53ca600351a8ce15a3df41c9b31c39eab329b0cbb08685","Size":608}
-
-'}
-    headers:
-      Content-Length: ['1847']
-      Content-Type: [application/json]
-      Date: ['Thu, 09 Oct 2014 12:01:31 GMT']
-    status: {code: 200, message: OK}
-- request:
-    body: null
-    headers:
-      Accept: ['*/*']
-      Accept-Encoding: ['gzip, deflate']
-      Connection: [keep-alive]
-      User-Agent: [python-requests/2.4.3 CPython/3.4.1 Linux/3.15.7-1-aufs_friendly]
-    method: GET
-    uri: http://localhost:4243/v1.12/containers/json?trunc_cmd=1&limit=-1&size=0&all=1
-  response:
-    body: {string: '[{"Command":"sh /root/run.sh","Created":1412856090,"Id":"5b191f1c866ef8f28b78a2a2c30ded3a22108d29e81dd28178f9eb5d121a2f4f","Image":"registry.ape.yandex.net/nikicat/zookeeper:PPhSAX-Z8Klt6tChEV2BBsZyW9uAW7A66BOFThYGd9w=","Names":["/clustername.zookeeper"],"Ports":[{"IP":"::","PrivatePort":2888,"PublicPort":50988,"Type":"tcp"},{"IP":"::","PrivatePort":3888,"PublicPort":50990,"Type":"tcp"},{"IP":"::","PrivatePort":50989,"PublicPort":50989,"Type":"tcp"},{"PrivatePort":4888,"Type":"tcp"},{"IP":"::","PrivatePort":2181,"PublicPort":50991,"Type":"tcp"}],"Status":"Up
-        Less than a second"}
-
-        ,{"Command":"nginx","Created":1412856089,"Id":"62e98bb35085287b83686696a09c22cb99acf4db57828166fdf1c3edebd583c2","Image":"registry.ape.yandex.net/nikicat/nginx:kkepg6UZbfQG42K0+tZfzBv+HsbTH9IX4MHphFogJyo=","Names":["/clustername.nginx"],"Ports":[{"IP":"::","PrivatePort":443,"PublicPort":50992,"Type":"tcp"},{"IP":"::","PrivatePort":80,"PublicPort":50993,"Type":"tcp"},{"IP":"::","PrivatePort":9200,"PublicPort":50995,"Type":"tcp"},{"IP":"::","PrivatePort":9443,"PublicPort":50994,"Type":"tcp"}],"Status":"Up
-        1 seconds"}
-
-        ,{"Command":"nginx","Created":1412856088,"Id":"b0dd1175e62967089a94d6f290051444c6aa426a5dd5c5ee811802064fa7cd7f","Image":"registry.ape.yandex.net/nikicat/kibana:-pd88h+AJ-X9jPLGH2lwFcs5oSb2q8M4D0Xw1jcD52U=","Names":["/clustername.kibana"],"Ports":[{"IP":"::","PrivatePort":81,"PublicPort":50996,"Type":"tcp"},{"PrivatePort":80,"Type":"tcp"}],"Status":"Up
-        2 seconds"}
-
-        ,{"Command":"bash /scripts/elasticsearch.sh","Created":1412856087,"Id":"46f3e68a8b960d242eff76fe669ed08c516a13f20534dbd54e83958bbe044a1e","Image":"registry.ape.yandex.net/nikicat/elasticsearch:W-s9tI6273G0XbXdI8AQeRzVjxk35g4woBo9aPXMeOo=","Names":["/clustername.elasticsearch"],"Ports":[{"IP":"::","PrivatePort":9201,"PublicPort":50999,"Type":"tcp"},{"IP":"::","PrivatePort":9301,"PublicPort":50997,"Type":"tcp"},{"IP":"::","PrivatePort":9401,"PublicPort":50998,"Type":"tcp"}],"Status":"Up
-        3 seconds"}
-
-        ]'}
-    headers:
-      Content-Length: ['1977']
-      Content-Type: [application/json]
-      Date: ['Thu, 09 Oct 2014 12:01:31 GMT']
-    status: {code: 200, message: OK}
-- request:
-    body: null
-    headers:
-      Accept: ['*/*']
-      Accept-Encoding: ['gzip, deflate']
-      Connection: [keep-alive]
-      User-Agent: [python-requests/2.4.3 CPython/3.4.1 Linux/3.15.7-1-aufs_friendly]
-    method: GET
-    uri: http://localhost:4243/v1.12/containers/b0dd1175e62967089a94d6f290051444c6aa426a5dd5c5ee811802064fa7cd7f/json
-  response:
-    body: {string: '{"Args":[],"Config":{"AttachStderr":true,"AttachStdin":true,"AttachStdout":true,"Cmd":["nginx"],"CpuShares":0,"Cpuset":"","Domainname":"","Entrypoint":null,"Env":["PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin","INITRD=No","FAKE_CHROOT=1","HOME=/root","LC_ALL=C.UTF-8","DEBIAN_FRONTEND=noninteractive"],"ExposedPorts":{"80/tcp":{},"81/tcp":{}},"Hostname":"kibana-localship","Image":"registry.ape.yandex.net/nikicat/kibana:195e06d0e1877472ae4d49c99b8252f1256381cf189cd8cb7696678d8c5c73bc","Memory":0,"MemorySwap":0,"NetworkDisabled":false,"OnBuild":null,"OpenStdin":true,"PortSpecs":null,"StdinOnce":true,"Tty":false,"User":"","Volumes":{"/etc/nginx/certs":{},"/etc/nginx/sites-enabled":{},"/var/log/nginx":{},"/var/www/kibana/config":{}},"WorkingDir":"/root"},"Created":"2014-10-09T12:01:28.542832376Z","Driver":"aufs","ExecDriver":"native-0.2","HostConfig":{"Binds":["/tmp/config/clustername/kibana/var/www/kibana/config:/var/www/kibana/config:ro","/tmp/data/clustername/kibana/var/log/nginx:/var/log/nginx:rw"],"CapAdd":null,"CapDrop":null,"ContainerIDFile":"","Devices":null,"Dns":null,"DnsSearch":null,"Links":null,"LxcConf":null,"NetworkMode":"","PortBindings":{"81/tcp":[{"HostIp":"::","HostPort":"50996"}]},"Privileged":false,"PublishAllPorts":false,"VolumesFrom":null},"HostnamePath":"/var/lib/docker/containers/b0dd1175e62967089a94d6f290051444c6aa426a5dd5c5ee811802064fa7cd7f/hostname","HostsPath":"/var/lib/docker/containers/b0dd1175e62967089a94d6f290051444c6aa426a5dd5c5ee811802064fa7cd7f/hosts","Id":"b0dd1175e62967089a94d6f290051444c6aa426a5dd5c5ee811802064fa7cd7f","Image":"195e06d0e1877472ae4d49c99b8252f1256381cf189cd8cb7696678d8c5c73bc","MountLabel":"","Name":"/clustername.kibana","NetworkSettings":{"Bridge":"docker0","Gateway":"172.17.42.1","IPAddress":"172.17.0.127","IPPrefixLen":16,"PortMapping":null,"Ports":{"80/tcp":null,"81/tcp":[{"HostIp":"::","HostPort":"50996"}]}},"Path":"nginx","ProcessLabel":"","ResolvConfPath":"/etc/resolv.conf","State":{"ExitCode":0,"FinishedAt":"0001-01-01T00:00:00Z","Paused":false,"Pid":21541,"Running":true,"StartedAt":"2014-10-09T12:01:28.825177964Z"},"Volumes":{"/etc/nginx/certs":"/var/lib/docker/vfs/dir/382eda928297b412f65e350694528d47ec703ad93a75bdf2c55b0165915ea8f7","/etc/nginx/sites-enabled":"/var/lib/docker/vfs/dir/62addcf729ffa1b6a4cb7926f3e3535b33b056e5498fb15bc4f0fbab7bffaafb","/var/log/nginx":"/tmp/data/clustername/kibana/var/log/nginx","/var/www/kibana/config":"/tmp/config/clustername/kibana/var/www/kibana/config"},"VolumesRW":{"/etc/nginx/certs":true,"/etc/nginx/sites-enabled":true,"/var/log/nginx":true,"/var/www/kibana/config":false}}
+    body: {string: '{"Args":[],"Config":{"AttachStderr":true,"AttachStdin":true,"AttachStdout":true,"Cmd":["/scripts/elasticsearch.sh"],"CpuShares":0,"Cpuset":"","Domainname":"","Entrypoint":null,"Env":["ES_JAVA_OPTS=-XX:NewRatio=5","ES_CLASSPATH=/etc/elasticsearch/logging.yml","PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin","INITRD=No","FAKE_CHROOT=1","HOME=/root","LC_ALL=C.UTF-8"],"ExposedPorts":{"9201/tcp":{},"9301/tcp":{},"9401/tcp":{}},"Hostname":"elasticsearch-localship","Image":"registry.ape.yandex.net/nikicat/elasticsearch:cf87a68c391b9394bd6242400873acea75ab16a8e0c70d44fc749e83bcdf0c89","Memory":134217728,"MemorySwap":-1,"NetworkDisabled":false,"OnBuild":null,"OpenStdin":true,"PortSpecs":null,"StdinOnce":true,"Tty":false,"User":"","Volumes":{"/etc/elasticsearch":{},"/var/lib/elasticsearch":{},"/var/log/elasticsearch":{}},"WorkingDir":"/root"},"Created":"2014-10-16T17:11:32.394975616Z","Driver":"aufs","ExecDriver":"native-0.2","HostConfig":{"Binds":["/tmp/data/unnamed/elasticsearch/var/lib/elasticsearch:/var/lib/elasticsearch:rw","/tmp/data/unnamed/elasticsearch/var/log/elasticsearch:/var/log/elasticsearch:rw","/tmp/config/unnamed/elasticsearch/etc/elasticsearch:/etc/elasticsearch:ro"],"CapAdd":null,"CapDrop":null,"ContainerIDFile":"","Devices":null,"Dns":null,"DnsSearch":null,"Links":null,"LxcConf":null,"NetworkMode":"","PortBindings":{"9201/tcp":[{"HostIp":"::","HostPort":"51099"}],"9301/tcp":[{"HostIp":"::","HostPort":"51097"}],"9401/tcp":[{"HostIp":"::","HostPort":"51098"}]},"Privileged":false,"PublishAllPorts":false,"VolumesFrom":null},"HostnamePath":"/var/lib/docker/containers/d0076b40becc321b047d9600972fa5d4ed2816c3b43e0210acdd10a7cdfb3b49/hostname","HostsPath":"/var/lib/docker/containers/d0076b40becc321b047d9600972fa5d4ed2816c3b43e0210acdd10a7cdfb3b49/hosts","Id":"d0076b40becc321b047d9600972fa5d4ed2816c3b43e0210acdd10a7cdfb3b49","Image":"cf87a68c391b9394bd6242400873acea75ab16a8e0c70d44fc749e83bcdf0c89","MountLabel":"","Name":"/unnamed.elasticsearch","NetworkSettings":{"Bridge":"docker0","Gateway":"172.17.42.1","IPAddress":"172.17.0.51","IPPrefixLen":16,"PortMapping":null,"Ports":{"9201/tcp":[{"HostIp":"::","HostPort":"51099"}],"9301/tcp":[{"HostIp":"::","HostPort":"51097"}],"9401/tcp":[{"HostIp":"::","HostPort":"51098"}]}},"Path":"/scripts/elasticsearch.sh","ProcessLabel":"","ResolvConfPath":"/etc/resolv.conf","State":{"ExitCode":0,"FinishedAt":"0001-01-01T00:00:00Z","Paused":false,"Pid":11306,"Running":true,"StartedAt":"2014-10-16T17:11:32.663125217Z"},"Volumes":{"/etc/elasticsearch":"/tmp/config/unnamed/elasticsearch/etc/elasticsearch","/var/lib/elasticsearch":"/tmp/data/unnamed/elasticsearch/var/lib/elasticsearch","/var/log/elasticsearch":"/tmp/data/unnamed/elasticsearch/var/log/elasticsearch"},"VolumesRW":{"/etc/elasticsearch":false,"/var/lib/elasticsearch":true,"/var/log/elasticsearch":true}}
 
 '}
     headers:
       Content-Type: [application/json]
-      Date: ['Thu, 09 Oct 2014 12:01:31 GMT']
+      Date: ['Thu, 16 Oct 2014 17:11:36 GMT']
       Transfer-Encoding: [chunked]
     status: {code: 200, message: OK}
 - request:
@@ -621,18 +722,19 @@ interactions:
       Accept: ['*/*']
       Accept-Encoding: ['gzip, deflate']
       Connection: [keep-alive]
-      User-Agent: [python-requests/2.4.3 CPython/3.4.1 Linux/3.15.7-1-aufs_friendly]
+      User-Agent: [python-requests/2.4.3 CPython/3.4.2 Linux/3.15.7-1-aufs_friendly]
     method: GET
-    uri: http://localhost:4243/v1.12/images/195e06d0e1877472ae4d49c99b8252f1256381cf189cd8cb7696678d8c5c73bc/json
+    uri: http://localhost:4243/v1.12/images/cf87a68c391b9394bd6242400873acea75ab16a8e0c70d44fc749e83bcdf0c89/json
   response:
-    body: {string: '{"Architecture":"amd64","Author":"","Comment":"","Config":{"AttachStderr":false,"AttachStdin":false,"AttachStdout":false,"Cmd":["nginx"],"CpuShares":0,"Cpuset":"","Domainname":"","Entrypoint":null,"Env":["PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin","INITRD=No","FAKE_CHROOT=1","HOME=/root","LC_ALL=C.UTF-8","DEBIAN_FRONTEND=noninteractive"],"ExposedPorts":{"80/tcp":{},"81/tcp":{}},"Hostname":"9818fcbe520e","Image":"966cc4e06eba64961143fbc22d86117c774a5f074b9662bb92e7846d1811304e","Memory":0,"MemorySwap":0,"NetworkDisabled":false,"OnBuild":[],"OpenStdin":false,"PortSpecs":null,"StdinOnce":false,"Tty":false,"User":"","Volumes":{"/etc/nginx/certs":{},"/etc/nginx/sites-enabled":{},"/var/log/nginx":{},"/var/www/kibana/config":{}},"WorkingDir":"/root"},"Container":"4b2f32ad7be3131d03ed831d08a49edfd765f26236678be23d57a1c30b2f93cb","ContainerConfig":{"AttachStderr":false,"AttachStdin":false,"AttachStdout":false,"Cmd":["/bin/sh","-c","#(nop)
-        ADD  in /etc/nginx/sites-enabled/kibana.site"],"CpuShares":0,"Cpuset":"","Domainname":"","Entrypoint":null,"Env":["PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin","INITRD=No","FAKE_CHROOT=1","HOME=/root","LC_ALL=C.UTF-8","DEBIAN_FRONTEND=noninteractive"],"ExposedPorts":{"80/tcp":{},"81/tcp":{}},"Hostname":"9818fcbe520e","Image":"966cc4e06eba64961143fbc22d86117c774a5f074b9662bb92e7846d1811304e","Memory":0,"MemorySwap":0,"NetworkDisabled":false,"OnBuild":[],"OpenStdin":false,"PortSpecs":null,"StdinOnce":false,"Tty":false,"User":"","Volumes":{"/etc/nginx/certs":{},"/etc/nginx/sites-enabled":{},"/var/log/nginx":{},"/var/www/kibana/config":{}},"WorkingDir":"/root"},"Created":"2014-10-08T15:26:11.52433617Z","DockerVersion":"1.1.2-dev","Id":"195e06d0e1877472ae4d49c99b8252f1256381cf189cd8cb7696678d8c5c73bc","Os":"linux","Parent":"966cc4e06eba64961143fbc22d86117c774a5f074b9662bb92e7846d1811304e","Size":89}
+    body: {string: '{"Architecture":"amd64","Author":"","Comment":"","Config":{"AttachStderr":false,"AttachStdin":false,"AttachStdout":false,"Cmd":["/scripts/elasticsearch.sh"],"CpuShares":0,"Cpuset":"","Domainname":"","Entrypoint":null,"Env":["PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin","INITRD=No","FAKE_CHROOT=1","HOME=/root","LC_ALL=C.UTF-8"],"ExposedPorts":{"9201/tcp":{},"9301/tcp":{},"9401/tcp":{}},"Hostname":"9818fcbe520e","Image":"76c8bc26735d820db77a9fd573d052c30d9b7aebfe64d81a331db423504c666c","Memory":0,"MemorySwap":0,"NetworkDisabled":false,"OnBuild":[],"OpenStdin":false,"PortSpecs":null,"StdinOnce":false,"Tty":false,"User":"","Volumes":{"/etc/elasticsearch":{},"/var/lib/elasticsearch":{},"/var/log/elasticsearch":{}},"WorkingDir":"/root"},"Container":"112fe26cf7f2380432ae947dff5e8070d97962ba4d8828bb696b1ab1de77acd1","ContainerConfig":{"AttachStderr":false,"AttachStdin":false,"AttachStdout":false,"Cmd":["/bin/sh","-c","#(nop)
+        ADD file:b47c3daea2c278d1f331ef358d290192266fe63c4aa45a476946bf86cc61f188
+        in /scripts/elasticsearch.sh"],"CpuShares":0,"Cpuset":"","Domainname":"","Entrypoint":null,"Env":["PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin","INITRD=No","FAKE_CHROOT=1","HOME=/root","LC_ALL=C.UTF-8"],"ExposedPorts":{"9201/tcp":{},"9301/tcp":{},"9401/tcp":{}},"Hostname":"9818fcbe520e","Image":"76c8bc26735d820db77a9fd573d052c30d9b7aebfe64d81a331db423504c666c","Memory":0,"MemorySwap":0,"NetworkDisabled":false,"OnBuild":[],"OpenStdin":false,"PortSpecs":null,"StdinOnce":false,"Tty":false,"User":"","Volumes":{"/etc/elasticsearch":{},"/var/lib/elasticsearch":{},"/var/log/elasticsearch":{}},"WorkingDir":"/root"},"Created":"2014-10-16T16:36:42.803141846Z","DockerVersion":"1.1.2-dev","Id":"cf87a68c391b9394bd6242400873acea75ab16a8e0c70d44fc749e83bcdf0c89","Os":"linux","Parent":"76c8bc26735d820db77a9fd573d052c30d9b7aebfe64d81a331db423504c666c","Size":542}
 
 '}
     headers:
-      Content-Length: ['1898']
+      Content-Length: ['1908']
       Content-Type: [application/json]
-      Date: ['Thu, 09 Oct 2014 12:01:31 GMT']
+      Date: ['Thu, 16 Oct 2014 17:11:36 GMT']
     status: {code: 200, message: OK}
 - request:
     body: null
@@ -640,18 +742,19 @@ interactions:
       Accept: ['*/*']
       Accept-Encoding: ['gzip, deflate']
       Connection: [keep-alive]
-      User-Agent: [python-requests/2.4.3 CPython/3.4.1 Linux/3.15.7-1-aufs_friendly]
+      User-Agent: [python-requests/2.4.3 CPython/3.4.2 Linux/3.15.7-1-aufs_friendly]
     method: GET
-    uri: http://localhost:4243/v1.12/images/195e06d0e1877472ae4d49c99b8252f1256381cf189cd8cb7696678d8c5c73bc/json
+    uri: http://localhost:4243/v1.12/images/cf87a68c391b9394bd6242400873acea75ab16a8e0c70d44fc749e83bcdf0c89/json
   response:
-    body: {string: '{"Architecture":"amd64","Author":"","Comment":"","Config":{"AttachStderr":false,"AttachStdin":false,"AttachStdout":false,"Cmd":["nginx"],"CpuShares":0,"Cpuset":"","Domainname":"","Entrypoint":null,"Env":["PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin","INITRD=No","FAKE_CHROOT=1","HOME=/root","LC_ALL=C.UTF-8","DEBIAN_FRONTEND=noninteractive"],"ExposedPorts":{"80/tcp":{},"81/tcp":{}},"Hostname":"9818fcbe520e","Image":"966cc4e06eba64961143fbc22d86117c774a5f074b9662bb92e7846d1811304e","Memory":0,"MemorySwap":0,"NetworkDisabled":false,"OnBuild":[],"OpenStdin":false,"PortSpecs":null,"StdinOnce":false,"Tty":false,"User":"","Volumes":{"/etc/nginx/certs":{},"/etc/nginx/sites-enabled":{},"/var/log/nginx":{},"/var/www/kibana/config":{}},"WorkingDir":"/root"},"Container":"4b2f32ad7be3131d03ed831d08a49edfd765f26236678be23d57a1c30b2f93cb","ContainerConfig":{"AttachStderr":false,"AttachStdin":false,"AttachStdout":false,"Cmd":["/bin/sh","-c","#(nop)
-        ADD  in /etc/nginx/sites-enabled/kibana.site"],"CpuShares":0,"Cpuset":"","Domainname":"","Entrypoint":null,"Env":["PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin","INITRD=No","FAKE_CHROOT=1","HOME=/root","LC_ALL=C.UTF-8","DEBIAN_FRONTEND=noninteractive"],"ExposedPorts":{"80/tcp":{},"81/tcp":{}},"Hostname":"9818fcbe520e","Image":"966cc4e06eba64961143fbc22d86117c774a5f074b9662bb92e7846d1811304e","Memory":0,"MemorySwap":0,"NetworkDisabled":false,"OnBuild":[],"OpenStdin":false,"PortSpecs":null,"StdinOnce":false,"Tty":false,"User":"","Volumes":{"/etc/nginx/certs":{},"/etc/nginx/sites-enabled":{},"/var/log/nginx":{},"/var/www/kibana/config":{}},"WorkingDir":"/root"},"Created":"2014-10-08T15:26:11.52433617Z","DockerVersion":"1.1.2-dev","Id":"195e06d0e1877472ae4d49c99b8252f1256381cf189cd8cb7696678d8c5c73bc","Os":"linux","Parent":"966cc4e06eba64961143fbc22d86117c774a5f074b9662bb92e7846d1811304e","Size":89}
+    body: {string: '{"Architecture":"amd64","Author":"","Comment":"","Config":{"AttachStderr":false,"AttachStdin":false,"AttachStdout":false,"Cmd":["/scripts/elasticsearch.sh"],"CpuShares":0,"Cpuset":"","Domainname":"","Entrypoint":null,"Env":["PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin","INITRD=No","FAKE_CHROOT=1","HOME=/root","LC_ALL=C.UTF-8"],"ExposedPorts":{"9201/tcp":{},"9301/tcp":{},"9401/tcp":{}},"Hostname":"9818fcbe520e","Image":"76c8bc26735d820db77a9fd573d052c30d9b7aebfe64d81a331db423504c666c","Memory":0,"MemorySwap":0,"NetworkDisabled":false,"OnBuild":[],"OpenStdin":false,"PortSpecs":null,"StdinOnce":false,"Tty":false,"User":"","Volumes":{"/etc/elasticsearch":{},"/var/lib/elasticsearch":{},"/var/log/elasticsearch":{}},"WorkingDir":"/root"},"Container":"112fe26cf7f2380432ae947dff5e8070d97962ba4d8828bb696b1ab1de77acd1","ContainerConfig":{"AttachStderr":false,"AttachStdin":false,"AttachStdout":false,"Cmd":["/bin/sh","-c","#(nop)
+        ADD file:b47c3daea2c278d1f331ef358d290192266fe63c4aa45a476946bf86cc61f188
+        in /scripts/elasticsearch.sh"],"CpuShares":0,"Cpuset":"","Domainname":"","Entrypoint":null,"Env":["PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin","INITRD=No","FAKE_CHROOT=1","HOME=/root","LC_ALL=C.UTF-8"],"ExposedPorts":{"9201/tcp":{},"9301/tcp":{},"9401/tcp":{}},"Hostname":"9818fcbe520e","Image":"76c8bc26735d820db77a9fd573d052c30d9b7aebfe64d81a331db423504c666c","Memory":0,"MemorySwap":0,"NetworkDisabled":false,"OnBuild":[],"OpenStdin":false,"PortSpecs":null,"StdinOnce":false,"Tty":false,"User":"","Volumes":{"/etc/elasticsearch":{},"/var/lib/elasticsearch":{},"/var/log/elasticsearch":{}},"WorkingDir":"/root"},"Created":"2014-10-16T16:36:42.803141846Z","DockerVersion":"1.1.2-dev","Id":"cf87a68c391b9394bd6242400873acea75ab16a8e0c70d44fc749e83bcdf0c89","Os":"linux","Parent":"76c8bc26735d820db77a9fd573d052c30d9b7aebfe64d81a331db423504c666c","Size":542}
 
 '}
     headers:
-      Content-Length: ['1898']
+      Content-Length: ['1908']
       Content-Type: [application/json]
-      Date: ['Thu, 09 Oct 2014 12:01:31 GMT']
+      Date: ['Thu, 16 Oct 2014 17:11:36 GMT']
     status: {code: 200, message: OK}
 - request:
     body: null
@@ -659,44 +762,29 @@ interactions:
       Accept: ['*/*']
       Accept-Encoding: ['gzip, deflate']
       Connection: [keep-alive]
-      User-Agent: [python-requests/2.4.3 CPython/3.4.1 Linux/3.15.7-1-aufs_friendly]
+      User-Agent: [python-requests/2.4.3 CPython/3.4.2 Linux/3.15.7-1-aufs_friendly]
     method: GET
-    uri: http://localhost:4243/v1.12/containers/json?trunc_cmd=1&limit=-1&size=0&all=1
+    uri: http://localhost:4243/v1.12/containers/json?size=0&trunc_cmd=1&all=1&limit=-1
   response:
-    body: {string: '[{"Command":"sh /root/run.sh","Created":1412856090,"Id":"5b191f1c866ef8f28b78a2a2c30ded3a22108d29e81dd28178f9eb5d121a2f4f","Image":"registry.ape.yandex.net/nikicat/zookeeper:PPhSAX-Z8Klt6tChEV2BBsZyW9uAW7A66BOFThYGd9w=","Names":["/clustername.zookeeper"],"Ports":[{"PrivatePort":4888,"Type":"tcp"},{"IP":"::","PrivatePort":2181,"PublicPort":50991,"Type":"tcp"},{"IP":"::","PrivatePort":2888,"PublicPort":50988,"Type":"tcp"},{"IP":"::","PrivatePort":3888,"PublicPort":50990,"Type":"tcp"},{"IP":"::","PrivatePort":50989,"PublicPort":50989,"Type":"tcp"}],"Status":"Up
+    body: {string: '[{"Command":"sh /root/run.sh","Created":1413479495,"Id":"590adc1a4d447903a4169be92426b7b2e560dd9c70f5e0a6f215306eb9af8e81","Image":"registry.ape.yandex.net/nikicat/zookeeper:UvqVw5b02gBthEeGlWoGO0vVTbAPIuPaLGuh415+ObM=","Names":["/unnamed.zookeeper"],"Ports":[{"IP":"::","PrivatePort":2181,"PublicPort":51091,"Type":"tcp"},{"IP":"::","PrivatePort":2888,"PublicPort":51088,"Type":"tcp"},{"IP":"::","PrivatePort":3888,"PublicPort":51090,"Type":"tcp"},{"IP":"::","PrivatePort":51089,"PublicPort":51089,"Type":"tcp"},{"PrivatePort":4888,"Type":"tcp"}],"Status":"Up
         Less than a second"}
 
-        ,{"Command":"nginx","Created":1412856089,"Id":"62e98bb35085287b83686696a09c22cb99acf4db57828166fdf1c3edebd583c2","Image":"registry.ape.yandex.net/nikicat/nginx:kkepg6UZbfQG42K0+tZfzBv+HsbTH9IX4MHphFogJyo=","Names":["/clustername.nginx"],"Ports":[{"IP":"::","PrivatePort":443,"PublicPort":50992,"Type":"tcp"},{"IP":"::","PrivatePort":80,"PublicPort":50993,"Type":"tcp"},{"IP":"::","PrivatePort":9200,"PublicPort":50995,"Type":"tcp"},{"IP":"::","PrivatePort":9443,"PublicPort":50994,"Type":"tcp"}],"Status":"Up
+        ,{"Command":"nginx","Created":1413479494,"Id":"db6190ec8d4a28267acda04c749aba527755e5bcba0a2c610e4eb85f21af2e12","Image":"registry.ape.yandex.net/nikicat/nginx:q7258sN9t-GyvNfxnaRapKE9MOdprkU-0LGYLN0UjUU=","Names":["/unnamed.nginx"],"Ports":[{"IP":"::","PrivatePort":443,"PublicPort":51092,"Type":"tcp"},{"IP":"::","PrivatePort":80,"PublicPort":51093,"Type":"tcp"},{"IP":"::","PrivatePort":9200,"PublicPort":51095,"Type":"tcp"},{"IP":"::","PrivatePort":9443,"PublicPort":51094,"Type":"tcp"}],"Status":"Up
         1 seconds"}
 
-        ,{"Command":"nginx","Created":1412856088,"Id":"b0dd1175e62967089a94d6f290051444c6aa426a5dd5c5ee811802064fa7cd7f","Image":"registry.ape.yandex.net/nikicat/kibana:-pd88h+AJ-X9jPLGH2lwFcs5oSb2q8M4D0Xw1jcD52U=","Names":["/clustername.kibana"],"Ports":[{"IP":"::","PrivatePort":81,"PublicPort":50996,"Type":"tcp"},{"PrivatePort":80,"Type":"tcp"}],"Status":"Up
+        ,{"Command":"nginx","Created":1413479493,"Id":"a69ee056b0e98059821a8a91615d73ef51072e1ffb451e3e1afe6e9c5b3bbf02","Image":"registry.ape.yandex.net/nikicat/kibana:mKMYDAQuLraPCs35QSqWomHhhmyTksVGCCAnWeUjeDg=","Names":["/unnamed.kibana"],"Ports":[{"IP":"::","PrivatePort":81,"PublicPort":51096,"Type":"tcp"},{"PrivatePort":80,"Type":"tcp"}],"Status":"Up
         2 seconds"}
 
-        ,{"Command":"bash /scripts/elasticsearch.sh","Created":1412856087,"Id":"46f3e68a8b960d242eff76fe669ed08c516a13f20534dbd54e83958bbe044a1e","Image":"registry.ape.yandex.net/nikicat/elasticsearch:W-s9tI6273G0XbXdI8AQeRzVjxk35g4woBo9aPXMeOo=","Names":["/clustername.elasticsearch"],"Ports":[{"IP":"::","PrivatePort":9401,"PublicPort":50998,"Type":"tcp"},{"IP":"::","PrivatePort":9201,"PublicPort":50999,"Type":"tcp"},{"IP":"::","PrivatePort":9301,"PublicPort":50997,"Type":"tcp"}],"Status":"Up
+        ,{"Command":"/scripts/elasticsearch.sh","Created":1413479492,"Id":"d0076b40becc321b047d9600972fa5d4ed2816c3b43e0210acdd10a7cdfb3b49","Image":"registry.ape.yandex.net/nikicat/elasticsearch:S9I6AQSQPSGz0BYgZdBRKo6mHdYdGBJFcraMMIp7AMs=","Names":["/unnamed.elasticsearch"],"Ports":[{"IP":"::","PrivatePort":9201,"PublicPort":51099,"Type":"tcp"},{"IP":"::","PrivatePort":9301,"PublicPort":51097,"Type":"tcp"},{"IP":"::","PrivatePort":9401,"PublicPort":51098,"Type":"tcp"}],"Status":"Up
         3 seconds"}
+
+        ,{"Command":"bash","Created":1413379827,"Id":"030cac116ba84181628dca2357b79e21086ad6eac8e007c886f90c19b892b6e1","Image":"nbryskin/trusty:latest","Names":["/happy_torvalds"],"Ports":[],"Status":"Up
+        27 hours"}
 
         ]'}
     headers:
-      Content-Length: ['1977']
       Content-Type: [application/json]
-      Date: ['Thu, 09 Oct 2014 12:01:31 GMT']
-    status: {code: 200, message: OK}
-- request:
-    body: null
-    headers:
-      Accept: ['*/*']
-      Accept-Encoding: ['gzip, deflate']
-      Connection: [keep-alive]
-      User-Agent: [python-requests/2.4.3 CPython/3.4.1 Linux/3.15.7-1-aufs_friendly]
-    method: GET
-    uri: http://localhost:4243/v1.12/containers/62e98bb35085287b83686696a09c22cb99acf4db57828166fdf1c3edebd583c2/json
-  response:
-    body: {string: '{"Args":[],"Config":{"AttachStderr":true,"AttachStdin":true,"AttachStdout":true,"Cmd":["nginx"],"CpuShares":0,"Cpuset":"","Domainname":"","Entrypoint":null,"Env":["PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin","INITRD=No","FAKE_CHROOT=1","HOME=/root","LC_ALL=C.UTF-8","DEBIAN_FRONTEND=noninteractive"],"ExposedPorts":{"443/tcp":{},"80/tcp":{},"9200/tcp":{},"9443/tcp":{}},"Hostname":"nginx-localship","Image":"registry.ape.yandex.net/nikicat/nginx:fc2e2662b0af1463f801433df48226ac8838deca97690a29306458673af359be","Memory":268435456,"MemorySwap":-1,"NetworkDisabled":false,"OnBuild":null,"OpenStdin":true,"PortSpecs":null,"StdinOnce":true,"Tty":false,"User":"","Volumes":{"/etc/nginx/certs":{},"/etc/nginx/sites-enabled":{},"/var/log/nginx":{}},"WorkingDir":"/root"},"Created":"2014-10-09T12:01:29.569159804Z","Driver":"aufs","ExecDriver":"native-0.2","HostConfig":{"Binds":["/tmp/config/clustername/nginx/etc/nginx/sites-enabled:/etc/nginx/sites-enabled:ro","/tmp/data/clustername/nginx/var/log/nginx:/var/log/nginx:rw","/tmp/config/clustername/nginx/etc/nginx/certs:/etc/nginx/certs:ro"],"CapAdd":null,"CapDrop":null,"ContainerIDFile":"","Devices":null,"Dns":null,"DnsSearch":null,"Links":null,"LxcConf":null,"NetworkMode":"","PortBindings":{"443/tcp":[{"HostIp":"::","HostPort":"50992"}],"80/tcp":[{"HostIp":"::","HostPort":"50993"}],"9200/tcp":[{"HostIp":"::","HostPort":"50995"}],"9443/tcp":[{"HostIp":"::","HostPort":"50994"}]},"Privileged":false,"PublishAllPorts":false,"VolumesFrom":null},"HostnamePath":"/var/lib/docker/containers/62e98bb35085287b83686696a09c22cb99acf4db57828166fdf1c3edebd583c2/hostname","HostsPath":"/var/lib/docker/containers/62e98bb35085287b83686696a09c22cb99acf4db57828166fdf1c3edebd583c2/hosts","Id":"62e98bb35085287b83686696a09c22cb99acf4db57828166fdf1c3edebd583c2","Image":"fc2e2662b0af1463f801433df48226ac8838deca97690a29306458673af359be","MountLabel":"","Name":"/clustername.nginx","NetworkSettings":{"Bridge":"docker0","Gateway":"172.17.42.1","IPAddress":"172.17.0.128","IPPrefixLen":16,"PortMapping":null,"Ports":{"443/tcp":[{"HostIp":"::","HostPort":"50992"}],"80/tcp":[{"HostIp":"::","HostPort":"50993"}],"9200/tcp":[{"HostIp":"::","HostPort":"50995"}],"9443/tcp":[{"HostIp":"::","HostPort":"50994"}]}},"Path":"nginx","ProcessLabel":"","ResolvConfPath":"/etc/resolv.conf","State":{"ExitCode":0,"FinishedAt":"0001-01-01T00:00:00Z","Paused":false,"Pid":21581,"Running":true,"StartedAt":"2014-10-09T12:01:29.884633814Z"},"Volumes":{"/etc/nginx/certs":"/tmp/config/clustername/nginx/etc/nginx/certs","/etc/nginx/sites-enabled":"/tmp/config/clustername/nginx/etc/nginx/sites-enabled","/var/log/nginx":"/tmp/data/clustername/nginx/var/log/nginx"},"VolumesRW":{"/etc/nginx/certs":false,"/etc/nginx/sites-enabled":false,"/var/log/nginx":true}}
-
-'}
-    headers:
-      Content-Type: [application/json]
-      Date: ['Thu, 09 Oct 2014 12:01:31 GMT']
+      Date: ['Thu, 16 Oct 2014 17:11:36 GMT']
       Transfer-Encoding: [chunked]
     status: {code: 200, message: OK}
 - request:
@@ -705,82 +793,16 @@ interactions:
       Accept: ['*/*']
       Accept-Encoding: ['gzip, deflate']
       Connection: [keep-alive]
-      User-Agent: [python-requests/2.4.3 CPython/3.4.1 Linux/3.15.7-1-aufs_friendly]
+      User-Agent: [python-requests/2.4.3 CPython/3.4.2 Linux/3.15.7-1-aufs_friendly]
     method: GET
-    uri: http://localhost:4243/v1.12/images/fc2e2662b0af1463f801433df48226ac8838deca97690a29306458673af359be/json
+    uri: http://localhost:4243/v1.12/containers/a69ee056b0e98059821a8a91615d73ef51072e1ffb451e3e1afe6e9c5b3bbf02/json
   response:
-    body: {string: '{"Architecture":"amd64","Author":"","Comment":"","Config":{"AttachStderr":false,"AttachStdin":false,"AttachStdout":false,"Cmd":["nginx"],"CpuShares":0,"Cpuset":"","Domainname":"","Entrypoint":null,"Env":["PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin","INITRD=No","FAKE_CHROOT=1","HOME=/root","LC_ALL=C.UTF-8","DEBIAN_FRONTEND=noninteractive"],"ExposedPorts":{"80/tcp":{}},"Hostname":"9818fcbe520e","Image":"f49ddfa1680af6a2f691c2de06b17dfe89c835a98f92439f5a02b636d540bc85","Memory":0,"MemorySwap":0,"NetworkDisabled":false,"OnBuild":[],"OpenStdin":false,"PortSpecs":null,"StdinOnce":false,"Tty":false,"User":"","Volumes":{"/etc/nginx/certs":{},"/etc/nginx/sites-enabled":{},"/var/log/nginx":{}},"WorkingDir":"/root"},"Container":"02e3efcbd90ee6d4f179ae357e0b3788d3c6ebdc3e68d0569ff6944b4d5d4d34","ContainerConfig":{"AttachStderr":false,"AttachStdin":false,"AttachStdout":false,"Cmd":["/bin/sh","-c","#(nop)
-        ADD  in /etc/nginx/nginx.conf"],"CpuShares":0,"Cpuset":"","Domainname":"","Entrypoint":null,"Env":["PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin","INITRD=No","FAKE_CHROOT=1","HOME=/root","LC_ALL=C.UTF-8","DEBIAN_FRONTEND=noninteractive"],"ExposedPorts":{"80/tcp":{}},"Hostname":"9818fcbe520e","Image":"f49ddfa1680af6a2f691c2de06b17dfe89c835a98f92439f5a02b636d540bc85","Memory":0,"MemorySwap":0,"NetworkDisabled":false,"OnBuild":[],"OpenStdin":false,"PortSpecs":null,"StdinOnce":false,"Tty":false,"User":"","Volumes":{"/etc/nginx/certs":{},"/etc/nginx/sites-enabled":{},"/var/log/nginx":{}},"WorkingDir":"/root"},"Created":"2014-10-08T15:26:03.910982028Z","DockerVersion":"1.1.2-dev","Id":"fc2e2662b0af1463f801433df48226ac8838deca97690a29306458673af359be","Os":"linux","Parent":"b1adc2203c48690d94baef604c8a253c3aa58eb4118d03f836f1e0c6de9e49d8","Size":1044}
-
-'}
-    headers:
-      Content-Length: ['1806']
-      Content-Type: [application/json]
-      Date: ['Thu, 09 Oct 2014 12:01:31 GMT']
-    status: {code: 200, message: OK}
-- request:
-    body: null
-    headers:
-      Accept: ['*/*']
-      Accept-Encoding: ['gzip, deflate']
-      Connection: [keep-alive]
-      User-Agent: [python-requests/2.4.3 CPython/3.4.1 Linux/3.15.7-1-aufs_friendly]
-    method: GET
-    uri: http://localhost:4243/v1.12/images/fc2e2662b0af1463f801433df48226ac8838deca97690a29306458673af359be/json
-  response:
-    body: {string: '{"Architecture":"amd64","Author":"","Comment":"","Config":{"AttachStderr":false,"AttachStdin":false,"AttachStdout":false,"Cmd":["nginx"],"CpuShares":0,"Cpuset":"","Domainname":"","Entrypoint":null,"Env":["PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin","INITRD=No","FAKE_CHROOT=1","HOME=/root","LC_ALL=C.UTF-8","DEBIAN_FRONTEND=noninteractive"],"ExposedPorts":{"80/tcp":{}},"Hostname":"9818fcbe520e","Image":"f49ddfa1680af6a2f691c2de06b17dfe89c835a98f92439f5a02b636d540bc85","Memory":0,"MemorySwap":0,"NetworkDisabled":false,"OnBuild":[],"OpenStdin":false,"PortSpecs":null,"StdinOnce":false,"Tty":false,"User":"","Volumes":{"/etc/nginx/certs":{},"/etc/nginx/sites-enabled":{},"/var/log/nginx":{}},"WorkingDir":"/root"},"Container":"02e3efcbd90ee6d4f179ae357e0b3788d3c6ebdc3e68d0569ff6944b4d5d4d34","ContainerConfig":{"AttachStderr":false,"AttachStdin":false,"AttachStdout":false,"Cmd":["/bin/sh","-c","#(nop)
-        ADD  in /etc/nginx/nginx.conf"],"CpuShares":0,"Cpuset":"","Domainname":"","Entrypoint":null,"Env":["PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin","INITRD=No","FAKE_CHROOT=1","HOME=/root","LC_ALL=C.UTF-8","DEBIAN_FRONTEND=noninteractive"],"ExposedPorts":{"80/tcp":{}},"Hostname":"9818fcbe520e","Image":"f49ddfa1680af6a2f691c2de06b17dfe89c835a98f92439f5a02b636d540bc85","Memory":0,"MemorySwap":0,"NetworkDisabled":false,"OnBuild":[],"OpenStdin":false,"PortSpecs":null,"StdinOnce":false,"Tty":false,"User":"","Volumes":{"/etc/nginx/certs":{},"/etc/nginx/sites-enabled":{},"/var/log/nginx":{}},"WorkingDir":"/root"},"Created":"2014-10-08T15:26:03.910982028Z","DockerVersion":"1.1.2-dev","Id":"fc2e2662b0af1463f801433df48226ac8838deca97690a29306458673af359be","Os":"linux","Parent":"b1adc2203c48690d94baef604c8a253c3aa58eb4118d03f836f1e0c6de9e49d8","Size":1044}
-
-'}
-    headers:
-      Content-Length: ['1806']
-      Content-Type: [application/json]
-      Date: ['Thu, 09 Oct 2014 12:01:31 GMT']
-    status: {code: 200, message: OK}
-- request:
-    body: null
-    headers:
-      Accept: ['*/*']
-      Accept-Encoding: ['gzip, deflate']
-      Connection: [keep-alive]
-      User-Agent: [python-requests/2.4.3 CPython/3.4.1 Linux/3.15.7-1-aufs_friendly]
-    method: GET
-    uri: http://localhost:4243/v1.12/containers/json?trunc_cmd=1&limit=-1&size=0&all=1
-  response:
-    body: {string: '[{"Command":"sh /root/run.sh","Created":1412856090,"Id":"5b191f1c866ef8f28b78a2a2c30ded3a22108d29e81dd28178f9eb5d121a2f4f","Image":"registry.ape.yandex.net/nikicat/zookeeper:PPhSAX-Z8Klt6tChEV2BBsZyW9uAW7A66BOFThYGd9w=","Names":["/clustername.zookeeper"],"Ports":[{"IP":"::","PrivatePort":2181,"PublicPort":50991,"Type":"tcp"},{"IP":"::","PrivatePort":2888,"PublicPort":50988,"Type":"tcp"},{"IP":"::","PrivatePort":3888,"PublicPort":50990,"Type":"tcp"},{"IP":"::","PrivatePort":50989,"PublicPort":50989,"Type":"tcp"},{"PrivatePort":4888,"Type":"tcp"}],"Status":"Up
-        Less than a second"}
-
-        ,{"Command":"nginx","Created":1412856089,"Id":"62e98bb35085287b83686696a09c22cb99acf4db57828166fdf1c3edebd583c2","Image":"registry.ape.yandex.net/nikicat/nginx:kkepg6UZbfQG42K0+tZfzBv+HsbTH9IX4MHphFogJyo=","Names":["/clustername.nginx"],"Ports":[{"IP":"::","PrivatePort":80,"PublicPort":50993,"Type":"tcp"},{"IP":"::","PrivatePort":9200,"PublicPort":50995,"Type":"tcp"},{"IP":"::","PrivatePort":9443,"PublicPort":50994,"Type":"tcp"},{"IP":"::","PrivatePort":443,"PublicPort":50992,"Type":"tcp"}],"Status":"Up
-        1 seconds"}
-
-        ,{"Command":"nginx","Created":1412856088,"Id":"b0dd1175e62967089a94d6f290051444c6aa426a5dd5c5ee811802064fa7cd7f","Image":"registry.ape.yandex.net/nikicat/kibana:-pd88h+AJ-X9jPLGH2lwFcs5oSb2q8M4D0Xw1jcD52U=","Names":["/clustername.kibana"],"Ports":[{"IP":"::","PrivatePort":81,"PublicPort":50996,"Type":"tcp"},{"PrivatePort":80,"Type":"tcp"}],"Status":"Up
-        2 seconds"}
-
-        ,{"Command":"bash /scripts/elasticsearch.sh","Created":1412856087,"Id":"46f3e68a8b960d242eff76fe669ed08c516a13f20534dbd54e83958bbe044a1e","Image":"registry.ape.yandex.net/nikicat/elasticsearch:W-s9tI6273G0XbXdI8AQeRzVjxk35g4woBo9aPXMeOo=","Names":["/clustername.elasticsearch"],"Ports":[{"IP":"::","PrivatePort":9201,"PublicPort":50999,"Type":"tcp"},{"IP":"::","PrivatePort":9301,"PublicPort":50997,"Type":"tcp"},{"IP":"::","PrivatePort":9401,"PublicPort":50998,"Type":"tcp"}],"Status":"Up
-        3 seconds"}
-
-        ]'}
-    headers:
-      Content-Length: ['1977']
-      Content-Type: [application/json]
-      Date: ['Thu, 09 Oct 2014 12:01:31 GMT']
-    status: {code: 200, message: OK}
-- request:
-    body: null
-    headers:
-      Accept: ['*/*']
-      Accept-Encoding: ['gzip, deflate']
-      Connection: [keep-alive]
-      User-Agent: [python-requests/2.4.3 CPython/3.4.1 Linux/3.15.7-1-aufs_friendly]
-    method: GET
-    uri: http://localhost:4243/v1.12/containers/5b191f1c866ef8f28b78a2a2c30ded3a22108d29e81dd28178f9eb5d121a2f4f/json
-  response:
-    body: {string: '{"Args":["/root/run.sh"],"Config":{"AttachStderr":true,"AttachStdin":true,"AttachStdout":true,"Cmd":["/root/run.sh"],"CpuShares":0,"Cpuset":"","Domainname":"","Entrypoint":["sh"],"Env":["PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin","INITRD=No","FAKE_CHROOT=1","HOME=/root","LC_ALL=C.UTF-8","DEBIAN_FRONTEND=noninteractive"],"ExposedPorts":{"2181/tcp":{},"2888/tcp":{},"3888/tcp":{},"4888/tcp":{},"50989/tcp":{}},"Hostname":"zookeeper-localship","Image":"registry.ape.yandex.net/nikicat/zookeeper:5f2b1e26aa06514f339fe00d0ef6696a4f710fde92a887f4079bc3fdae90c87a","Memory":1073741824,"MemorySwap":-1,"NetworkDisabled":false,"OnBuild":null,"OpenStdin":true,"PortSpecs":null,"StdinOnce":true,"Tty":false,"User":"","Volumes":{"/opt/zookeeper/conf":{},"/var/lib/zookeeper":{},"/var/log/zookeeper":{}},"WorkingDir":"/opt/zookeeper"},"Created":"2014-10-09T12:01:30.679160805Z","Driver":"aufs","ExecDriver":"native-0.2","HostConfig":{"Binds":["/tmp/config/clustername/zookeeper/opt/zookeeper/conf:/opt/zookeeper/conf:ro","/tmp/data/clustername/zookeeper/var/lib/zookeeper:/var/lib/zookeeper:rw","/tmp/data/clustername/zookeeper/var/log/zookeeper:/var/log/zookeeper:rw"],"CapAdd":null,"CapDrop":null,"ContainerIDFile":"","Devices":null,"Dns":null,"DnsSearch":null,"Links":null,"LxcConf":null,"NetworkMode":"","PortBindings":{"2181/tcp":[{"HostIp":"::","HostPort":"50991"}],"2888/tcp":[{"HostIp":"::","HostPort":"50988"}],"3888/tcp":[{"HostIp":"::","HostPort":"50990"}],"50989/tcp":[{"HostIp":"::","HostPort":"50989"}]},"Privileged":false,"PublishAllPorts":false,"VolumesFrom":null},"HostnamePath":"/var/lib/docker/containers/5b191f1c866ef8f28b78a2a2c30ded3a22108d29e81dd28178f9eb5d121a2f4f/hostname","HostsPath":"/var/lib/docker/containers/5b191f1c866ef8f28b78a2a2c30ded3a22108d29e81dd28178f9eb5d121a2f4f/hosts","Id":"5b191f1c866ef8f28b78a2a2c30ded3a22108d29e81dd28178f9eb5d121a2f4f","Image":"5f2b1e26aa06514f339fe00d0ef6696a4f710fde92a887f4079bc3fdae90c87a","MountLabel":"","Name":"/clustername.zookeeper","NetworkSettings":{"Bridge":"docker0","Gateway":"172.17.42.1","IPAddress":"172.17.0.129","IPPrefixLen":16,"PortMapping":null,"Ports":{"2181/tcp":[{"HostIp":"::","HostPort":"50991"}],"2888/tcp":[{"HostIp":"::","HostPort":"50988"}],"3888/tcp":[{"HostIp":"::","HostPort":"50990"}],"4888/tcp":null,"50989/tcp":[{"HostIp":"::","HostPort":"50989"}]}},"Path":"sh","ProcessLabel":"","ResolvConfPath":"/etc/resolv.conf","State":{"ExitCode":0,"FinishedAt":"0001-01-01T00:00:00Z","Paused":false,"Pid":21614,"Running":true,"StartedAt":"2014-10-09T12:01:31.058244966Z"},"Volumes":{"/opt/zookeeper/conf":"/tmp/config/clustername/zookeeper/opt/zookeeper/conf","/var/lib/zookeeper":"/tmp/data/clustername/zookeeper/var/lib/zookeeper","/var/log/zookeeper":"/tmp/data/clustername/zookeeper/var/log/zookeeper"},"VolumesRW":{"/opt/zookeeper/conf":false,"/var/lib/zookeeper":true,"/var/log/zookeeper":true}}
+    body: {string: '{"Args":[],"Config":{"AttachStderr":true,"AttachStdin":true,"AttachStdout":true,"Cmd":["nginx"],"CpuShares":0,"Cpuset":"","Domainname":"","Entrypoint":null,"Env":["PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin","INITRD=No","FAKE_CHROOT=1","HOME=/root","LC_ALL=C.UTF-8","DEBIAN_FRONTEND=noninteractive"],"ExposedPorts":{"80/tcp":{},"81/tcp":{}},"Hostname":"kibana-localship","Image":"registry.ape.yandex.net/nikicat/kibana:a70db396aab7cf7c9e1d05af7b9e1f44303dd11145f9c06753aac5a0ae556942","Memory":134217728,"MemorySwap":-1,"NetworkDisabled":false,"OnBuild":null,"OpenStdin":true,"PortSpecs":null,"StdinOnce":true,"Tty":false,"User":"","Volumes":{"/etc/nginx/certs":{},"/etc/nginx/sites-enabled":{},"/var/log/nginx":{},"/var/www/kibana/config":{}},"WorkingDir":"/root"},"Created":"2014-10-16T17:11:33.500331838Z","Driver":"aufs","ExecDriver":"native-0.2","HostConfig":{"Binds":["/tmp/config/unnamed/kibana/var/www/kibana/config:/var/www/kibana/config:ro","/tmp/data/unnamed/kibana/var/log/nginx:/var/log/nginx:rw"],"CapAdd":null,"CapDrop":null,"ContainerIDFile":"","Devices":null,"Dns":null,"DnsSearch":null,"Links":null,"LxcConf":null,"NetworkMode":"","PortBindings":{"81/tcp":[{"HostIp":"::","HostPort":"51096"}]},"Privileged":false,"PublishAllPorts":false,"VolumesFrom":null},"HostnamePath":"/var/lib/docker/containers/a69ee056b0e98059821a8a91615d73ef51072e1ffb451e3e1afe6e9c5b3bbf02/hostname","HostsPath":"/var/lib/docker/containers/a69ee056b0e98059821a8a91615d73ef51072e1ffb451e3e1afe6e9c5b3bbf02/hosts","Id":"a69ee056b0e98059821a8a91615d73ef51072e1ffb451e3e1afe6e9c5b3bbf02","Image":"a70db396aab7cf7c9e1d05af7b9e1f44303dd11145f9c06753aac5a0ae556942","MountLabel":"","Name":"/unnamed.kibana","NetworkSettings":{"Bridge":"docker0","Gateway":"172.17.42.1","IPAddress":"172.17.0.52","IPPrefixLen":16,"PortMapping":null,"Ports":{"80/tcp":null,"81/tcp":[{"HostIp":"::","HostPort":"51096"}]}},"Path":"nginx","ProcessLabel":"","ResolvConfPath":"/etc/resolv.conf","State":{"ExitCode":0,"FinishedAt":"0001-01-01T00:00:00Z","Paused":false,"Pid":11348,"Running":true,"StartedAt":"2014-10-16T17:11:33.837304467Z"},"Volumes":{"/etc/nginx/certs":"/var/lib/docker/vfs/dir/b3da73d60a73a776618872baf492697875049ce4392cb61188ca7905d75a824f","/etc/nginx/sites-enabled":"/var/lib/docker/vfs/dir/9421019a0b6ea18586ca755e9498cc96e4d1fda9bfe3c24719b388b8d907ebd7","/var/log/nginx":"/tmp/data/unnamed/kibana/var/log/nginx","/var/www/kibana/config":"/tmp/config/unnamed/kibana/var/www/kibana/config"},"VolumesRW":{"/etc/nginx/certs":true,"/etc/nginx/sites-enabled":true,"/var/log/nginx":true,"/var/www/kibana/config":false}}
 
 '}
     headers:
       Content-Type: [application/json]
-      Date: ['Thu, 09 Oct 2014 12:01:31 GMT']
+      Date: ['Thu, 16 Oct 2014 17:11:36 GMT']
       Transfer-Encoding: [chunked]
     status: {code: 200, message: OK}
 - request:
@@ -789,18 +811,194 @@ interactions:
       Accept: ['*/*']
       Accept-Encoding: ['gzip, deflate']
       Connection: [keep-alive]
-      User-Agent: [python-requests/2.4.3 CPython/3.4.1 Linux/3.15.7-1-aufs_friendly]
+      User-Agent: [python-requests/2.4.3 CPython/3.4.2 Linux/3.15.7-1-aufs_friendly]
     method: GET
-    uri: http://localhost:4243/v1.12/images/5f2b1e26aa06514f339fe00d0ef6696a4f710fde92a887f4079bc3fdae90c87a/json
+    uri: http://localhost:4243/v1.12/images/a70db396aab7cf7c9e1d05af7b9e1f44303dd11145f9c06753aac5a0ae556942/json
   response:
-    body: {string: '{"Architecture":"amd64","Author":"","Comment":"","Config":{"AttachStderr":false,"AttachStdin":false,"AttachStdout":false,"Cmd":["/root/run.sh"],"CpuShares":0,"Cpuset":"","Domainname":"","Entrypoint":["sh"],"Env":["PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin","INITRD=No","FAKE_CHROOT=1","HOME=/root","LC_ALL=C.UTF-8","DEBIAN_FRONTEND=noninteractive"],"ExposedPorts":{"2181/tcp":{},"2888/tcp":{},"3888/tcp":{},"4888/tcp":{}},"Hostname":"9818fcbe520e","Image":"0002f07b8f22f8ffc35cca47723596409e779a99571d33885d17e3f1f4ce4970","Memory":0,"MemorySwap":0,"NetworkDisabled":false,"OnBuild":[],"OpenStdin":false,"PortSpecs":null,"StdinOnce":false,"Tty":false,"User":"","Volumes":{"/opt/zookeeper/conf":{},"/var/lib/zookeeper":{},"/var/log/zookeeper":{}},"WorkingDir":"/opt/zookeeper"},"Container":"6a58e9e3430d3ac44def202850c4600d066b17904a22fa865d8c0821b540f646","ContainerConfig":{"AttachStderr":false,"AttachStdin":false,"AttachStdout":false,"Cmd":["/bin/sh","-c","#(nop)
-        ADD  in /root/run.sh"],"CpuShares":0,"Cpuset":"","Domainname":"","Entrypoint":["sh"],"Env":["PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin","INITRD=No","FAKE_CHROOT=1","HOME=/root","LC_ALL=C.UTF-8","DEBIAN_FRONTEND=noninteractive"],"ExposedPorts":{"2181/tcp":{},"2888/tcp":{},"3888/tcp":{},"4888/tcp":{}},"Hostname":"9818fcbe520e","Image":"0002f07b8f22f8ffc35cca47723596409e779a99571d33885d17e3f1f4ce4970","Memory":0,"MemorySwap":0,"NetworkDisabled":false,"OnBuild":[],"OpenStdin":false,"PortSpecs":null,"StdinOnce":false,"Tty":false,"User":"","Volumes":{"/opt/zookeeper/conf":{},"/var/lib/zookeeper":{},"/var/log/zookeeper":{}},"WorkingDir":"/opt/zookeeper"},"Created":"2014-10-08T15:23:04.587436248Z","DockerVersion":"1.1.2-dev","Id":"5f2b1e26aa06514f339fe00d0ef6696a4f710fde92a887f4079bc3fdae90c87a","Os":"linux","Parent":"0002f07b8f22f8ffc35cca47723596409e779a99571d33885d17e3f1f4ce4970","Size":149}
+    body: {string: '{"Architecture":"amd64","Author":"","Comment":"","Config":{"AttachStderr":false,"AttachStdin":false,"AttachStdout":false,"Cmd":["nginx"],"CpuShares":0,"Cpuset":"","Domainname":"","Entrypoint":null,"Env":["PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin","INITRD=No","FAKE_CHROOT=1","HOME=/root","LC_ALL=C.UTF-8","DEBIAN_FRONTEND=noninteractive"],"ExposedPorts":{"80/tcp":{},"81/tcp":{}},"Hostname":"9818fcbe520e","Image":"785d3201e976729ab1b8e5737eedbd550bb46d39ea12e252693e7d75ed477cc5","Memory":0,"MemorySwap":0,"NetworkDisabled":false,"OnBuild":[],"OpenStdin":false,"PortSpecs":null,"StdinOnce":false,"Tty":false,"User":"","Volumes":{"/etc/nginx/certs":{},"/etc/nginx/sites-enabled":{},"/var/log/nginx":{},"/var/www/kibana/config":{}},"WorkingDir":"/root"},"Container":"e3ee2f3ed53a7e96cacc3d1d8e6a1e8953f4e5b8fc3c06de9a63f19cf314d985","ContainerConfig":{"AttachStderr":false,"AttachStdin":false,"AttachStdout":false,"Cmd":["/bin/sh","-c","#(nop)
+        ADD  in /etc/nginx/sites-enabled/kibana.site"],"CpuShares":0,"Cpuset":"","Domainname":"","Entrypoint":null,"Env":["PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin","INITRD=No","FAKE_CHROOT=1","HOME=/root","LC_ALL=C.UTF-8","DEBIAN_FRONTEND=noninteractive"],"ExposedPorts":{"80/tcp":{},"81/tcp":{}},"Hostname":"9818fcbe520e","Image":"785d3201e976729ab1b8e5737eedbd550bb46d39ea12e252693e7d75ed477cc5","Memory":0,"MemorySwap":0,"NetworkDisabled":false,"OnBuild":[],"OpenStdin":false,"PortSpecs":null,"StdinOnce":false,"Tty":false,"User":"","Volumes":{"/etc/nginx/certs":{},"/etc/nginx/sites-enabled":{},"/var/log/nginx":{},"/var/www/kibana/config":{}},"WorkingDir":"/root"},"Created":"2014-10-15T23:47:28.638281083Z","DockerVersion":"1.1.2-dev","Id":"a70db396aab7cf7c9e1d05af7b9e1f44303dd11145f9c06753aac5a0ae556942","Os":"linux","Parent":"785d3201e976729ab1b8e5737eedbd550bb46d39ea12e252693e7d75ed477cc5","Size":89}
+
+'}
+    headers:
+      Content-Length: ['1899']
+      Content-Type: [application/json]
+      Date: ['Thu, 16 Oct 2014 17:11:36 GMT']
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      User-Agent: [python-requests/2.4.3 CPython/3.4.2 Linux/3.15.7-1-aufs_friendly]
+    method: GET
+    uri: http://localhost:4243/v1.12/images/a70db396aab7cf7c9e1d05af7b9e1f44303dd11145f9c06753aac5a0ae556942/json
+  response:
+    body: {string: '{"Architecture":"amd64","Author":"","Comment":"","Config":{"AttachStderr":false,"AttachStdin":false,"AttachStdout":false,"Cmd":["nginx"],"CpuShares":0,"Cpuset":"","Domainname":"","Entrypoint":null,"Env":["PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin","INITRD=No","FAKE_CHROOT=1","HOME=/root","LC_ALL=C.UTF-8","DEBIAN_FRONTEND=noninteractive"],"ExposedPorts":{"80/tcp":{},"81/tcp":{}},"Hostname":"9818fcbe520e","Image":"785d3201e976729ab1b8e5737eedbd550bb46d39ea12e252693e7d75ed477cc5","Memory":0,"MemorySwap":0,"NetworkDisabled":false,"OnBuild":[],"OpenStdin":false,"PortSpecs":null,"StdinOnce":false,"Tty":false,"User":"","Volumes":{"/etc/nginx/certs":{},"/etc/nginx/sites-enabled":{},"/var/log/nginx":{},"/var/www/kibana/config":{}},"WorkingDir":"/root"},"Container":"e3ee2f3ed53a7e96cacc3d1d8e6a1e8953f4e5b8fc3c06de9a63f19cf314d985","ContainerConfig":{"AttachStderr":false,"AttachStdin":false,"AttachStdout":false,"Cmd":["/bin/sh","-c","#(nop)
+        ADD  in /etc/nginx/sites-enabled/kibana.site"],"CpuShares":0,"Cpuset":"","Domainname":"","Entrypoint":null,"Env":["PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin","INITRD=No","FAKE_CHROOT=1","HOME=/root","LC_ALL=C.UTF-8","DEBIAN_FRONTEND=noninteractive"],"ExposedPorts":{"80/tcp":{},"81/tcp":{}},"Hostname":"9818fcbe520e","Image":"785d3201e976729ab1b8e5737eedbd550bb46d39ea12e252693e7d75ed477cc5","Memory":0,"MemorySwap":0,"NetworkDisabled":false,"OnBuild":[],"OpenStdin":false,"PortSpecs":null,"StdinOnce":false,"Tty":false,"User":"","Volumes":{"/etc/nginx/certs":{},"/etc/nginx/sites-enabled":{},"/var/log/nginx":{},"/var/www/kibana/config":{}},"WorkingDir":"/root"},"Created":"2014-10-15T23:47:28.638281083Z","DockerVersion":"1.1.2-dev","Id":"a70db396aab7cf7c9e1d05af7b9e1f44303dd11145f9c06753aac5a0ae556942","Os":"linux","Parent":"785d3201e976729ab1b8e5737eedbd550bb46d39ea12e252693e7d75ed477cc5","Size":89}
+
+'}
+    headers:
+      Content-Length: ['1899']
+      Content-Type: [application/json]
+      Date: ['Thu, 16 Oct 2014 17:11:36 GMT']
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      User-Agent: [python-requests/2.4.3 CPython/3.4.2 Linux/3.15.7-1-aufs_friendly]
+    method: GET
+    uri: http://localhost:4243/v1.12/containers/json?size=0&trunc_cmd=1&all=1&limit=-1
+  response:
+    body: {string: '[{"Command":"sh /root/run.sh","Created":1413479495,"Id":"590adc1a4d447903a4169be92426b7b2e560dd9c70f5e0a6f215306eb9af8e81","Image":"registry.ape.yandex.net/nikicat/zookeeper:UvqVw5b02gBthEeGlWoGO0vVTbAPIuPaLGuh415+ObM=","Names":["/unnamed.zookeeper"],"Ports":[{"IP":"::","PrivatePort":2181,"PublicPort":51091,"Type":"tcp"},{"IP":"::","PrivatePort":2888,"PublicPort":51088,"Type":"tcp"},{"IP":"::","PrivatePort":3888,"PublicPort":51090,"Type":"tcp"},{"IP":"::","PrivatePort":51089,"PublicPort":51089,"Type":"tcp"},{"PrivatePort":4888,"Type":"tcp"}],"Status":"Up
+        Less than a second"}
+
+        ,{"Command":"nginx","Created":1413479494,"Id":"db6190ec8d4a28267acda04c749aba527755e5bcba0a2c610e4eb85f21af2e12","Image":"registry.ape.yandex.net/nikicat/nginx:q7258sN9t-GyvNfxnaRapKE9MOdprkU-0LGYLN0UjUU=","Names":["/unnamed.nginx"],"Ports":[{"IP":"::","PrivatePort":443,"PublicPort":51092,"Type":"tcp"},{"IP":"::","PrivatePort":80,"PublicPort":51093,"Type":"tcp"},{"IP":"::","PrivatePort":9200,"PublicPort":51095,"Type":"tcp"},{"IP":"::","PrivatePort":9443,"PublicPort":51094,"Type":"tcp"}],"Status":"Up
+        1 seconds"}
+
+        ,{"Command":"nginx","Created":1413479493,"Id":"a69ee056b0e98059821a8a91615d73ef51072e1ffb451e3e1afe6e9c5b3bbf02","Image":"registry.ape.yandex.net/nikicat/kibana:mKMYDAQuLraPCs35QSqWomHhhmyTksVGCCAnWeUjeDg=","Names":["/unnamed.kibana"],"Ports":[{"IP":"::","PrivatePort":81,"PublicPort":51096,"Type":"tcp"},{"PrivatePort":80,"Type":"tcp"}],"Status":"Up
+        2 seconds"}
+
+        ,{"Command":"/scripts/elasticsearch.sh","Created":1413479492,"Id":"d0076b40becc321b047d9600972fa5d4ed2816c3b43e0210acdd10a7cdfb3b49","Image":"registry.ape.yandex.net/nikicat/elasticsearch:S9I6AQSQPSGz0BYgZdBRKo6mHdYdGBJFcraMMIp7AMs=","Names":["/unnamed.elasticsearch"],"Ports":[{"IP":"::","PrivatePort":9401,"PublicPort":51098,"Type":"tcp"},{"IP":"::","PrivatePort":9201,"PublicPort":51099,"Type":"tcp"},{"IP":"::","PrivatePort":9301,"PublicPort":51097,"Type":"tcp"}],"Status":"Up
+        3 seconds"}
+
+        ,{"Command":"bash","Created":1413379827,"Id":"030cac116ba84181628dca2357b79e21086ad6eac8e007c886f90c19b892b6e1","Image":"nbryskin/trusty:latest","Names":["/happy_torvalds"],"Ports":[],"Status":"Up
+        27 hours"}
+
+        ]'}
+    headers:
+      Content-Type: [application/json]
+      Date: ['Thu, 16 Oct 2014 17:11:36 GMT']
+      Transfer-Encoding: [chunked]
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      User-Agent: [python-requests/2.4.3 CPython/3.4.2 Linux/3.15.7-1-aufs_friendly]
+    method: GET
+    uri: http://localhost:4243/v1.12/containers/db6190ec8d4a28267acda04c749aba527755e5bcba0a2c610e4eb85f21af2e12/json
+  response:
+    body: {string: '{"Args":[],"Config":{"AttachStderr":true,"AttachStdin":true,"AttachStdout":true,"Cmd":["nginx"],"CpuShares":0,"Cpuset":"","Domainname":"","Entrypoint":null,"Env":["PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin","INITRD=No","FAKE_CHROOT=1","HOME=/root","LC_ALL=C.UTF-8","DEBIAN_FRONTEND=noninteractive"],"ExposedPorts":{"443/tcp":{},"80/tcp":{},"9200/tcp":{},"9443/tcp":{}},"Hostname":"nginx-localship","Image":"registry.ape.yandex.net/nikicat/nginx:30f5f93f4745a4d7ca62bcfcdf2aee0f04a99b4c8c03195532b57e0adaf08056","Memory":134217728,"MemorySwap":-1,"NetworkDisabled":false,"OnBuild":null,"OpenStdin":true,"PortSpecs":null,"StdinOnce":true,"Tty":false,"User":"","Volumes":{"/etc/nginx/certs":{},"/etc/nginx/sites-enabled":{},"/var/log/nginx":{}},"WorkingDir":"/root"},"Created":"2014-10-16T17:11:34.652595854Z","Driver":"aufs","ExecDriver":"native-0.2","HostConfig":{"Binds":["/tmp/config/unnamed/nginx/etc/nginx/sites-enabled:/etc/nginx/sites-enabled:ro","/tmp/data/unnamed/nginx/var/log/nginx:/var/log/nginx:rw","/tmp/config/unnamed/nginx/etc/nginx/certs:/etc/nginx/certs:ro"],"CapAdd":null,"CapDrop":null,"ContainerIDFile":"","Devices":null,"Dns":null,"DnsSearch":null,"Links":null,"LxcConf":null,"NetworkMode":"","PortBindings":{"443/tcp":[{"HostIp":"::","HostPort":"51092"}],"80/tcp":[{"HostIp":"::","HostPort":"51093"}],"9200/tcp":[{"HostIp":"::","HostPort":"51095"}],"9443/tcp":[{"HostIp":"::","HostPort":"51094"}]},"Privileged":false,"PublishAllPorts":false,"VolumesFrom":null},"HostnamePath":"/var/lib/docker/containers/db6190ec8d4a28267acda04c749aba527755e5bcba0a2c610e4eb85f21af2e12/hostname","HostsPath":"/var/lib/docker/containers/db6190ec8d4a28267acda04c749aba527755e5bcba0a2c610e4eb85f21af2e12/hosts","Id":"db6190ec8d4a28267acda04c749aba527755e5bcba0a2c610e4eb85f21af2e12","Image":"30f5f93f4745a4d7ca62bcfcdf2aee0f04a99b4c8c03195532b57e0adaf08056","MountLabel":"","Name":"/unnamed.nginx","NetworkSettings":{"Bridge":"docker0","Gateway":"172.17.42.1","IPAddress":"172.17.0.53","IPPrefixLen":16,"PortMapping":null,"Ports":{"443/tcp":[{"HostIp":"::","HostPort":"51092"}],"80/tcp":[{"HostIp":"::","HostPort":"51093"}],"9200/tcp":[{"HostIp":"::","HostPort":"51095"}],"9443/tcp":[{"HostIp":"::","HostPort":"51094"}]}},"Path":"nginx","ProcessLabel":"","ResolvConfPath":"/etc/resolv.conf","State":{"ExitCode":0,"FinishedAt":"0001-01-01T00:00:00Z","Paused":false,"Pid":11378,"Running":true,"StartedAt":"2014-10-16T17:11:34.899081203Z"},"Volumes":{"/etc/nginx/certs":"/tmp/config/unnamed/nginx/etc/nginx/certs","/etc/nginx/sites-enabled":"/tmp/config/unnamed/nginx/etc/nginx/sites-enabled","/var/log/nginx":"/tmp/data/unnamed/nginx/var/log/nginx"},"VolumesRW":{"/etc/nginx/certs":false,"/etc/nginx/sites-enabled":false,"/var/log/nginx":true}}
+
+'}
+    headers:
+      Content-Type: [application/json]
+      Date: ['Thu, 16 Oct 2014 17:11:36 GMT']
+      Transfer-Encoding: [chunked]
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      User-Agent: [python-requests/2.4.3 CPython/3.4.2 Linux/3.15.7-1-aufs_friendly]
+    method: GET
+    uri: http://localhost:4243/v1.12/images/30f5f93f4745a4d7ca62bcfcdf2aee0f04a99b4c8c03195532b57e0adaf08056/json
+  response:
+    body: {string: '{"Architecture":"amd64","Author":"","Comment":"","Config":{"AttachStderr":false,"AttachStdin":false,"AttachStdout":false,"Cmd":["nginx"],"CpuShares":0,"Cpuset":"","Domainname":"","Entrypoint":null,"Env":["PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin","INITRD=No","FAKE_CHROOT=1","HOME=/root","LC_ALL=C.UTF-8","DEBIAN_FRONTEND=noninteractive"],"ExposedPorts":{"80/tcp":{}},"Hostname":"9818fcbe520e","Image":"5364b3cc6f1b06efdd5de13581271b64ac73530a7324380e56bc0669f79d1ab9","Memory":0,"MemorySwap":0,"NetworkDisabled":false,"OnBuild":[],"OpenStdin":false,"PortSpecs":null,"StdinOnce":false,"Tty":false,"User":"","Volumes":{"/etc/nginx/certs":{},"/etc/nginx/sites-enabled":{},"/var/log/nginx":{}},"WorkingDir":"/root"},"Container":"91eb993b6f3d20cb8c5b5a1a9beaa95e8fd4f13f34fbccd4b650f8d3b5c391be","ContainerConfig":{"AttachStderr":false,"AttachStdin":false,"AttachStdout":false,"Cmd":["/bin/sh","-c","#(nop)
+        ADD file:1d5492442eee5645e2626b06f96898120b5bc940500a3d7e89b1a81e95bb5f00
+        in /etc/nginx/nginx.conf"],"CpuShares":0,"Cpuset":"","Domainname":"","Entrypoint":null,"Env":["PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin","INITRD=No","FAKE_CHROOT=1","HOME=/root","LC_ALL=C.UTF-8","DEBIAN_FRONTEND=noninteractive"],"ExposedPorts":{"80/tcp":{}},"Hostname":"9818fcbe520e","Image":"5364b3cc6f1b06efdd5de13581271b64ac73530a7324380e56bc0669f79d1ab9","Memory":0,"MemorySwap":0,"NetworkDisabled":false,"OnBuild":[],"OpenStdin":false,"PortSpecs":null,"StdinOnce":false,"Tty":false,"User":"","Volumes":{"/etc/nginx/certs":{},"/etc/nginx/sites-enabled":{},"/var/log/nginx":{}},"WorkingDir":"/root"},"Created":"2014-10-15T23:47:10.905771674Z","DockerVersion":"1.1.2-dev","Id":"30f5f93f4745a4d7ca62bcfcdf2aee0f04a99b4c8c03195532b57e0adaf08056","Os":"linux","Parent":"5364b3cc6f1b06efdd5de13581271b64ac73530a7324380e56bc0669f79d1ab9","Size":1044}
+
+'}
+    headers:
+      Content-Length: ['1875']
+      Content-Type: [application/json]
+      Date: ['Thu, 16 Oct 2014 17:11:36 GMT']
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      User-Agent: [python-requests/2.4.3 CPython/3.4.2 Linux/3.15.7-1-aufs_friendly]
+    method: GET
+    uri: http://localhost:4243/v1.12/images/30f5f93f4745a4d7ca62bcfcdf2aee0f04a99b4c8c03195532b57e0adaf08056/json
+  response:
+    body: {string: '{"Architecture":"amd64","Author":"","Comment":"","Config":{"AttachStderr":false,"AttachStdin":false,"AttachStdout":false,"Cmd":["nginx"],"CpuShares":0,"Cpuset":"","Domainname":"","Entrypoint":null,"Env":["PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin","INITRD=No","FAKE_CHROOT=1","HOME=/root","LC_ALL=C.UTF-8","DEBIAN_FRONTEND=noninteractive"],"ExposedPorts":{"80/tcp":{}},"Hostname":"9818fcbe520e","Image":"5364b3cc6f1b06efdd5de13581271b64ac73530a7324380e56bc0669f79d1ab9","Memory":0,"MemorySwap":0,"NetworkDisabled":false,"OnBuild":[],"OpenStdin":false,"PortSpecs":null,"StdinOnce":false,"Tty":false,"User":"","Volumes":{"/etc/nginx/certs":{},"/etc/nginx/sites-enabled":{},"/var/log/nginx":{}},"WorkingDir":"/root"},"Container":"91eb993b6f3d20cb8c5b5a1a9beaa95e8fd4f13f34fbccd4b650f8d3b5c391be","ContainerConfig":{"AttachStderr":false,"AttachStdin":false,"AttachStdout":false,"Cmd":["/bin/sh","-c","#(nop)
+        ADD file:1d5492442eee5645e2626b06f96898120b5bc940500a3d7e89b1a81e95bb5f00
+        in /etc/nginx/nginx.conf"],"CpuShares":0,"Cpuset":"","Domainname":"","Entrypoint":null,"Env":["PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin","INITRD=No","FAKE_CHROOT=1","HOME=/root","LC_ALL=C.UTF-8","DEBIAN_FRONTEND=noninteractive"],"ExposedPorts":{"80/tcp":{}},"Hostname":"9818fcbe520e","Image":"5364b3cc6f1b06efdd5de13581271b64ac73530a7324380e56bc0669f79d1ab9","Memory":0,"MemorySwap":0,"NetworkDisabled":false,"OnBuild":[],"OpenStdin":false,"PortSpecs":null,"StdinOnce":false,"Tty":false,"User":"","Volumes":{"/etc/nginx/certs":{},"/etc/nginx/sites-enabled":{},"/var/log/nginx":{}},"WorkingDir":"/root"},"Created":"2014-10-15T23:47:10.905771674Z","DockerVersion":"1.1.2-dev","Id":"30f5f93f4745a4d7ca62bcfcdf2aee0f04a99b4c8c03195532b57e0adaf08056","Os":"linux","Parent":"5364b3cc6f1b06efdd5de13581271b64ac73530a7324380e56bc0669f79d1ab9","Size":1044}
+
+'}
+    headers:
+      Content-Length: ['1875']
+      Content-Type: [application/json]
+      Date: ['Thu, 16 Oct 2014 17:11:36 GMT']
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      User-Agent: [python-requests/2.4.3 CPython/3.4.2 Linux/3.15.7-1-aufs_friendly]
+    method: GET
+    uri: http://localhost:4243/v1.12/containers/json?size=0&trunc_cmd=1&all=1&limit=-1
+  response:
+    body: {string: '[{"Command":"sh /root/run.sh","Created":1413479495,"Id":"590adc1a4d447903a4169be92426b7b2e560dd9c70f5e0a6f215306eb9af8e81","Image":"registry.ape.yandex.net/nikicat/zookeeper:UvqVw5b02gBthEeGlWoGO0vVTbAPIuPaLGuh415+ObM=","Names":["/unnamed.zookeeper"],"Ports":[{"IP":"::","PrivatePort":2181,"PublicPort":51091,"Type":"tcp"},{"IP":"::","PrivatePort":2888,"PublicPort":51088,"Type":"tcp"},{"IP":"::","PrivatePort":3888,"PublicPort":51090,"Type":"tcp"},{"IP":"::","PrivatePort":51089,"PublicPort":51089,"Type":"tcp"},{"PrivatePort":4888,"Type":"tcp"}],"Status":"Up
+        Less than a second"}
+
+        ,{"Command":"nginx","Created":1413479494,"Id":"db6190ec8d4a28267acda04c749aba527755e5bcba0a2c610e4eb85f21af2e12","Image":"registry.ape.yandex.net/nikicat/nginx:q7258sN9t-GyvNfxnaRapKE9MOdprkU-0LGYLN0UjUU=","Names":["/unnamed.nginx"],"Ports":[{"IP":"::","PrivatePort":80,"PublicPort":51093,"Type":"tcp"},{"IP":"::","PrivatePort":9200,"PublicPort":51095,"Type":"tcp"},{"IP":"::","PrivatePort":9443,"PublicPort":51094,"Type":"tcp"},{"IP":"::","PrivatePort":443,"PublicPort":51092,"Type":"tcp"}],"Status":"Up
+        1 seconds"}
+
+        ,{"Command":"nginx","Created":1413479493,"Id":"a69ee056b0e98059821a8a91615d73ef51072e1ffb451e3e1afe6e9c5b3bbf02","Image":"registry.ape.yandex.net/nikicat/kibana:mKMYDAQuLraPCs35QSqWomHhhmyTksVGCCAnWeUjeDg=","Names":["/unnamed.kibana"],"Ports":[{"IP":"::","PrivatePort":81,"PublicPort":51096,"Type":"tcp"},{"PrivatePort":80,"Type":"tcp"}],"Status":"Up
+        2 seconds"}
+
+        ,{"Command":"/scripts/elasticsearch.sh","Created":1413479492,"Id":"d0076b40becc321b047d9600972fa5d4ed2816c3b43e0210acdd10a7cdfb3b49","Image":"registry.ape.yandex.net/nikicat/elasticsearch:S9I6AQSQPSGz0BYgZdBRKo6mHdYdGBJFcraMMIp7AMs=","Names":["/unnamed.elasticsearch"],"Ports":[{"IP":"::","PrivatePort":9201,"PublicPort":51099,"Type":"tcp"},{"IP":"::","PrivatePort":9301,"PublicPort":51097,"Type":"tcp"},{"IP":"::","PrivatePort":9401,"PublicPort":51098,"Type":"tcp"}],"Status":"Up
+        3 seconds"}
+
+        ,{"Command":"bash","Created":1413379827,"Id":"030cac116ba84181628dca2357b79e21086ad6eac8e007c886f90c19b892b6e1","Image":"nbryskin/trusty:latest","Names":["/happy_torvalds"],"Ports":[],"Status":"Up
+        27 hours"}
+
+        ]'}
+    headers:
+      Content-Type: [application/json]
+      Date: ['Thu, 16 Oct 2014 17:11:36 GMT']
+      Transfer-Encoding: [chunked]
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      User-Agent: [python-requests/2.4.3 CPython/3.4.2 Linux/3.15.7-1-aufs_friendly]
+    method: GET
+    uri: http://localhost:4243/v1.12/containers/590adc1a4d447903a4169be92426b7b2e560dd9c70f5e0a6f215306eb9af8e81/json
+  response:
+    body: {string: '{"Args":["/root/run.sh"],"Config":{"AttachStderr":true,"AttachStdin":true,"AttachStdout":true,"Cmd":["/root/run.sh"],"CpuShares":0,"Cpuset":"","Domainname":"","Entrypoint":["sh"],"Env":["PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin","INITRD=No","FAKE_CHROOT=1","HOME=/root","LC_ALL=C.UTF-8","DEBIAN_FRONTEND=noninteractive"],"ExposedPorts":{"2181/tcp":{},"2888/tcp":{},"3888/tcp":{},"4888/tcp":{},"51089/tcp":{}},"Hostname":"zookeeper-localship","Image":"registry.ape.yandex.net/nikicat/zookeeper:06f1a7980b50e73906e3e7072d083173aec0250787235a3dc8b0b5d9eadd55a0","Memory":134217728,"MemorySwap":-1,"NetworkDisabled":false,"OnBuild":null,"OpenStdin":true,"PortSpecs":null,"StdinOnce":true,"Tty":false,"User":"","Volumes":{"/opt/zookeeper/conf":{},"/var/lib/zookeeper":{},"/var/log/zookeeper":{}},"WorkingDir":"/opt/zookeeper"},"Created":"2014-10-16T17:11:35.746253888Z","Driver":"aufs","ExecDriver":"native-0.2","HostConfig":{"Binds":["/tmp/data/unnamed/zookeeper/var/lib/zookeeper:/var/lib/zookeeper:rw","/tmp/data/unnamed/zookeeper/var/log/zookeeper:/var/log/zookeeper:rw","/tmp/config/unnamed/zookeeper/opt/zookeeper/conf:/opt/zookeeper/conf:ro"],"CapAdd":null,"CapDrop":null,"ContainerIDFile":"","Devices":null,"Dns":null,"DnsSearch":null,"Links":null,"LxcConf":null,"NetworkMode":"","PortBindings":{"2181/tcp":[{"HostIp":"::","HostPort":"51091"}],"2888/tcp":[{"HostIp":"::","HostPort":"51088"}],"3888/tcp":[{"HostIp":"::","HostPort":"51090"}],"51089/tcp":[{"HostIp":"::","HostPort":"51089"}]},"Privileged":false,"PublishAllPorts":false,"VolumesFrom":null},"HostnamePath":"/var/lib/docker/containers/590adc1a4d447903a4169be92426b7b2e560dd9c70f5e0a6f215306eb9af8e81/hostname","HostsPath":"/var/lib/docker/containers/590adc1a4d447903a4169be92426b7b2e560dd9c70f5e0a6f215306eb9af8e81/hosts","Id":"590adc1a4d447903a4169be92426b7b2e560dd9c70f5e0a6f215306eb9af8e81","Image":"06f1a7980b50e73906e3e7072d083173aec0250787235a3dc8b0b5d9eadd55a0","MountLabel":"","Name":"/unnamed.zookeeper","NetworkSettings":{"Bridge":"docker0","Gateway":"172.17.42.1","IPAddress":"172.17.0.54","IPPrefixLen":16,"PortMapping":null,"Ports":{"2181/tcp":[{"HostIp":"::","HostPort":"51091"}],"2888/tcp":[{"HostIp":"::","HostPort":"51088"}],"3888/tcp":[{"HostIp":"::","HostPort":"51090"}],"4888/tcp":null,"51089/tcp":[{"HostIp":"::","HostPort":"51089"}]}},"Path":"sh","ProcessLabel":"","ResolvConfPath":"/etc/resolv.conf","State":{"ExitCode":0,"FinishedAt":"0001-01-01T00:00:00Z","Paused":false,"Pid":11410,"Running":true,"StartedAt":"2014-10-16T17:11:36.044845781Z"},"Volumes":{"/opt/zookeeper/conf":"/tmp/config/unnamed/zookeeper/opt/zookeeper/conf","/var/lib/zookeeper":"/tmp/data/unnamed/zookeeper/var/lib/zookeeper","/var/log/zookeeper":"/tmp/data/unnamed/zookeeper/var/log/zookeeper"},"VolumesRW":{"/opt/zookeeper/conf":false,"/var/lib/zookeeper":true,"/var/log/zookeeper":true}}
+
+'}
+    headers:
+      Content-Type: [application/json]
+      Date: ['Thu, 16 Oct 2014 17:11:36 GMT']
+      Transfer-Encoding: [chunked]
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      User-Agent: [python-requests/2.4.3 CPython/3.4.2 Linux/3.15.7-1-aufs_friendly]
+    method: GET
+    uri: http://localhost:4243/v1.12/images/06f1a7980b50e73906e3e7072d083173aec0250787235a3dc8b0b5d9eadd55a0/json
+  response:
+    body: {string: '{"Architecture":"amd64","Author":"","Comment":"","Config":{"AttachStderr":false,"AttachStdin":false,"AttachStdout":false,"Cmd":["/root/run.sh"],"CpuShares":0,"Cpuset":"","Domainname":"","Entrypoint":["sh"],"Env":["PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin","INITRD=No","FAKE_CHROOT=1","HOME=/root","LC_ALL=C.UTF-8","DEBIAN_FRONTEND=noninteractive"],"ExposedPorts":{"2181/tcp":{},"2888/tcp":{},"3888/tcp":{},"4888/tcp":{}},"Hostname":"9818fcbe520e","Image":"c09cb7af4321b7ab2d4b8ffa6fd040c027e9319c3b39237e4b01f6a8abf800e2","Memory":0,"MemorySwap":0,"NetworkDisabled":false,"OnBuild":[],"OpenStdin":false,"PortSpecs":null,"StdinOnce":false,"Tty":false,"User":"","Volumes":{"/opt/zookeeper/conf":{},"/var/lib/zookeeper":{},"/var/log/zookeeper":{}},"WorkingDir":"/opt/zookeeper"},"Container":"7e8d41fcf2e301f7cfe2398eb0aa6e3ce343983ec866a7206f9c36f05db96a5c","ContainerConfig":{"AttachStderr":false,"AttachStdin":false,"AttachStdout":false,"Cmd":["/bin/sh","-c","#(nop)
+        ADD  in /root/run.sh"],"CpuShares":0,"Cpuset":"","Domainname":"","Entrypoint":["sh"],"Env":["PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin","INITRD=No","FAKE_CHROOT=1","HOME=/root","LC_ALL=C.UTF-8","DEBIAN_FRONTEND=noninteractive"],"ExposedPorts":{"2181/tcp":{},"2888/tcp":{},"3888/tcp":{},"4888/tcp":{}},"Hostname":"9818fcbe520e","Image":"c09cb7af4321b7ab2d4b8ffa6fd040c027e9319c3b39237e4b01f6a8abf800e2","Memory":0,"MemorySwap":0,"NetworkDisabled":false,"OnBuild":[],"OpenStdin":false,"PortSpecs":null,"StdinOnce":false,"Tty":false,"User":"","Volumes":{"/opt/zookeeper/conf":{},"/var/lib/zookeeper":{},"/var/log/zookeeper":{}},"WorkingDir":"/opt/zookeeper"},"Created":"2014-10-15T23:47:44.502830559Z","DockerVersion":"1.1.2-dev","Id":"06f1a7980b50e73906e3e7072d083173aec0250787235a3dc8b0b5d9eadd55a0","Os":"linux","Parent":"c09cb7af4321b7ab2d4b8ffa6fd040c027e9319c3b39237e4b01f6a8abf800e2","Size":149}
 
 '}
     headers:
       Content-Length: ['1915']
       Content-Type: [application/json]
-      Date: ['Thu, 09 Oct 2014 12:01:31 GMT']
+      Date: ['Thu, 16 Oct 2014 17:11:36 GMT']
     status: {code: 200, message: OK}
 - request:
     body: null
@@ -808,17 +1006,201 @@ interactions:
       Accept: ['*/*']
       Accept-Encoding: ['gzip, deflate']
       Connection: [keep-alive]
-      User-Agent: [python-requests/2.4.3 CPython/3.4.1 Linux/3.15.7-1-aufs_friendly]
+      User-Agent: [python-requests/2.4.3 CPython/3.4.2 Linux/3.15.7-1-aufs_friendly]
     method: GET
-    uri: http://localhost:4243/v1.12/images/5f2b1e26aa06514f339fe00d0ef6696a4f710fde92a887f4079bc3fdae90c87a/json
+    uri: http://localhost:4243/v1.12/images/06f1a7980b50e73906e3e7072d083173aec0250787235a3dc8b0b5d9eadd55a0/json
   response:
-    body: {string: '{"Architecture":"amd64","Author":"","Comment":"","Config":{"AttachStderr":false,"AttachStdin":false,"AttachStdout":false,"Cmd":["/root/run.sh"],"CpuShares":0,"Cpuset":"","Domainname":"","Entrypoint":["sh"],"Env":["PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin","INITRD=No","FAKE_CHROOT=1","HOME=/root","LC_ALL=C.UTF-8","DEBIAN_FRONTEND=noninteractive"],"ExposedPorts":{"2181/tcp":{},"2888/tcp":{},"3888/tcp":{},"4888/tcp":{}},"Hostname":"9818fcbe520e","Image":"0002f07b8f22f8ffc35cca47723596409e779a99571d33885d17e3f1f4ce4970","Memory":0,"MemorySwap":0,"NetworkDisabled":false,"OnBuild":[],"OpenStdin":false,"PortSpecs":null,"StdinOnce":false,"Tty":false,"User":"","Volumes":{"/opt/zookeeper/conf":{},"/var/lib/zookeeper":{},"/var/log/zookeeper":{}},"WorkingDir":"/opt/zookeeper"},"Container":"6a58e9e3430d3ac44def202850c4600d066b17904a22fa865d8c0821b540f646","ContainerConfig":{"AttachStderr":false,"AttachStdin":false,"AttachStdout":false,"Cmd":["/bin/sh","-c","#(nop)
-        ADD  in /root/run.sh"],"CpuShares":0,"Cpuset":"","Domainname":"","Entrypoint":["sh"],"Env":["PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin","INITRD=No","FAKE_CHROOT=1","HOME=/root","LC_ALL=C.UTF-8","DEBIAN_FRONTEND=noninteractive"],"ExposedPorts":{"2181/tcp":{},"2888/tcp":{},"3888/tcp":{},"4888/tcp":{}},"Hostname":"9818fcbe520e","Image":"0002f07b8f22f8ffc35cca47723596409e779a99571d33885d17e3f1f4ce4970","Memory":0,"MemorySwap":0,"NetworkDisabled":false,"OnBuild":[],"OpenStdin":false,"PortSpecs":null,"StdinOnce":false,"Tty":false,"User":"","Volumes":{"/opt/zookeeper/conf":{},"/var/lib/zookeeper":{},"/var/log/zookeeper":{}},"WorkingDir":"/opt/zookeeper"},"Created":"2014-10-08T15:23:04.587436248Z","DockerVersion":"1.1.2-dev","Id":"5f2b1e26aa06514f339fe00d0ef6696a4f710fde92a887f4079bc3fdae90c87a","Os":"linux","Parent":"0002f07b8f22f8ffc35cca47723596409e779a99571d33885d17e3f1f4ce4970","Size":149}
+    body: {string: '{"Architecture":"amd64","Author":"","Comment":"","Config":{"AttachStderr":false,"AttachStdin":false,"AttachStdout":false,"Cmd":["/root/run.sh"],"CpuShares":0,"Cpuset":"","Domainname":"","Entrypoint":["sh"],"Env":["PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin","INITRD=No","FAKE_CHROOT=1","HOME=/root","LC_ALL=C.UTF-8","DEBIAN_FRONTEND=noninteractive"],"ExposedPorts":{"2181/tcp":{},"2888/tcp":{},"3888/tcp":{},"4888/tcp":{}},"Hostname":"9818fcbe520e","Image":"c09cb7af4321b7ab2d4b8ffa6fd040c027e9319c3b39237e4b01f6a8abf800e2","Memory":0,"MemorySwap":0,"NetworkDisabled":false,"OnBuild":[],"OpenStdin":false,"PortSpecs":null,"StdinOnce":false,"Tty":false,"User":"","Volumes":{"/opt/zookeeper/conf":{},"/var/lib/zookeeper":{},"/var/log/zookeeper":{}},"WorkingDir":"/opt/zookeeper"},"Container":"7e8d41fcf2e301f7cfe2398eb0aa6e3ce343983ec866a7206f9c36f05db96a5c","ContainerConfig":{"AttachStderr":false,"AttachStdin":false,"AttachStdout":false,"Cmd":["/bin/sh","-c","#(nop)
+        ADD  in /root/run.sh"],"CpuShares":0,"Cpuset":"","Domainname":"","Entrypoint":["sh"],"Env":["PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin","INITRD=No","FAKE_CHROOT=1","HOME=/root","LC_ALL=C.UTF-8","DEBIAN_FRONTEND=noninteractive"],"ExposedPorts":{"2181/tcp":{},"2888/tcp":{},"3888/tcp":{},"4888/tcp":{}},"Hostname":"9818fcbe520e","Image":"c09cb7af4321b7ab2d4b8ffa6fd040c027e9319c3b39237e4b01f6a8abf800e2","Memory":0,"MemorySwap":0,"NetworkDisabled":false,"OnBuild":[],"OpenStdin":false,"PortSpecs":null,"StdinOnce":false,"Tty":false,"User":"","Volumes":{"/opt/zookeeper/conf":{},"/var/lib/zookeeper":{},"/var/log/zookeeper":{}},"WorkingDir":"/opt/zookeeper"},"Created":"2014-10-15T23:47:44.502830559Z","DockerVersion":"1.1.2-dev","Id":"06f1a7980b50e73906e3e7072d083173aec0250787235a3dc8b0b5d9eadd55a0","Os":"linux","Parent":"c09cb7af4321b7ab2d4b8ffa6fd040c027e9319c3b39237e4b01f6a8abf800e2","Size":149}
 
 '}
     headers:
       Content-Length: ['1915']
       Content-Type: [application/json]
-      Date: ['Thu, 09 Oct 2014 12:01:31 GMT']
+      Date: ['Thu, 16 Oct 2014 17:11:36 GMT']
     status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      User-Agent: [python-requests/2.4.3 CPython/3.4.2 Linux/3.15.7-1-aufs_friendly]
+    method: GET
+    uri: http://localhost:4243/v1.12/containers/json?size=0&trunc_cmd=1&all=1&limit=-1
+  response:
+    body: {string: '[{"Command":"sh /root/run.sh","Created":1413479495,"Id":"590adc1a4d447903a4169be92426b7b2e560dd9c70f5e0a6f215306eb9af8e81","Image":"registry.ape.yandex.net/nikicat/zookeeper:UvqVw5b02gBthEeGlWoGO0vVTbAPIuPaLGuh415+ObM=","Names":["/unnamed.zookeeper"],"Ports":[{"IP":"::","PrivatePort":2181,"PublicPort":51091,"Type":"tcp"},{"IP":"::","PrivatePort":2888,"PublicPort":51088,"Type":"tcp"},{"IP":"::","PrivatePort":3888,"PublicPort":51090,"Type":"tcp"},{"IP":"::","PrivatePort":51089,"PublicPort":51089,"Type":"tcp"},{"PrivatePort":4888,"Type":"tcp"}],"Status":"Up
+        Less than a second"}
+
+        ,{"Command":"nginx","Created":1413479494,"Id":"db6190ec8d4a28267acda04c749aba527755e5bcba0a2c610e4eb85f21af2e12","Image":"registry.ape.yandex.net/nikicat/nginx:q7258sN9t-GyvNfxnaRapKE9MOdprkU-0LGYLN0UjUU=","Names":["/unnamed.nginx"],"Ports":[{"IP":"::","PrivatePort":443,"PublicPort":51092,"Type":"tcp"},{"IP":"::","PrivatePort":80,"PublicPort":51093,"Type":"tcp"},{"IP":"::","PrivatePort":9200,"PublicPort":51095,"Type":"tcp"},{"IP":"::","PrivatePort":9443,"PublicPort":51094,"Type":"tcp"}],"Status":"Up
+        1 seconds"}
+
+        ,{"Command":"nginx","Created":1413479493,"Id":"a69ee056b0e98059821a8a91615d73ef51072e1ffb451e3e1afe6e9c5b3bbf02","Image":"registry.ape.yandex.net/nikicat/kibana:mKMYDAQuLraPCs35QSqWomHhhmyTksVGCCAnWeUjeDg=","Names":["/unnamed.kibana"],"Ports":[{"IP":"::","PrivatePort":81,"PublicPort":51096,"Type":"tcp"},{"PrivatePort":80,"Type":"tcp"}],"Status":"Up
+        2 seconds"}
+
+        ,{"Command":"/scripts/elasticsearch.sh","Created":1413479492,"Id":"d0076b40becc321b047d9600972fa5d4ed2816c3b43e0210acdd10a7cdfb3b49","Image":"registry.ape.yandex.net/nikicat/elasticsearch:S9I6AQSQPSGz0BYgZdBRKo6mHdYdGBJFcraMMIp7AMs=","Names":["/unnamed.elasticsearch"],"Ports":[{"IP":"::","PrivatePort":9201,"PublicPort":51099,"Type":"tcp"},{"IP":"::","PrivatePort":9301,"PublicPort":51097,"Type":"tcp"},{"IP":"::","PrivatePort":9401,"PublicPort":51098,"Type":"tcp"}],"Status":"Up
+        3 seconds"}
+
+        ,{"Command":"bash","Created":1413379827,"Id":"030cac116ba84181628dca2357b79e21086ad6eac8e007c886f90c19b892b6e1","Image":"nbryskin/trusty:latest","Names":["/happy_torvalds"],"Ports":[],"Status":"Up
+        27 hours"}
+
+        ]'}
+    headers:
+      Content-Type: [application/json]
+      Date: ['Thu, 16 Oct 2014 17:11:36 GMT']
+      Transfer-Encoding: [chunked]
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      Content-Length: ['0']
+      User-Agent: [python-requests/2.4.3 CPython/3.4.2 Linux/3.15.7-1-aufs_friendly]
+    method: POST
+    uri: http://localhost:4243/v1.12/containers/d0076b40becc321b047d9600972fa5d4ed2816c3b43e0210acdd10a7cdfb3b49/stop?t=2
+  response:
+    body: {string: ''}
+    headers:
+      Date: ['Thu, 16 Oct 2014 17:11:37 GMT']
+    status: {code: 204, message: No Content}
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      User-Agent: [python-requests/2.4.3 CPython/3.4.2 Linux/3.15.7-1-aufs_friendly]
+    method: GET
+    uri: http://localhost:4243/v1.12/containers/json?size=0&trunc_cmd=1&all=1&limit=-1
+  response:
+    body: {string: '[{"Command":"sh /root/run.sh","Created":1413479495,"Id":"590adc1a4d447903a4169be92426b7b2e560dd9c70f5e0a6f215306eb9af8e81","Image":"registry.ape.yandex.net/nikicat/zookeeper:UvqVw5b02gBthEeGlWoGO0vVTbAPIuPaLGuh415+ObM=","Names":["/unnamed.zookeeper"],"Ports":[{"IP":"::","PrivatePort":2888,"PublicPort":51088,"Type":"tcp"},{"IP":"::","PrivatePort":3888,"PublicPort":51090,"Type":"tcp"},{"IP":"::","PrivatePort":51089,"PublicPort":51089,"Type":"tcp"},{"PrivatePort":4888,"Type":"tcp"},{"IP":"::","PrivatePort":2181,"PublicPort":51091,"Type":"tcp"}],"Status":"Up
+        1 seconds"}
+
+        ,{"Command":"nginx","Created":1413479494,"Id":"db6190ec8d4a28267acda04c749aba527755e5bcba0a2c610e4eb85f21af2e12","Image":"registry.ape.yandex.net/nikicat/nginx:q7258sN9t-GyvNfxnaRapKE9MOdprkU-0LGYLN0UjUU=","Names":["/unnamed.nginx"],"Ports":[{"IP":"::","PrivatePort":9200,"PublicPort":51095,"Type":"tcp"},{"IP":"::","PrivatePort":9443,"PublicPort":51094,"Type":"tcp"},{"IP":"::","PrivatePort":443,"PublicPort":51092,"Type":"tcp"},{"IP":"::","PrivatePort":80,"PublicPort":51093,"Type":"tcp"}],"Status":"Up
+        2 seconds"}
+
+        ,{"Command":"nginx","Created":1413479493,"Id":"a69ee056b0e98059821a8a91615d73ef51072e1ffb451e3e1afe6e9c5b3bbf02","Image":"registry.ape.yandex.net/nikicat/kibana:mKMYDAQuLraPCs35QSqWomHhhmyTksVGCCAnWeUjeDg=","Names":["/unnamed.kibana"],"Ports":[{"IP":"::","PrivatePort":81,"PublicPort":51096,"Type":"tcp"},{"PrivatePort":80,"Type":"tcp"}],"Status":"Up
+        3 seconds"}
+
+        ,{"Command":"/scripts/elasticsearch.sh","Created":1413479492,"Id":"d0076b40becc321b047d9600972fa5d4ed2816c3b43e0210acdd10a7cdfb3b49","Image":"registry.ape.yandex.net/nikicat/elasticsearch:S9I6AQSQPSGz0BYgZdBRKo6mHdYdGBJFcraMMIp7AMs=","Names":["/unnamed.elasticsearch"],"Ports":[{"IP":"::","PrivatePort":9201,"PublicPort":51099,"Type":"tcp"},{"IP":"::","PrivatePort":9301,"PublicPort":51097,"Type":"tcp"},{"IP":"::","PrivatePort":9401,"PublicPort":51098,"Type":"tcp"}],"Status":"Exited
+        (137) Less than a second ago"}
+
+        ,{"Command":"bash","Created":1413379827,"Id":"030cac116ba84181628dca2357b79e21086ad6eac8e007c886f90c19b892b6e1","Image":"nbryskin/trusty:latest","Names":["/happy_torvalds"],"Ports":[],"Status":"Up
+        27 hours"}
+
+        ]'}
+    headers:
+      Content-Type: [application/json]
+      Date: ['Thu, 16 Oct 2014 17:11:37 GMT']
+      Transfer-Encoding: [chunked]
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      Content-Length: ['0']
+      User-Agent: [python-requests/2.4.3 CPython/3.4.2 Linux/3.15.7-1-aufs_friendly]
+    method: POST
+    uri: http://localhost:4243/v1.12/containers/a69ee056b0e98059821a8a91615d73ef51072e1ffb451e3e1afe6e9c5b3bbf02/stop?t=2
+  response:
+    body: {string: ''}
+    headers:
+      Date: ['Thu, 16 Oct 2014 17:11:37 GMT']
+    status: {code: 204, message: No Content}
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      User-Agent: [python-requests/2.4.3 CPython/3.4.2 Linux/3.15.7-1-aufs_friendly]
+    method: GET
+    uri: http://localhost:4243/v1.12/containers/json?size=0&trunc_cmd=1&all=1&limit=-1
+  response:
+    body: {string: '[{"Command":"sh /root/run.sh","Created":1413479495,"Id":"590adc1a4d447903a4169be92426b7b2e560dd9c70f5e0a6f215306eb9af8e81","Image":"registry.ape.yandex.net/nikicat/zookeeper:UvqVw5b02gBthEeGlWoGO0vVTbAPIuPaLGuh415+ObM=","Names":["/unnamed.zookeeper"],"Ports":[{"PrivatePort":4888,"Type":"tcp"},{"IP":"::","PrivatePort":2181,"PublicPort":51091,"Type":"tcp"},{"IP":"::","PrivatePort":2888,"PublicPort":51088,"Type":"tcp"},{"IP":"::","PrivatePort":3888,"PublicPort":51090,"Type":"tcp"},{"IP":"::","PrivatePort":51089,"PublicPort":51089,"Type":"tcp"}],"Status":"Up
+        1 seconds"}
+
+        ,{"Command":"nginx","Created":1413479494,"Id":"db6190ec8d4a28267acda04c749aba527755e5bcba0a2c610e4eb85f21af2e12","Image":"registry.ape.yandex.net/nikicat/nginx:q7258sN9t-GyvNfxnaRapKE9MOdprkU-0LGYLN0UjUU=","Names":["/unnamed.nginx"],"Ports":[{"IP":"::","PrivatePort":443,"PublicPort":51092,"Type":"tcp"},{"IP":"::","PrivatePort":80,"PublicPort":51093,"Type":"tcp"},{"IP":"::","PrivatePort":9200,"PublicPort":51095,"Type":"tcp"},{"IP":"::","PrivatePort":9443,"PublicPort":51094,"Type":"tcp"}],"Status":"Up
+        2 seconds"}
+
+        ,{"Command":"nginx","Created":1413479493,"Id":"a69ee056b0e98059821a8a91615d73ef51072e1ffb451e3e1afe6e9c5b3bbf02","Image":"registry.ape.yandex.net/nikicat/kibana:mKMYDAQuLraPCs35QSqWomHhhmyTksVGCCAnWeUjeDg=","Names":["/unnamed.kibana"],"Ports":[{"IP":"::","PrivatePort":81,"PublicPort":51096,"Type":"tcp"},{"PrivatePort":80,"Type":"tcp"}],"Status":"Exited
+        (0) Less than a second ago"}
+
+        ,{"Command":"/scripts/elasticsearch.sh","Created":1413479492,"Id":"d0076b40becc321b047d9600972fa5d4ed2816c3b43e0210acdd10a7cdfb3b49","Image":"registry.ape.yandex.net/nikicat/elasticsearch:S9I6AQSQPSGz0BYgZdBRKo6mHdYdGBJFcraMMIp7AMs=","Names":["/unnamed.elasticsearch"],"Ports":[],"Status":"Exited
+        (137) Less than a second ago"}
+
+        ,{"Command":"bash","Created":1413379827,"Id":"030cac116ba84181628dca2357b79e21086ad6eac8e007c886f90c19b892b6e1","Image":"nbryskin/trusty:latest","Names":["/happy_torvalds"],"Ports":[],"Status":"Up
+        27 hours"}
+
+        ]'}
+    headers:
+      Content-Length: ['2011']
+      Content-Type: [application/json]
+      Date: ['Thu, 16 Oct 2014 17:11:37 GMT']
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      Content-Length: ['0']
+      User-Agent: [python-requests/2.4.3 CPython/3.4.2 Linux/3.15.7-1-aufs_friendly]
+    method: POST
+    uri: http://localhost:4243/v1.12/containers/db6190ec8d4a28267acda04c749aba527755e5bcba0a2c610e4eb85f21af2e12/stop?t=2
+  response:
+    body: {string: ''}
+    headers:
+      Date: ['Thu, 16 Oct 2014 17:11:37 GMT']
+    status: {code: 204, message: No Content}
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      User-Agent: [python-requests/2.4.3 CPython/3.4.2 Linux/3.15.7-1-aufs_friendly]
+    method: GET
+    uri: http://localhost:4243/v1.12/containers/json?size=0&trunc_cmd=1&all=1&limit=-1
+  response:
+    body: {string: '[{"Command":"sh /root/run.sh","Created":1413479495,"Id":"590adc1a4d447903a4169be92426b7b2e560dd9c70f5e0a6f215306eb9af8e81","Image":"registry.ape.yandex.net/nikicat/zookeeper:UvqVw5b02gBthEeGlWoGO0vVTbAPIuPaLGuh415+ObM=","Names":["/unnamed.zookeeper"],"Ports":[{"IP":"::","PrivatePort":2181,"PublicPort":51091,"Type":"tcp"},{"IP":"::","PrivatePort":2888,"PublicPort":51088,"Type":"tcp"},{"IP":"::","PrivatePort":3888,"PublicPort":51090,"Type":"tcp"},{"IP":"::","PrivatePort":51089,"PublicPort":51089,"Type":"tcp"},{"PrivatePort":4888,"Type":"tcp"}],"Status":"Up
+        1 seconds"}
+
+        ,{"Command":"nginx","Created":1413479494,"Id":"db6190ec8d4a28267acda04c749aba527755e5bcba0a2c610e4eb85f21af2e12","Image":"registry.ape.yandex.net/nikicat/nginx:q7258sN9t-GyvNfxnaRapKE9MOdprkU-0LGYLN0UjUU=","Names":["/unnamed.nginx"],"Ports":[{"IP":"::","PrivatePort":443,"PublicPort":51092,"Type":"tcp"},{"IP":"::","PrivatePort":80,"PublicPort":51093,"Type":"tcp"},{"IP":"::","PrivatePort":9200,"PublicPort":51095,"Type":"tcp"},{"IP":"::","PrivatePort":9443,"PublicPort":51094,"Type":"tcp"}],"Status":"Exited
+        (0) Less than a second ago"}
+
+        ,{"Command":"nginx","Created":1413479493,"Id":"a69ee056b0e98059821a8a91615d73ef51072e1ffb451e3e1afe6e9c5b3bbf02","Image":"registry.ape.yandex.net/nikicat/kibana:mKMYDAQuLraPCs35QSqWomHhhmyTksVGCCAnWeUjeDg=","Names":["/unnamed.kibana"],"Ports":[],"Status":"Exited
+        (0) Less than a second ago"}
+
+        ,{"Command":"/scripts/elasticsearch.sh","Created":1413479492,"Id":"d0076b40becc321b047d9600972fa5d4ed2816c3b43e0210acdd10a7cdfb3b49","Image":"registry.ape.yandex.net/nikicat/elasticsearch:S9I6AQSQPSGz0BYgZdBRKo6mHdYdGBJFcraMMIp7AMs=","Names":["/unnamed.elasticsearch"],"Ports":[],"Status":"Exited
+        (137) Less than a second ago"}
+
+        ,{"Command":"bash","Created":1413379827,"Id":"030cac116ba84181628dca2357b79e21086ad6eac8e007c886f90c19b892b6e1","Image":"nbryskin/trusty:latest","Names":["/happy_torvalds"],"Ports":[],"Status":"Up
+        27 hours"}
+
+        ]'}
+    headers:
+      Content-Length: ['1940']
+      Content-Type: [application/json]
+      Date: ['Thu, 16 Oct 2014 17:11:37 GMT']
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      Content-Length: ['0']
+      User-Agent: [python-requests/2.4.3 CPython/3.4.2 Linux/3.15.7-1-aufs_friendly]
+    method: POST
+    uri: http://localhost:4243/v1.12/containers/590adc1a4d447903a4169be92426b7b2e560dd9c70f5e0a6f215306eb9af8e81/stop?t=2
+  response:
+    body: {string: ''}
+    headers:
+      Date: ['Thu, 16 Oct 2014 17:11:40 GMT']
+    status: {code: 204, message: No Content}
 version: 1

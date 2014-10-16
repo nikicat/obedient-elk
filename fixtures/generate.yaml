@@ -5,7 +5,7 @@ interactions:
       Accept: ['*/*']
       Accept-Encoding: ['gzip, deflate']
       Connection: [keep-alive]
-      User-Agent: [python-requests/2.4.3 CPython/3.4.1 Linux/3.15.7-1-aufs_friendly]
+      User-Agent: [python-requests/2.4.3 CPython/3.4.2 Linux/3.15.7-1-aufs_friendly]
     method: GET
     uri: http://localhost:4243/v1.12/images/json?filter=registry.ape.yandex.net%2Fyandex%2Ftrusty&only_ids=0&all=1
   response:
@@ -15,7 +15,7 @@ interactions:
     headers:
       Content-Length: ['268']
       Content-Type: [application/json]
-      Date: ['Thu, 09 Oct 2014 12:01:25 GMT']
+      Date: ['Thu, 16 Oct 2014 17:02:43 GMT']
     status: {code: 200, message: OK}
 - request:
     body: null
@@ -23,7 +23,7 @@ interactions:
       Accept: ['*/*']
       Accept-Encoding: ['gzip, deflate']
       Connection: [keep-alive]
-      User-Agent: [python-requests/2.4.3 CPython/3.4.1 Linux/3.15.7-1-aufs_friendly]
+      User-Agent: [python-requests/2.4.3 CPython/3.4.2 Linux/3.15.7-1-aufs_friendly]
     method: GET
     uri: http://localhost:4243/v1.12/images/json?filter=registry.ape.yandex.net%2Fyandex%2Ftrusty&only_ids=0&all=1
   response:
@@ -33,7 +33,7 @@ interactions:
     headers:
       Content-Length: ['268']
       Content-Type: [application/json]
-      Date: ['Thu, 09 Oct 2014 12:01:26 GMT']
+      Date: ['Thu, 16 Oct 2014 17:02:43 GMT']
     status: {code: 200, message: OK}
 - request:
     body: null
@@ -41,7 +41,7 @@ interactions:
       Accept: ['*/*']
       Accept-Encoding: ['gzip, deflate']
       Connection: [keep-alive]
-      User-Agent: [python-requests/2.4.3 CPython/3.4.1 Linux/3.15.7-1-aufs_friendly]
+      User-Agent: [python-requests/2.4.3 CPython/3.4.2 Linux/3.15.7-1-aufs_friendly]
     method: GET
     uri: http://localhost:4243/v1.12/images/json?filter=registry.ape.yandex.net%2Fyandex%2Ftrusty&only_ids=0&all=1
   response:
@@ -51,7 +51,7 @@ interactions:
     headers:
       Content-Length: ['268']
       Content-Type: [application/json]
-      Date: ['Thu, 09 Oct 2014 12:01:26 GMT']
+      Date: ['Thu, 16 Oct 2014 17:02:44 GMT']
     status: {code: 200, message: OK}
 - request:
     body: null
@@ -59,7 +59,7 @@ interactions:
       Accept: ['*/*']
       Accept-Encoding: ['gzip, deflate']
       Connection: [keep-alive]
-      User-Agent: [python-requests/2.4.3 CPython/3.4.1 Linux/3.15.7-1-aufs_friendly]
+      User-Agent: [python-requests/2.4.3 CPython/3.4.2 Linux/3.15.7-1-aufs_friendly]
     method: GET
     uri: http://localhost:4243/v1.12/images/json?filter=registry.ape.yandex.net%2Fyandex%2Ftrusty&only_ids=0&all=1
   response:
@@ -69,6 +69,6 @@ interactions:
     headers:
       Content-Length: ['268']
       Content-Type: [application/json]
-      Date: ['Thu, 09 Oct 2014 12:01:26 GMT']
+      Date: ['Thu, 16 Oct 2014 17:02:44 GMT']
     status: {code: 200, message: OK}
 version: 1

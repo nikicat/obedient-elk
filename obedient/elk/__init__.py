@@ -3,8 +3,8 @@ import copy
 import os.path
 
 from dominator.entities import (Image, SourceImage, ConfigVolume, DataVolume, LogVolume, LogFile, Task,
-                                Container, YamlFile, TemplateFile, TextFile, RotatedLogFile, Shipment, Door, Url)
-from dominator.utils import cached, groupbysorted, resource_string
+                                Container, YamlFile, TemplateFile, TextFile, RotatedLogFile, Door, Url)
+from dominator.utils import cached, groupbysorted, resource_stream, resource_string
 from obedient.zookeeper import create_zookeeper, clusterize_zookeepers
 
 
@@ -43,13 +43,12 @@ def get_elasticsearch_image():
             'data': '/var/lib/elasticsearch',
             'config': '/etc/elasticsearch'
         },
-        files={'/scripts/elasticsearch.sh': resource_string('elasticsearch.sh')},
+        files={'/scripts/elasticsearch.sh': resource_stream('elasticsearch.sh')},
         command=['/scripts/elasticsearch.sh'],
-        entrypoint=['bash'],
     )
 
 
-def create_elasticsearch(clustername, ship):
+def create_elasticsearch(clustername):
     image = get_elasticsearch_image()
     data = DataVolume(image.volumes['data'])
     logs = LogVolume(
@@ -88,11 +87,9 @@ def create_elasticsearch(clustername, ship):
             'jmx': Door(schema='rmi', port=image.ports['jmx']),
         },
         env={
-            'ES_HEAP_SIZE': ship.memory // 2,
             'ES_JAVA_OPTS': '-XX:NewRatio=5',
             'ES_CLASSPATH': config.files['logging.yml'].fulldest,
         },
-        memory=ship.memory * 3 // 4,
     )
 
     def create_elasticsearch_config(container=container):
@@ -172,7 +169,10 @@ def create_elasticsearch(clustername, ship):
         }
 
         jvmflags = arguments + ['{}={}'.format(key, value) for key, value in options.items()]
-        return TextFile('export JAVA_OPTS="{}"'.format(' '.join(sorted(jvmflags))))
+        text = 'export JAVA_OPTS="{}"'.format(' '.join(sorted(jvmflags)))
+        if container.memory > 0:
+            text += '\nexport ES_HEAP_SIZE={}'.format(container.memory // 2)
+        return TextFile(text)
 
     config.files['elasticsearch.yml'] = create_elasticsearch_config
     config.files['env.sh'] = create_env
@@ -192,7 +192,7 @@ def get_kibana_image():
         name='kibana',
         parent=parent,
         scripts=[
-            'curl -s https://download.elasticsearch.org/kibana/kibana/kibana-3.1.0.tar.gz | tar -zxf -',
+            'curl -s https://download.elasticsearch.org/kibana/kibana/kibana-3.1.1.tar.gz | tar -zxf -',
             'mkdir /var/www',
             'mv kibana-* /var/www/kibana',
             'ln -fs config/config.js /var/www/kibana/config.js',
@@ -253,7 +253,7 @@ def get_nginx_image():
             'bash gencert.sh localhost || true',
             'cat localhost.crt localhost.key > /etc/ssl/private/server.pem',
         ],
-        files={'/etc/nginx/nginx.conf': resource_string('nginx.conf')},
+        files={'/etc/nginx/nginx.conf': resource_stream('nginx.conf')},
         ports={'http': 80},
         volumes={
             'logs': '/var/log/nginx',
@@ -306,32 +306,7 @@ def create_nginx_front(elasticsearch, kibana):
     )
 
 
-def create_elk(clustername, ships):
-    zookeepers = []
-    for ship in filter_zookeeper_ships(ships):
-        zookeeper = create_zookeeper()
-        ship.place(zookeeper)
-        zookeepers.append(zookeeper)
-
-    clusterize_zookeepers(zookeepers)
-
-    elasticsearches = []
-    for ship in ships:
-        elasticsearch = create_elasticsearch(clustername=clustername, ship=ship)
-        elasticsearches.append(elasticsearch)
-        kibana = create_kibana()
-        nginx = create_nginx_front(elasticsearch, kibana)
-
-        elasticsearch.links['zookeeper'] = [z.doors['client'] for z in zookeepers]
-        kibana.links['elasticsearch.http'] = nginx.doors['elasticsearch.http'].urls['default']
-        kibana.links['elasticsearch.https'] = nginx.doors['elasticsearch.https'].urls['default']
-
-        ship.place(elasticsearch)
-        ship.place(kibana)
-        ship.place(nginx)
-
-    clusterize_elasticsearches(elasticsearches)
-
+def create_dump_task(elasticsearch):
     dump = Task(
         name='dump',
         image=SourceImage(
@@ -360,27 +335,45 @@ def create_elk(clustername, ships):
             'config': ConfigVolume(
                 dest='/scripts/config',
                 files={
-                    'dump.env': TextFile(text='URL={}'.format(elasticsearches[0].doors['http'].urls['default'])),
+                    'dump.env': TextFile(text='URL={}'.format(elasticsearch.doors['http'].urls['default'])),
                 },
             ),
         },
     )
-
-    def get_containers():
-        for ship in ships:
-            yield from ship.containers.values()
-    containers = list(get_containers())
-    return containers, [dump]
+    return dump
 
 
-def create(ships, clustername, port_offset=50000):
-    allcontainers = []
-    alltasks = []
-    for ship in ships:
-        containers, tasks = create_elk(ships=[ship], clustername=clustername)
-        ports = range(port_offset, port_offset+1000)
-        ship.expose_all(ports)
+def create_elk(shipment, clustername):
+    assert len(shipment.ships) > 0, "There should be at least one ship"
+    zookeepers = []
+    for ship in filter_zookeeper_ships([ship for name, ship in sorted(shipment.ships.items())]):
+        zookeeper = create_zookeeper()
+        ship.place(zookeeper)
+        zookeepers.append(zookeeper)
+    clusterize_zookeepers(zookeepers)
 
-        allcontainers.extend(containers)
-        alltasks.extend(tasks)
-    return Shipment(name='', containers=allcontainers, tasks=alltasks)
+    elasticsearches = []
+    for ship in shipment.ships.values():
+        elasticsearch = create_elasticsearch(clustername=clustername)
+        elasticsearches.append(elasticsearch)
+        kibana = create_kibana()
+        nginx = create_nginx_front(elasticsearch, kibana)
+
+        elasticsearch.links['zookeeper'] = [z.doors['client'] for z in zookeepers]
+        kibana.links['elasticsearch.http'] = nginx.doors['elasticsearch.http']
+        kibana.links['elasticsearch.https'] = nginx.doors['elasticsearch.https']
+
+        ship.place(elasticsearch)
+        ship.place(kibana)
+        ship.place(nginx)
+    clusterize_elasticsearches(elasticsearches)
+
+    shipment.tasks['dump'] = create_dump_task(elasticsearches[0])
+
+
+def test(shipment):
+    shipment.unload_ships()
+    create_elk(shipment, 'testcluster')
+    for container in shipment.containers:
+        container.memory = min(container.ship.memory, 128*1024*1024)
+    shipment.expose_ports(range(51000, 51100))
