@@ -24,7 +24,7 @@ if __name__ == '__main__':
             'create = obedient.elk:create_elk',
         ]},
         install_requires=[
-            'dominator[full] >=12a',
-            'obedient.zookeeper >=2',
+            'dominator[full] >=12.1a',
+            'obedient.zookeeper >=3',
         ],
     )
