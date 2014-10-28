@@ -4,7 +4,7 @@ import os.path
 
 from dominator.entities import (Image, SourceImage, ConfigVolume, DataVolume, LogVolume, LogFile, Task,
                                 Container, YamlFile, TemplateFile, TextFile, RotatedLogFile, Door, Url)
-from dominator.utils import cached, resource_stream, resource_string, aslist
+from dominator.utils import cached, resource_stream, resource_string
 from obedient.zookeeper import build_zookeeper_cluster, filter_quorum_ships
 
 
@@ -344,18 +344,16 @@ def create_dump_task(elasticsearch):
     return dump
 
 
-@aslist
 def build_elasticsearch_cluster(ships, clustername):
     elasticsearches = []
     for ship in ships:
         elasticsearch = create_elasticsearch(clustername=clustername)
         elasticsearches.append(elasticsearch)
-        ship.place(elasticsearch)
         yield elasticsearch
+        ship.place(elasticsearch)
     clusterize_elasticsearches(elasticsearches)
 
 
-@aslist
 def attach_kibana_to_elasticsearch(elasticsearches):
     for elasticsearch in elasticsearches:
         kibana = create_kibana()
@@ -364,10 +362,10 @@ def attach_kibana_to_elasticsearch(elasticsearches):
         for doorname in ['elasticsearch.http', 'elasticsearch.https']:
             kibana.links[doorname] = nginx.doors[doorname]
 
+        yield nginx, kibana
+
         elasticsearch.ship.place(kibana)
         elasticsearch.ship.place(nginx)
-
-        yield nginx
 
 
 def attach_zookeeper_to_elasticsearch(elasticsearches, zookeepers):
@@ -380,9 +378,9 @@ def test(shipment):
     shipment.unload_ships()
     ships = shipment.ships.values()
     zookeepers = build_zookeeper_cluster(filter_quorum_ships(ships))
-    elasticsearches = build_elasticsearch_cluster(ships, 'testcluster')
+    elasticsearches = list(build_elasticsearch_cluster(ships, 'testcluster'))
     attach_zookeeper_to_elasticsearch(elasticsearches, zookeepers)
-    attach_kibana_to_elasticsearch(elasticsearches)
+    list(attach_kibana_to_elasticsearch(elasticsearches))
 
     # Adjust memory to prevent OOM when running on the laptop
     for elasticsearch in elasticsearches:
