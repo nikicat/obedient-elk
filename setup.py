@@ -3,7 +3,7 @@ import setuptools
 if __name__ == '__main__':
     setuptools.setup(
         name='obedient.elk',
-        version='1.0.0',
+        version='1.1.0',
         url='https://github.com/yandex-sysmon/obedient.elk',
         license='LGPLv3',
         author='Nikolay Bryskin',
@@ -21,10 +21,10 @@ if __name__ == '__main__':
             'elasticsearch.sh',
         ]},
         entry_points={'obedient': [
-            'create = obedient.elk:create',
+            'create = obedient.elk:create_elk',
         ]},
         install_requires=[
-            'dominator[full] >=11.6',
-            'obedient.zookeeper >=2',
+            'dominator[full] >=12.1a',
+            'obedient.zookeeper >=3a',
         ],
     )

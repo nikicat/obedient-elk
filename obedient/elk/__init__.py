@@ -3,18 +3,9 @@ import copy
 import os.path
 
 from dominator.entities import (Image, SourceImage, ConfigVolume, DataVolume, LogVolume, LogFile, Task,
-                                Container, YamlFile, TemplateFile, TextFile, RotatedLogFile, Shipment, Door, Url)
-from dominator.utils import cached, groupbysorted, resource_string
-from obedient.zookeeper import create_zookeeper, clusterize_zookeepers
-
-
-def filter_zookeeper_ships(ships):
-    """Return odd number of ships, one(two) from each datacenter."""
-    zooships = [list(dcships)[0] for datacenter, dcships in groupbysorted(ships, lambda s: s.datacenter)]
-    if len(zooships) % 2 == 0:
-        # If we have even datacenter count, then add one more ship for quorum
-        zooships.append([ship for ship in ships if ship not in zooships][0])
-    return zooships
+                                Container, YamlFile, TemplateFile, TextFile, RotatedLogFile, Door, Url)
+from dominator.utils import cached, resource_stream, resource_string
+from obedient.zookeeper import build_zookeeper_cluster, filter_quorum_ships
 
 
 @cached
@@ -43,13 +34,12 @@ def get_elasticsearch_image():
             'data': '/var/lib/elasticsearch',
             'config': '/etc/elasticsearch'
         },
-        files={'/scripts/elasticsearch.sh': resource_string('elasticsearch.sh')},
+        files={'/scripts/elasticsearch.sh': resource_stream('elasticsearch.sh')},
         command=['/scripts/elasticsearch.sh'],
-        entrypoint=['bash'],
     )
 
 
-def create_elasticsearch(clustername, ship):
+def create_elasticsearch(clustername):
     image = get_elasticsearch_image()
     data = DataVolume(image.volumes['data'])
     logs = LogVolume(
@@ -88,11 +78,9 @@ def create_elasticsearch(clustername, ship):
             'jmx': Door(schema='rmi', port=image.ports['jmx']),
         },
         env={
-            'ES_HEAP_SIZE': ship.memory // 2,
             'ES_JAVA_OPTS': '-XX:NewRatio=5',
             'ES_CLASSPATH': config.files['logging.yml'].fulldest,
         },
-        memory=ship.memory * 3 // 4,
     )
 
     def create_elasticsearch_config(container=container):
@@ -113,15 +101,7 @@ def create_elasticsearch(clustername, ship):
             'transport.publish_port': container.doors['peer'].port,
             'http.port': container.doors['http'].internalport,
             'network.publish_host': container.ship.fqdn,
-            'discovery': {
-                'type': 'com.sonian.elasticsearch.zookeeper.discovery.ZooKeeperDiscoveryModule',
-            },
-            'sonian.elasticsearch.zookeeper': {
-                'settings.enabled': False,
-                'client.host': ','.join([link.hostport for link in container.links['zookeeper']]),
-                'discovery.state_publishing.enabled': True,
-            },
-            'zookeeper.root': '/{}/elasticsearch'.format(clustername),
+            'discovery': None,
             'cluster.routing.allocation': {
                 'awareness': {
                     'force.datacenter.values': sorted({ship.datacenter for ship in ships}),
@@ -147,6 +127,23 @@ def create_elasticsearch(clustername, ship):
             },
             'marvel.agent': marvel_agent,
         }
+        if 'zookeeper' in container.links:
+            config['discovery'] = {'type': 'com.sonian.elasticsearch.zookeeper.discovery.ZooKeeperDiscoveryModule'}
+            config['sonian.elasticsearch.zookeeper'] = {
+                'settings.enabled': False,
+                'client.host': ','.join([link.hostport for link in container.links['zookeeper']]),
+                'discovery.state_publishing.enabled': True,
+            }
+            config['zookeeper.root'] = '/{}/elasticsearch'.format(clustername)
+        else:
+            config['discovery.zen'] = {
+                'ping': {
+                    'multicast.enabled': False,
+                    'unicast.hosts': [door.hostport for door in container.links['elasticsearch']],
+                },
+                'minimum_master_nodes': (len(container.links['elasticsearch']) + 1) // 2 + 1,
+            }
+
         return YamlFile(config)
 
     def create_env(container=container):
@@ -172,7 +169,10 @@ def create_elasticsearch(clustername, ship):
         }
 
         jvmflags = arguments + ['{}={}'.format(key, value) for key, value in options.items()]
-        return TextFile('export JAVA_OPTS="{}"'.format(' '.join(sorted(jvmflags))))
+        text = 'export JAVA_OPTS="{}"'.format(' '.join(sorted(jvmflags)))
+        if container.memory > 0:
+            text += '\nexport ES_HEAP_SIZE={}'.format(container.memory // 2)
+        return TextFile(text)
 
     config.files['elasticsearch.yml'] = create_elasticsearch_config
     config.files['env.sh'] = create_env
@@ -180,6 +180,7 @@ def create_elasticsearch(clustername, ship):
 
 
 def clusterize_elasticsearches(elasticsearches):
+    """Link each container with all other containers."""
     for me in elasticsearches:
         me.links['elasticsearch'] = [sibling.doors['peer'] for sibling in elasticsearches if sibling != me]
 
@@ -192,7 +193,7 @@ def get_kibana_image():
         name='kibana',
         parent=parent,
         scripts=[
-            'curl -s https://download.elasticsearch.org/kibana/kibana/kibana-3.1.0.tar.gz | tar -zxf -',
+            'curl -s https://download.elasticsearch.org/kibana/kibana/kibana-3.1.1.tar.gz | tar -zxf -',
             'mkdir /var/www',
             'mv kibana-* /var/www/kibana',
             'ln -fs config/config.js /var/www/kibana/config.js',
@@ -253,7 +254,7 @@ def get_nginx_image():
             'bash gencert.sh localhost || true',
             'cat localhost.crt localhost.key > /etc/ssl/private/server.pem',
         ],
-        files={'/etc/nginx/nginx.conf': resource_string('nginx.conf')},
+        files={'/etc/nginx/nginx.conf': resource_stream('nginx.conf')},
         ports={'http': 80},
         volumes={
             'logs': '/var/log/nginx',
@@ -306,32 +307,7 @@ def create_nginx_front(elasticsearch, kibana):
     )
 
 
-def create_elk(clustername, ships):
-    zookeepers = []
-    for ship in filter_zookeeper_ships(ships):
-        zookeeper = create_zookeeper()
-        ship.place(zookeeper)
-        zookeepers.append(zookeeper)
-
-    clusterize_zookeepers(zookeepers)
-
-    elasticsearches = []
-    for ship in ships:
-        elasticsearch = create_elasticsearch(clustername=clustername, ship=ship)
-        elasticsearches.append(elasticsearch)
-        kibana = create_kibana()
-        nginx = create_nginx_front(elasticsearch, kibana)
-
-        elasticsearch.links['zookeeper'] = [z.doors['client'] for z in zookeepers]
-        kibana.links['elasticsearch.http'] = nginx.doors['elasticsearch.http'].urls['default']
-        kibana.links['elasticsearch.https'] = nginx.doors['elasticsearch.https'].urls['default']
-
-        ship.place(elasticsearch)
-        ship.place(kibana)
-        ship.place(nginx)
-
-    clusterize_elasticsearches(elasticsearches)
-
+def create_dump_task(elasticsearch):
     dump = Task(
         name='dump',
         image=SourceImage(
@@ -360,27 +336,54 @@ def create_elk(clustername, ships):
             'config': ConfigVolume(
                 dest='/scripts/config',
                 files={
-                    'dump.env': TextFile(text='URL={}'.format(elasticsearches[0].doors['http'].urls['default'])),
+                    'dump.env': TextFile(text='URL={}'.format(elasticsearch.doors['http'].urls['default'])),
                 },
             ),
         },
     )
-
-    def get_containers():
-        for ship in ships:
-            yield from ship.containers.values()
-    containers = list(get_containers())
-    return containers, [dump]
+    return dump
 
 
-def create(ships, clustername, port_offset=50000):
-    allcontainers = []
-    alltasks = []
+def build_elasticsearch_cluster(ships, clustername):
+    elasticsearches = []
     for ship in ships:
-        containers, tasks = create_elk(ships=[ship], clustername=clustername)
-        ports = range(port_offset, port_offset+1000)
-        ship.expose_all(ports)
+        elasticsearch = create_elasticsearch(clustername=clustername)
+        elasticsearches.append(elasticsearch)
+        yield elasticsearch
+        ship.place(elasticsearch)
+    clusterize_elasticsearches(elasticsearches)
 
-        allcontainers.extend(containers)
-        alltasks.extend(tasks)
-    return Shipment(name='', containers=allcontainers, tasks=alltasks)
+
+def attach_kibana_to_elasticsearch(elasticsearches):
+    for elasticsearch in elasticsearches:
+        kibana = create_kibana()
+        nginx = create_nginx_front(elasticsearch, kibana)
+
+        for doorname in ['elasticsearch.http', 'elasticsearch.https']:
+            kibana.links[doorname] = nginx.doors[doorname]
+
+        yield nginx, kibana
+
+        elasticsearch.ship.place(kibana)
+        elasticsearch.ship.place(nginx)
+
+
+def attach_zookeeper_to_elasticsearch(elasticsearches, zookeepers):
+    zkdoors = [zookeeper.doors['client'] for zookeeper in zookeepers]
+    for elasticsearch in elasticsearches:
+        elasticsearch.links['zookeeper'] = zkdoors
+
+
+def test(shipment):
+    shipment.unload_ships()
+    ships = shipment.ships.values()
+    zookeepers = build_zookeeper_cluster(filter_quorum_ships(ships))
+    elasticsearches = list(build_elasticsearch_cluster(ships, 'testcluster'))
+    attach_zookeeper_to_elasticsearch(elasticsearches, zookeepers)
+    list(attach_kibana_to_elasticsearch(elasticsearches))
+
+    # Adjust memory to prevent OOM when running on the laptop
+    for elasticsearch in elasticsearches:
+        elasticsearch.memory = min(elasticsearch.ship.memory, 128*1024*1024)
+
+    shipment.expose_ports(range(51000, 51100))
