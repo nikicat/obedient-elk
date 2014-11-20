@@ -1,0 +1,995 @@
+&id030 !!python/object:dominator.entities.Shipment
+dominator_version: 15.0.0
+name: unnamed
+ships: !!python/object:dominator.utils.BackrefDict
+  children:
+    local: &id010 !!python/object:dominator.entities.LocalShip
+      certificate: |
+        -----BEGIN CERTIFICATE-----
+        MIIBbzCB2QICA+gwDQYJKoZIhvcNAQEFBQAwADAeFw0xNDExMDcxNDQzMDdaFw0y
+        NDExMDQxNDQzMDdaMAAwgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBAMjxetrU
+        mMMfV5RBo5ArLVlhuNTTSyha6K4SrIVX3ijoUWz3UhAYctZ2h8kt3ZWWpUM+PnSA
+        eW8TNYln6okw/QaGo+/v7Pghtdi5jhEIdg1nJgV88EDqgTtVG7zzsYCT4NoMQxBC
+        d0rp5NHXZgRqeSgQng+fMhjBMMXuvc5TIP2dAgMBAAEwDQYJKoZIhvcNAQEFBQAD
+        gYEAinnyN6HxkthJwdSiRbPXDpj0bdZ+AmKhq0WWilxSWehXKVihUYMx6g45xkft
+        Uw/w4hF01ZRvwJeCSV8H6x9uJ/5UhmEB+aBQ5AGQKqqrwOebvdp8x2bhu0iFsb8P
+        7OmfjXBs41zzwOyndU0WvUVk7VVoz+l5WVTLoNs3B2yeVhY=
+        -----END CERTIFICATE-----
+        -----BEGIN PRIVATE KEY-----
+        MIICdwIBADANBgkqhkiG9w0BAQEFAASCAmEwggJdAgEAAoGBAMjxetrUmMMfV5RB
+        o5ArLVlhuNTTSyha6K4SrIVX3ijoUWz3UhAYctZ2h8kt3ZWWpUM+PnSAeW8TNYln
+        6okw/QaGo+/v7Pghtdi5jhEIdg1nJgV88EDqgTtVG7zzsYCT4NoMQxBCd0rp5NHX
+        ZgRqeSgQng+fMhjBMMXuvc5TIP2dAgMBAAECgYEAs+ggCpSVQP1qt/4cpxNBQulP
+        Rpz2iWb7M/7cH3aQHSgC3wB/pJF/H6x33hMGdMuvowizejMcheo44JD9V19Y6UxX
+        GxqhUGoGnZEMlmHhW83LlPuRmSWIhu9xXO7GX/a7pdG8e8WQADFS/6YMgDG7OJrH
+        VBRDlKHc5XZ882BDrjECQQDs2/xgNDzn8UPz1ffgfZyUTT5M3d+a0Ycd1/1dUJsf
+        r+34pw5Wx96Ql/ISXRHbgFk5ppFMGRaPu0qoQKBp0UgDAkEA2S57pIosmGDPp/RY
+        IPkzhO1k2cvjqY4/M6+L3BnxYtQKnHTE8+N5ZZ/wtfS6gthxM8aL1YQolK7ZNBWT
+        14PB3wJAb605TVLT9Lg4xdr4yIvxK6tP2IY0S5bHEjcoarr6qPIWTcrWY+xQ7/P0
+        Wtwu80OMzjXPBAZAMPypsrLl736RaQJAAQivngDqZW9QjcQkB0QocqGOsVq/IreC
+        pYRYbhvRgl7wDf6gUWjr0wgH5VXc7XKKV2zCjamrZ8nNTuorYgNGkQJBALH/RZcL
+        cFbwY4zgRR+inP15twJ//rtc1GjFX0pgDEcWVsGVflozNX/SJP/LcYZisuALpj9c
+        bXzfMriPnKh4vCI=
+        -----END PRIVATE KEY-----
+      containers: !!python/object:dominator.utils.BackrefDict
+        children:
+          elasticsearch: &id001 !!python/object:dominator.entities.Container
+            command: null
+            doors: !!python/object:dominator.utils.BackrefDict
+              children:
+                http: &id002 !!python/object:dominator.entities.Door
+                  container: *id001
+                  exposedport: 51099
+                  internalport: 9201
+                  name: http
+                  protocol: tcp
+                  sameports: false
+                  schema: http
+                  urls: !!python/object:dominator.utils.BackrefDict
+                    children:
+                      default: &id023 !!python/object:dominator.entities.Url
+                        door: *id002
+                        name: default
+                        path: ''
+                      head: !!python/object:dominator.entities.Url
+                        door: *id002
+                        name: head
+                        path: _plugin/head/
+                      marvel: !!python/object:dominator.entities.Url
+                        door: *id002
+                        name: marvel
+                        path: _plugin/marvel/
+                    parent: *id002
+                jmx: &id003 !!python/object:dominator.entities.Door
+                  container: *id001
+                  exposedport: 51098
+                  internalport: 9401
+                  name: jmx
+                  protocol: tcp
+                  sameports: false
+                  schema: rmi
+                  urls: !!python/object:dominator.utils.BackrefDict
+                    children:
+                      default: !!python/object:dominator.entities.Url
+                        door: *id003
+                        name: default
+                        path: ''
+                    parent: *id003
+                peer: &id004 !!python/object:dominator.entities.Door
+                  container: *id001
+                  exposedport: 51097
+                  internalport: 9301
+                  name: peer
+                  protocol: tcp
+                  sameports: false
+                  schema: elasticsearch-peer
+                  urls: !!python/object:dominator.utils.BackrefDict
+                    children:
+                      default: !!python/object:dominator.entities.Url
+                        door: *id004
+                        name: default
+                        path: ''
+                    parent: *id004
+              parent: *id001
+            entrypoint: null
+            env:
+              ES_CLASSPATH: /etc/elasticsearch/logging.yml
+              ES_JAVA_OPTS: -XX:NewRatio=5
+            hostname: null
+            id: null
+            image: !!python/object:dominator.entities.SourceImage
+              command:
+              - /scripts/elasticsearch.sh
+              entrypoint: null
+              env: {}
+              files:
+                /scripts/elasticsearch.sh: !!python/tuple
+                - chksum: 0
+                  devmajor: 0
+                  devminor: 0
+                  gid: 0
+                  gname: root
+                  linkname: ''
+                  mode: 493
+                  mtime: 0.0
+                  name: scripts/elasticsearch.sh
+                  size: 542
+                  type: !!binary |
+                    MA==
+                  uid: 0
+                  uname: root
+                - |
+                  #!/bin/sh
+
+                  NAME=elasticsearch
+
+                  # Directory where the Elasticsearch binary distribution resides
+                  ES_HOME=/usr/share/$NAME
+
+                  # Heap new generation
+                  #ES_HEAP_NEWSIZE=
+
+                  # max direct memory
+                  #ES_DIRECT_SIZE=
+
+                  # Additional Java OPTS
+                  #ES_JAVA_OPTS=
+
+                  # Maximum number of open files
+                  MAX_OPEN_FILES=500000
+
+                  # Maximum amount of locked memory
+                  #MAX_LOCKED_MEMORY=
+
+                  # Maximum number of VMA (Virtual Memory Areas) a process can own
+                  MAX_MAP_COUNT=262144
+
+                  . /etc/elasticsearch/env.sh
+                  export ES_CLASSPATH=/etc/elasticsearch/logging.yml
+
+                  $ES_HOME/bin/elasticsearch
+              namespace: nikicat
+              parent: !!python/object:dominator.entities.Image
+                namespace: yandex
+                registry: registry.ape.yandex.net
+                repository: trusty
+                tag: latest
+              ports:
+                http: 9201
+                jmx: 9401
+                peer: 9301
+              registry: registry.ape.yandex.net
+              repository: elasticsearch
+              scripts:
+              - curl http://packages.elasticsearch.org/GPG-KEY-elasticsearch | apt-key
+                add -
+              - echo "deb http://packages.elasticsearch.org/elasticsearch/1.3/debian
+                stable main" > /etc/apt/sources.list.d/elasticsearch.list
+              - apt-get update
+              - apt-get install -y --no-install-recommends maven elasticsearch=1.3.2
+                openjdk-7-jdk
+              - git clone https://github.com/grmblfrz/elasticsearch-zookeeper.git
+                /tmp/elasticsearch-zookeeper
+              - cd /tmp/elasticsearch-zookeeper && git checkout v1.3.1 && mvn package
+                -Dmaven.test.skip=true -Dzookeeper.version=3.4.6
+              - /usr/share/elasticsearch/bin/plugin -v   -u file:///tmp/elasticsearch-zookeeper/target/releases/elasticsearch-zookeeper-1.3.1.zip   -i
+                elasticsearch-zookeeper-1.3.1
+              - /usr/share/elasticsearch/bin/plugin -v -i elasticsearch/marvel/latest
+              - /usr/share/elasticsearch/bin/plugin -v -i mobz/elasticsearch-head
+              user: ''
+              volumes:
+                config: /etc/elasticsearch
+                data: /var/lib/elasticsearch
+                logs: /var/log/elasticsearch
+              workdir: null
+            links:
+              elasticsearch: []
+              zookeeper:
+              - &id005 !!python/object:dominator.entities.Door
+                container: &id006 !!python/object:dominator.entities.Container
+                  command: null
+                  doors: !!python/object:dominator.utils.BackrefDict
+                    children:
+                      client: *id005
+                      election: &id007 !!python/object:dominator.entities.Door
+                        container: *id006
+                        exposedport: 51090
+                        internalport: 3888
+                        name: election
+                        protocol: tcp
+                        sameports: false
+                        schema: zookeeper-election
+                        urls: !!python/object:dominator.utils.BackrefDict
+                          children:
+                            default: !!python/object:dominator.entities.Url
+                              door: *id007
+                              name: default
+                              path: ''
+                          parent: *id007
+                      jmx: &id008 !!python/object:dominator.entities.Door
+                        container: *id006
+                        exposedport: 51089
+                        internalport: 51089
+                        name: jmx
+                        protocol: tcp
+                        sameports: true
+                        schema: rmi
+                        urls: !!python/object:dominator.utils.BackrefDict
+                          children:
+                            default: !!python/object:dominator.entities.Url
+                              door: *id008
+                              name: default
+                              path: ''
+                          parent: *id008
+                      peer: &id009 !!python/object:dominator.entities.Door
+                        container: *id006
+                        exposedport: 51088
+                        internalport: 2888
+                        name: peer
+                        protocol: tcp
+                        sameports: false
+                        schema: zookeeper-peer
+                        urls: !!python/object:dominator.utils.BackrefDict
+                          children:
+                            default: !!python/object:dominator.entities.Url
+                              door: *id009
+                              name: default
+                              path: ''
+                          parent: *id009
+                    parent: *id006
+                  entrypoint: null
+                  env: {}
+                  hostname: null
+                  id: null
+                  image: !!python/object:dominator.entities.SourceImage
+                    command:
+                    - /root/run.sh
+                    entrypoint:
+                    - sh
+                    env:
+                      DEBIAN_FRONTEND: noninteractive
+                    files:
+                      /root/run.sh: !!python/tuple
+                      - chksum: 0
+                        devmajor: 0
+                        devminor: 0
+                        gid: 0
+                        gname: root
+                        linkname: ''
+                        mode: 420
+                        mtime: 0.0
+                        name: /root/run.sh
+                        size: 149
+                        type: !!binary |
+                          MA==
+                        uid: 0
+                        uname: root
+                      - |
+                        #!/bin/sh -xv
+
+                        ln -fs /opt/zookeeper/conf/myid /var/lib/zookeeper/myid
+                        . /opt/zookeeper/conf/env.sh
+
+                        /opt/zookeeper/bin/zkServer.sh start-foreground
+                    namespace: nikicat
+                    parent: !!python/object:dominator.entities.Image
+                      namespace: yandex
+                      registry: registry.ape.yandex.net
+                      repository: trusty
+                      tag: latest
+                    ports:
+                      client: 2181
+                      election: 3888
+                      jmx: 4888
+                      peer: 2888
+                    registry: registry.ape.yandex.net
+                    repository: zookeeper
+                    scripts:
+                    - apt-get -q update && apt-get -qy install openjdk-7-jre-headless
+                      && apt-get clean
+                    - curl -s http://apache.mirrors.hoobly.com/zookeeper/zookeeper-3.4.6/zookeeper-3.4.6.tar.gz
+                      | tar --strip-components=1 -xz
+                    user: ''
+                    volumes:
+                      config: /opt/zookeeper/conf
+                      data: /var/lib/zookeeper
+                      logs: /var/log/zookeeper
+                    workdir: /opt/zookeeper
+                  links:
+                    1: !!python/tuple
+                    - *id009
+                    - *id007
+                  memory: 1073741824
+                  name: zookeeper
+                  network_mode: ''
+                  privileged: false
+                  ship: *id010
+                  status: null
+                  user: ''
+                  volumes: !!python/object:dominator.utils.BackrefDict
+                    children:
+                      config: &id011 !!python/object:dominator.entities.ConfigVolume
+                        container: *id006
+                        dest: /opt/zookeeper/conf
+                        files: !!python/object:dominator.utils.BackrefDict
+                          children:
+                            env.sh: !!python/object:dominator.entities.TextFile
+                              data: export JVMFLAGS="-Dcom.sun.management.jmxremote.authenticate=False
+                                -Dcom.sun.management.jmxremote.local.only=False -Dcom.sun.management.jmxremote.port=51089
+                                -Dcom.sun.management.jmxremote.rmi.port=51089 -Dcom.sun.management.jmxremote.ssl=False
+                                -Djava.rmi.server.hostname=172.17.42.1 -Dvisualvm.display.name=localship:zookeeper
+                                -Xmx805306368 -server -showversion"
+                              name: env.sh
+                              volume: *id011
+                            log4j.properties: !!python/object:dominator.entities.TextFile
+                              data: |
+                                log4j.rootLogger=${zookeeper.root.logger}
+
+                                log4j.rootLogger=INFO, CONSOLE, FILE
+
+                                # Disable message flooding
+                                log4j.logger.org.apache.zookeeper.server.NIOServerCnxnFactory=WARN, FILE
+                                log4j.logger.org.apache.zookeeper.server.NIOServerCnxn=ERROR, FILE
+
+                                log4j.additivity.org.apache.zookeeper.server.NIOServerCnxnFactory=false
+                                log4j.additivity.org.apache.zookeeper.server.NIOServerCnxn=false
+
+                                log4j.appender.CONSOLE=org.apache.log4j.ConsoleAppender
+                                log4j.appender.CONSOLE.Threshold=ERROR
+                                log4j.appender.CONSOLE.layout=org.apache.log4j.PatternLayout
+                                log4j.appender.CONSOLE.layout.ConversionPattern=%d{ISO8601} %-5p -%-1X{myid}- [%t@%C:%L]  %m%n
+
+                                log4j.appender.FILE=org.apache.log4j.FileAppender
+                                log4j.appender.FILE.File=/var/log/zookeeper/zookeeper.log
+                                log4j.appender.FILE.Threshold=DEBUG
+                                log4j.appender.FILE.layout=org.apache.log4j.PatternLayout
+                                log4j.appender.FILE.layout.ConversionPattern=%d{ISO8601} %-5p -%-1X{myid}- [%t@%C:%L]  %m%n
+                              name: log4j.properties
+                              volume: *id011
+                            myid: !!python/object:dominator.entities.TextFile
+                              data: '1'
+                              name: myid
+                              volume: *id011
+                            zoo.cfg: !!python/object:dominator.entities.IniFile
+                              content:
+                                autopurge.purgeInterval: 1
+                                clientPort: 2181
+                                dataDir: /var/lib/zookeeper
+                                globalOutstandingLimit: 1000
+                                initLimit: 100
+                                maxClientCnxns: 0
+                                server.1: 0.0.0.0:2888:3888
+                                snapCount: 10000
+                                syncLimit: 50
+                                tickTime: 2000
+                              name: zoo.cfg
+                              volume: *id011
+                          parent: *id011
+                        name: config
+                      data: !!python/object:dominator.entities.DataVolume
+                        container: *id006
+                        dest: /var/lib/zookeeper
+                        name: data
+                        path: null
+                        ro: false
+                      logs: &id012 !!python/object:dominator.entities.LogVolume
+                        container: *id006
+                        dest: /var/log/zookeeper
+                        files: !!python/object:dominator.utils.BackrefDict
+                          children:
+                            zookeeper.log: !!python/object:dominator.entities.RotatedLogFile
+                              format: '%Y-%m-%d %H:%M:%S,%f'
+                              length: 23
+                              name: zookeeper.log
+                              volume: *id012
+                          parent: *id012
+                        name: logs
+                        path: null
+                        ro: false
+                    parent: *id006
+                  zkid: 1
+                exposedport: 51091
+                internalport: 2181
+                name: client
+                protocol: tcp
+                sameports: false
+                schema: zookeeper
+                urls: !!python/object:dominator.utils.BackrefDict
+                  children:
+                    default: !!python/object:dominator.entities.Url
+                      door: *id005
+                      name: default
+                      path: ''
+                  parent: *id005
+            memory: 134217728
+            name: elasticsearch
+            network_mode: ''
+            privileged: false
+            ship: *id010
+            status: null
+            user: ''
+            volumes: !!python/object:dominator.utils.BackrefDict
+              children:
+                config: &id013 !!python/object:dominator.entities.ConfigVolume
+                  container: *id001
+                  dest: /etc/elasticsearch
+                  files: !!python/object:dominator.utils.BackrefDict
+                    children:
+                      elasticsearch.yml: !!python/object:dominator.entities.YamlFile
+                        content:
+                          cluster.name: testcluster
+                          cluster.routing.allocation:
+                            awareness:
+                              attributes: datacenter
+                              force.datacenter.values:
+                              - localdc
+                            cluster_concurrent_rebalance: 10
+                            disk.threshold_enabled: true
+                            node_concurrent_recoveries: 10
+                            node_initial_primaries_recoveries: 10
+                          discovery:
+                            type: com.sonian.elasticsearch.zookeeper.discovery.ZooKeeperDiscoveryModule
+                          http.port: 9201
+                          index:
+                            mapper.default_mapping_location: /etc/elasticsearch/mapping.json
+                            number_of_replicas: 2
+                            number_of_shards: 5
+                            query.default_field: msg
+                            refresh_interval: 10s
+                            store.type: mmapfs
+                            translog.flush_threshold_ops: 50000
+                          indices:
+                            memory.index_buffer_size: 30%
+                            recovery.concurrent_streams: 20
+                          marvel.agent:
+                            enabled: false
+                          network.publish_host: 172.17.42.1
+                          node:
+                            datacenter: localdc
+                            name: localship
+                          sonian.elasticsearch.zookeeper:
+                            client.host: 172.17.42.1:51091
+                            discovery.state_publishing.enabled: true
+                            settings.enabled: false
+                          transport.publish_port: 51097
+                          transport.tcp.port: 9301
+                          zookeeper.root: /testcluster/elasticsearch
+                        name: elasticsearch.yml
+                        volume: *id013
+                      env.sh: !!python/object:dominator.entities.TextFile
+                        data: |-
+                          export JAVA_OPTS="-Dcom.sun.management.jmxremote.authenticate=False -Dcom.sun.management.jmxremote.local.only=False -Dcom.sun.management.jmxremote.port=9401 -Dcom.sun.management.jmxremote.rmi.port=9401 -Dcom.sun.management.jmxremote.ssl=False -Des.default.config=/etc/elasticsearch/elasticsearch.yml -Des.default.path.conf=/etc/elasticsearch -Des.default.path.data=/var/lib/elasticsearch -Des.default.path.home=/usr/share/elasticsearch -Des.default.path.logs=/var/log/elasticsearch -Des.default.path.work=/tmp/elasticsearch -Djava.rmi.server.hostname=172.17.42.1 -Dvisualvm.display.name=localship:elasticsearch -server -showversion"
+                          export ES_HEAP_SIZE=67108864
+                        name: env.sh
+                        volume: *id013
+                      logging.yml: !!python/object:dominator.entities.TextFile
+                        data: |
+                          # you can override this using by setting a system property, for example -Des.logger.level=DEBUG
+                          es.logger.level: INFO
+                          rootLogger: ${es.logger.level}, console, file
+                          logger:
+                            # log action execution errors for easier debugging
+                            action: DEBUG
+                            # reduce the logging for aws, too much is logged under the default INFO
+                            com.amazonaws: WARN
+
+                            # gateway
+                            #gateway: DEBUG
+                            #index.gateway: DEBUG
+
+                            # peer shard recovery
+                            indices.recovery: DEBUG
+
+                            # discovery
+                            #discovery: TRACE
+
+                            index.search.slowlog: TRACE, index_search_slow_log_file
+                            index.indexing.slowlog: TRACE, index_indexing_slow_log_file
+
+                          additivity:
+                            index.search.slowlog: false
+                            index.indexing.slowlog: false
+
+                          appender:
+                            console:
+                              type: console
+                              Threshold: INFO
+                              layout:
+                                type: consolePattern
+                                conversionPattern: "[%d{ISO8601}][%-5p][%-25c] %m%n"
+
+                            file:
+                              type: dailyRollingFile
+                              file: ${path.logs}/${cluster.name}.log
+                              datePattern: "'.'yyyy-MM-dd"
+                              layout:
+                                type: pattern
+                                conversionPattern: "[%d{ISO8601}][%-5p][%-25c] %m%n"
+
+                            index_search_slow_log_file:
+                              type: dailyRollingFile
+                              file: ${path.logs}/${cluster.name}_index_search_slowlog.log
+                              datePattern: "'.'yyyy-MM-dd"
+                              layout:
+                                type: pattern
+                                conversionPattern: "[%d{ISO8601}][%-5p][%-25c] %m%n"
+
+                            index_indexing_slow_log_file:
+                              type: dailyRollingFile
+                              file: ${path.logs}/${cluster.name}_index_indexing_slowlog.log
+                              datePattern: "'.'yyyy-MM-dd"
+                              layout:
+                                type: pattern
+                                conversionPattern: "[%d{ISO8601}][%-5p][%-25c] %m%n"
+                        name: logging.yml
+                        volume: *id013
+                      mapping.json: !!python/object:dominator.entities.TextFile
+                        data: |
+                          {"_default_": {"dynamic_templates": [{"store_generic": {
+                              "match": "*",
+                              "match_mapping_type": "string",
+                              "mapping": {"type": "string", "index": "not_analyzed"}
+                          }}],"_all": {"enabled": false}}}
+                        name: mapping.json
+                        volume: *id013
+                    parent: *id013
+                  name: config
+                data: !!python/object:dominator.entities.DataVolume
+                  container: *id001
+                  dest: /var/lib/elasticsearch
+                  name: data
+                  path: null
+                  ro: false
+                logs: &id014 !!python/object:dominator.entities.LogVolume
+                  container: *id001
+                  dest: /var/log/elasticsearch
+                  files: !!python/object:dominator.utils.BackrefDict
+                    children:
+                      testcluster.log: !!python/object:dominator.entities.RotatedLogFile
+                        format: '[%Y-%m-%d %H:%M:%S,%f]'
+                        length: 25
+                        name: testcluster.log
+                        volume: *id014
+                    parent: *id014
+                  name: logs
+                  path: null
+                  ro: false
+              parent: *id001
+          kibana: &id015 !!python/object:dominator.entities.Container
+            command: null
+            doors: !!python/object:dominator.utils.BackrefDict
+              children:
+                http: &id016 !!python/object:dominator.entities.Door
+                  container: *id015
+                  exposedport: 51096
+                  internalport: 81
+                  name: http
+                  protocol: tcp
+                  sameports: false
+                  schema: http
+                  urls: !!python/object:dominator.utils.BackrefDict
+                    children:
+                      default: &id024 !!python/object:dominator.entities.Url
+                        door: *id016
+                        name: default
+                        path: ''
+                    parent: *id016
+              parent: *id015
+            entrypoint: null
+            env: {}
+            hostname: null
+            id: null
+            image: !!python/object:dominator.entities.SourceImage
+              command: null
+              entrypoint: null
+              env: {}
+              files:
+                /etc/nginx/sites-enabled/kibana.site: !!python/tuple
+                - chksum: 0
+                  devmajor: 0
+                  devminor: 0
+                  gid: 0
+                  gname: root
+                  linkname: ''
+                  mode: 420
+                  mtime: 0.0
+                  name: /etc/nginx/sites-enabled/kibana.site
+                  size: 89
+                  type: !!binary |
+                    MA==
+                  uid: 0
+                  uname: root
+                - |2-
+
+                  server {
+                    listen [::]:81 ipv6only=off;
+                    location / {
+                      alias /var/www/kibana/;
+                    }
+                  }
+              namespace: nikicat
+              parent: &id022 !!python/object:dominator.entities.SourceImage
+                command:
+                - nginx
+                entrypoint: null
+                env:
+                  DEBIAN_FRONTEND: noninteractive
+                files:
+                  /etc/nginx/nginx.conf: !!python/tuple
+                  - chksum: 0
+                    devmajor: 0
+                    devminor: 0
+                    gid: 0
+                    gname: root
+                    linkname: ''
+                    mode: 420
+                    mtime: 0.0
+                    name: etc/nginx/nginx.conf
+                    size: 1044
+                    type: !!binary |
+                      MA==
+                    uid: 0
+                    uname: root
+                  - |
+                    user root;
+                    worker_processes 1;
+                    pid /run/nginx.pid;
+                    daemon off;
+
+                    include /etc/nginx/conf.d/*.conf;
+
+                    events {
+                        worker_connections 4096;
+                        multi_accept on;
+                    }
+
+                    http {
+
+                        ##
+                        # Basic Settings
+                        ##
+
+                        sendfile on;
+                        tcp_nopush on;
+                        tcp_nodelay on;
+                        keepalive_timeout 65;
+                        types_hash_max_size 2048;
+                        # server_tokens off;
+
+                        # server_names_hash_bucket_size 64;
+                        # server_name_in_redirect off;
+
+                        include /etc/nginx/mime.types;
+                        default_type application/octet-stream;
+
+                        ##
+                        # Logging Settings
+                        ##
+
+                        access_log /var/log/nginx/access.log;
+                        error_log /var/log/nginx/error.log;
+
+                        ##
+                        # Gzip Settings
+                        ##
+
+                        gzip on;
+                        gzip_disable "msie6";
+
+                        # gzip_vary on;
+                        # gzip_proxied any;
+                        # gzip_comp_level 6;
+                        # gzip_buffers 16 8k;
+                        # gzip_http_version 1.1;
+                        # gzip_types text/plain text/css application/json application/x-javascript text/xml application/xml application/xml+rss text/javascript;
+
+                        ##
+                        # Virtual Host Configs
+                        ##
+
+                        include /etc/nginx/sites-enabled/*;
+                    }
+                namespace: nikicat
+                parent: !!python/object:dominator.entities.Image
+                  namespace: yandex
+                  registry: registry.ape.yandex.net
+                  repository: trusty
+                  tag: latest
+                ports:
+                  http: 80
+                registry: registry.ape.yandex.net
+                repository: nginx
+                scripts:
+                - apt-add-repository -y ppa:nginx/stable
+                - apt-get update
+                - apt-get install -yy nginx-extras
+                - rm -f /etc/nginx/sites-enabled/default
+                - wget https://gist.githubusercontent.com/rrx/6217900/raw/78c2a4817dad9611ab602834d56d0f5b00bb3cc9/gencert.sh
+                - bash gencert.sh localhost || true
+                - cat localhost.crt localhost.key > /etc/ssl/private/server.pem
+                user: ''
+                volumes:
+                  logs: /var/log/nginx
+                  sites: /etc/nginx/sites-enabled
+                  ssl: /etc/nginx/certs
+                workdir: null
+              ports:
+                http: 81
+              registry: registry.ape.yandex.net
+              repository: kibana
+              scripts:
+              - curl -s https://download.elasticsearch.org/kibana/kibana/kibana-3.1.1.tar.gz
+                | tar -zxf -
+              - mkdir /var/www
+              - mv kibana-* /var/www/kibana
+              - ln -fs config/config.js /var/www/kibana/config.js
+              user: ''
+              volumes:
+                config: /var/www/kibana/config
+              workdir: null
+            links:
+              elasticsearch.http: &id017 !!python/object:dominator.entities.Door
+                container: &id018 !!python/object:dominator.entities.Container
+                  command: null
+                  doors: !!python/object:dominator.utils.BackrefDict
+                    children:
+                      elasticsearch.http: *id017
+                      elasticsearch.https: &id019 !!python/object:dominator.entities.Door
+                        container: *id018
+                        exposedport: 51094
+                        internalport: 9443
+                        name: elasticsearch.https
+                        protocol: tcp
+                        sameports: false
+                        schema: https
+                        urls: !!python/object:dominator.utils.BackrefDict
+                          children:
+                            default: !!python/object:dominator.entities.Url
+                              door: *id019
+                              name: default
+                              path: ''
+                            head: !!python/object:dominator.entities.Url
+                              door: *id019
+                              name: head
+                              path: _plugin/head/
+                            marvel: !!python/object:dominator.entities.Url
+                              door: *id019
+                              name: marvel
+                              path: _plugin/marvel/
+                          parent: *id019
+                      kibana.http: &id020 !!python/object:dominator.entities.Door
+                        container: *id018
+                        exposedport: 51093
+                        internalport: 80
+                        name: kibana.http
+                        protocol: tcp
+                        sameports: false
+                        schema: http
+                        urls: !!python/object:dominator.utils.BackrefDict
+                          children:
+                            default: !!python/object:dominator.entities.Url
+                              door: *id020
+                              name: default
+                              path: ''
+                          parent: *id020
+                      kibana.https: &id021 !!python/object:dominator.entities.Door
+                        container: *id018
+                        exposedport: 51092
+                        internalport: 443
+                        name: kibana.https
+                        protocol: tcp
+                        sameports: false
+                        schema: https
+                        urls: !!python/object:dominator.utils.BackrefDict
+                          children:
+                            default: !!python/object:dominator.entities.Url
+                              door: *id021
+                              name: default
+                              path: ''
+                          parent: *id021
+                    parent: *id018
+                  entrypoint: null
+                  env: {}
+                  hostname: null
+                  id: null
+                  image: *id022
+                  links:
+                    elasticsearch: *id023
+                    kibana: *id024
+                  memory: 268435456
+                  name: nginx
+                  network_mode: ''
+                  privileged: false
+                  ship: *id010
+                  status: null
+                  user: ''
+                  volumes: !!python/object:dominator.utils.BackrefDict
+                    children:
+                      logs: &id025 !!python/object:dominator.entities.LogVolume
+                        container: *id018
+                        dest: /var/log/nginx
+                        files: !!python/object:dominator.utils.BackrefDict
+                          children:
+                            access.log: !!python/object:dominator.entities.LogFile
+                              format: ''
+                              length: 0
+                              name: access.log
+                              volume: *id025
+                            error.log: !!python/object:dominator.entities.LogFile
+                              format: ''
+                              length: 0
+                              name: error.log
+                              volume: *id025
+                          parent: *id025
+                        name: logs
+                        path: null
+                        ro: false
+                      sites: &id026 !!python/object:dominator.entities.ConfigVolume
+                        container: *id018
+                        dest: /etc/nginx/sites-enabled
+                        files: !!python/object:dominator.utils.BackrefDict
+                          children:
+                            elk.site: !!python/object:dominator.entities.TemplateFile
+                              context: {}
+                              name: elk.site
+                              template: |
+                                <%def name="server(httpdoor, httpsdoor, proxypassurl)">
+                                server {
+                                    listen [::]:${ httpdoor.internalport } ipv6only=off;
+                                    listen [::]:${ httpsdoor.internalport } ssl ipv6only=off;
+
+                                    ssl_certificate     ${this.volumes['ssl'].dest}/server.pem;
+                                    ssl_certificate_key ${this.volumes['ssl'].dest}/server.pem;
+
+                                    ssl_protocols TLSv1 SSLv3 TLSv1.1 TLSv1.2;
+                                    ssl_prefer_server_ciphers on;
+                                    ssl_ciphers kRSA+AES128:kRSA:kEECDH:+3DES:!RC4:!aNULL:!eNULL:!MD5:!EXPORT:!LOW:!SEED:!CAMELLIA:!IDEA:!PSK:!SRP:!SSLv2;
+
+                                    ssl_session_cache    shared:SSL:64m;
+                                    ssl_session_timeout  12h;
+
+                                    client_max_body_size 99M;
+
+                                    location /ping {
+                                        proxy_pass ${proxypassurl};
+                                    }
+                                    location / {
+                                        proxy_pass ${proxypassurl};
+                                    }
+                                }
+                                </%def>
+
+                                ${ server(this.doors['kibana.http'], this.doors['kibana.https'], this.links['kibana']) }
+                                ${ server(this.doors['elasticsearch.http'], this.doors['elasticsearch.https'], this.links['elasticsearch']) }
+                              volume: *id026
+                          parent: *id026
+                        name: sites
+                      ssl: &id027 !!python/object:dominator.entities.ConfigVolume
+                        container: *id018
+                        dest: /etc/nginx/certs
+                        files: !!python/object:dominator.utils.BackrefDict
+                          children:
+                            server.pem: !!python/object:dominator.entities.TemplateFile
+                              context: {}
+                              name: server.pem
+                              template: ${this.ship.certificate}
+                              volume: *id027
+                          parent: *id027
+                        name: ssl
+                    parent: *id018
+                exposedport: 51095
+                internalport: 9200
+                name: elasticsearch.http
+                protocol: tcp
+                sameports: false
+                schema: http
+                urls: !!python/object:dominator.utils.BackrefDict
+                  children:
+                    default: !!python/object:dominator.entities.Url
+                      door: *id017
+                      name: default
+                      path: ''
+                    head: !!python/object:dominator.entities.Url
+                      door: *id017
+                      name: head
+                      path: _plugin/head/
+                    marvel: !!python/object:dominator.entities.Url
+                      door: *id017
+                      name: marvel
+                      path: _plugin/marvel/
+                  parent: *id017
+              elasticsearch.https: *id019
+            memory: 0
+            name: kibana
+            network_mode: ''
+            privileged: false
+            ship: *id010
+            status: null
+            user: ''
+            volumes: !!python/object:dominator.utils.BackrefDict
+              children:
+                config: &id028 !!python/object:dominator.entities.ConfigVolume
+                  container: *id015
+                  dest: /var/www/kibana/config
+                  files: !!python/object:dominator.utils.BackrefDict
+                    children:
+                      config.js: !!python/object:dominator.entities.TemplateFile
+                        context: {}
+                        name: config.js
+                        template: "/** @scratch /configuration/config.js/1\n *\n *\
+                          \ == Configuration\n * config.js is where you will find\
+                          \ the core Kibana configuration. This file contains parameter\
+                          \ that\n * must be set before kibana is run for the first\
+                          \ time.\n */\ndefine(['settings'],\nfunction (Settings)\
+                          \ {\n  \n\n  /** @scratch /configuration/config.js/2\n \
+                          \  *\n   * === Parameters\n   */\n  return new Settings({\n\
+                          \n    /** @scratch /configuration/config.js/5\n     *\n\
+                          \     * ==== elasticsearch\n     *\n     * The URL to your\
+                          \ elasticsearch server. You almost certainly don't\n   \
+                          \  * want +http://localhost:9200+ here. Even if Kibana and\
+                          \ Elasticsearch are on\n     * the same host. By default\
+                          \ this will attempt to reach ES at the same host you have\n\
+                          \     * kibana installed on. You probably want to set it\
+                          \ to the FQDN of your\n     * elasticsearch host\n     *\n\
+                          \     * Note: this can also be an object if you want to\
+                          \ pass options to the http client. For example:\n     *\n\
+                          \     *  +elasticsearch: {server: \"http://localhost:9200\"\
+                          , withCredentials: true}+\n     *\n     */\n      elasticsearch:\
+                          \ \"//\" + window.location.hostname + \":\" + {\n      \
+                          \    \"http:\": \"${this.links['elasticsearch.http'].port}\"\
+                          ,\n          \"https:\": \"${this.links['elasticsearch.https'].port}\"\
+                          \n      }[window.location.protocol],\n\n    /** @scratch\
+                          \ /configuration/config.js/5\n     *\n     * ==== default_route\n\
+                          \     *\n     * This is the default landing page when you\
+                          \ don't specify a dashboard to load. You can specify\n \
+                          \    * files, scripts or saved dashboards here. For example,\
+                          \ if you had saved a dashboard called\n     * `WebLogs'\
+                          \ to elasticsearch you might use:\n     *\n     * default_route:\
+                          \ '/dashboard/elasticsearch/WebLogs',\n     */\n    default_route\
+                          \     : '/dashboard/file/default.json',\n\n    /** @scratch\
+                          \ /configuration/config.js/5\n     *\n     * ==== kibana-int\n\
+                          \     *\n     * The default ES index to use for storing\
+                          \ Kibana specific object\n     * such as stored dashboards\n\
+                          \     */\n    kibana_index: \"kibana-int\",\n\n    /** @scratch\
+                          \ /configuration/config.js/5\n     *\n     * ==== panel_name\n\
+                          \     *\n     * An array of panel modules available. Panels\
+                          \ will only be loaded when they are defined in the\n   \
+                          \  * dashboard, but this list is used in the \"add panel\"\
+                          \ interface.\n     */\n    panel_names: [\n      'histogram',\n\
+                          \      'map',\n      'goal',\n      'table',\n      'filtering',\n\
+                          \      'timepicker',\n      'text',\n      'hits',\n   \
+                          \   'column',\n      'trends',\n      'bettermap',\n   \
+                          \   'query',\n      'terms',\n      'stats',\n      'sparklines'\n\
+                          \    ]\n  });\n});\n"
+                        volume: *id028
+                    parent: *id028
+                  name: config
+                logs: &id029 !!python/object:dominator.entities.LogVolume
+                  container: *id015
+                  dest: /var/log/nginx
+                  files: !!python/object:dominator.utils.BackrefDict
+                    children:
+                      access.log: !!python/object:dominator.entities.LogFile
+                        format: ''
+                        length: 0
+                        name: access.log
+                        volume: *id029
+                      error.log: !!python/object:dominator.entities.LogFile
+                        format: ''
+                        length: 0
+                        name: error.log
+                        volume: *id029
+                    parent: *id029
+                  name: logs
+                  path: null
+                  ro: false
+              parent: *id015
+          nginx: *id018
+          zookeeper: *id006
+        parent: *id010
+      shipment: *id030
+  parent: *id030
+tasks: !!python/object:dominator.utils.BackrefDict
+  children: {}
+  parent: *id030
+
