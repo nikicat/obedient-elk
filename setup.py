@@ -22,9 +22,10 @@ if __name__ == '__main__':
         ]},
         entry_points={'obedient': [
             'create = obedient.elk:create_elk',
+            'test = obedient.elk:test',
         ]},
         install_requires=[
-            'dominator[full] >=12.1a',
+            'dominator[full] >=15a',
             'obedient.zookeeper >=3a',
         ],
     )

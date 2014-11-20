@@ -1,5 +1,4 @@
 import textwrap
-import copy
 import os.path
 
 from dominator.entities import (Image, SourceImage, ConfigVolume, DataVolume, LogVolume, LogFile, Task,
@@ -285,6 +284,9 @@ def create_nginx_front(elasticsearch, kibana):
         files={'server.pem': TemplateFile('${this.ship.certificate}')},
     )
 
+    def copyurls(door):
+        return {name: Url(url.path) for name, url in door.urls.items()}
+
     return Container(
         name='nginx',
         image=image,
@@ -294,10 +296,10 @@ def create_nginx_front(elasticsearch, kibana):
             'ssl': ssl,
         },
         doors={
-            'kibana.http': Door(schema='http', port=image.ports['http'], urls=copy.copy(kibana.doors['http'].urls)),
-            'kibana.https': Door(schema='https', port=443, urls=copy.copy(kibana.doors['http'].urls)),
-            'elasticsearch.http': Door(schema='http', port=9200, urls=copy.copy(elasticsearch.doors['http'].urls)),
-            'elasticsearch.https': Door(schema='https', port=9443, urls=copy.copy(elasticsearch.doors['http'].urls)),
+            'kibana.http': Door(schema='http', port=image.ports['http'], urls=copyurls(kibana.doors['http'])),
+            'kibana.https': Door(schema='https', port=443, urls=copyurls(kibana.doors['http'])),
+            'elasticsearch.http': Door(schema='http', port=9200, urls=copyurls(elasticsearch.doors['http'])),
+            'elasticsearch.https': Door(schema='https', port=9443, urls=copyurls(elasticsearch.doors['http'])),
         },
         links={
             'kibana': kibana.doors['http'].urls['default'],
@@ -386,4 +388,4 @@ def test(shipment):
     for elasticsearch in elasticsearches:
         elasticsearch.memory = min(elasticsearch.ship.memory, 128*1024*1024)
 
-    shipment.expose_ports(range(51000, 51100))
+    shipment.expose_ports(list(range(51000, 51100)))
