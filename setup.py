@@ -25,7 +25,7 @@ if __name__ == '__main__':
             'test = obedient.elk:test',
         ]},
         install_requires=[
-            'dominator[full] >=15a',
+            'dominator[full] >=15.1a',
             'obedient.zookeeper >=3a',
         ],
     )

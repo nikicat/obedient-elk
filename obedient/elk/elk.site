@@ -1,10 +1,10 @@
-<%def name="server(httpdoor, httpsdoor, proxypassurl)">
+<%def name="server(http_port, https_port, upstream_url)">
 server {
-    listen [::]:${ httpdoor.internalport } ipv6only=off;
-    listen [::]:${ httpsdoor.internalport } ssl ipv6only=off;
+    listen [::]:${ http_port } ipv6only=off;
+    listen [::]:${ https_port } ssl ipv6only=off;
 
-    ssl_certificate     ${this.volumes['ssl'].dest}/server.pem;
-    ssl_certificate_key ${this.volumes['ssl'].dest}/server.pem;
+    ssl_certificate     ${certificate_path};
+    ssl_certificate_key ${certificate_path};
 
     ssl_protocols TLSv1 SSLv3 TLSv1.1 TLSv1.2;
     ssl_prefer_server_ciphers on;
@@ -16,13 +16,14 @@ server {
     client_max_body_size 99M;
 
     location /ping {
-        proxy_pass ${proxypassurl};
+        proxy_pass ${upstream_url};
     }
     location / {
-        proxy_pass ${proxypassurl};
+        proxy_pass ${upstream_url};
     }
 }
 </%def>
 
-${ server(this.doors['kibana.http'], this.doors['kibana.https'], this.links['kibana']) }
-${ server(this.doors['elasticsearch.http'], this.doors['elasticsearch.https'], this.links['elasticsearch']) }
+% for upstream, http_port, https_port in upstreams:
+${ server(http_port, https_port, upstream.urls["default"]) }
+% endfor
