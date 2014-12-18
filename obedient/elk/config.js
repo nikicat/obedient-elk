@@ -4,7 +4,7 @@
  * config.js is where you will find the core Kibana configuration. This file contains parameter that
  * must be set before kibana is run for the first time.
  */
-define(['settings'],
+define(["settings"],
 function (Settings) {
   
 
@@ -18,7 +18,7 @@ function (Settings) {
      *
      * ==== elasticsearch
      *
-     * The URL to your elasticsearch server. You almost certainly don't
+     * The URL to your elasticsearch server. You almost certainly don"t
      * want +http://localhost:9200+ here. Even if Kibana and Elasticsearch are on
      * the same host. By default this will attempt to reach ES at the same host you have
      * kibana installed on. You probably want to set it to the FQDN of your
@@ -29,22 +29,22 @@ function (Settings) {
      *  +elasticsearch: {server: "http://localhost:9200", withCredentials: true}+
      *
      */
-      elasticsearch: "//" + window.location.hostname + ":" + {
-          "http:": "${this.links['elasticsearch.http'].port}",
-          "https:": "${this.links['elasticsearch.https'].port}"
-      }[window.location.protocol],
+    elasticsearch: "//" + window.location.hostname + ":" + {
+          "http:": "${http_port}",
+          "https:": "${https_port}"
+    }[window.location.protocol],
 
     /** @scratch /configuration/config.js/5
      *
      * ==== default_route
      *
-     * This is the default landing page when you don't specify a dashboard to load. You can specify
+     * This is the default landing page when you don"t specify a dashboard to load. You can specify
      * files, scripts or saved dashboards here. For example, if you had saved a dashboard called
-     * `WebLogs' to elasticsearch you might use:
+     * `WebLogs" to elasticsearch you might use:
      *
-     * default_route: '/dashboard/elasticsearch/WebLogs',
+     * default_route: "/dashboard/elasticsearch/WebLogs",
      */
-    default_route     : '/dashboard/file/default.json',
+    default_route: "/dashboard/file/default.json",
 
     /** @scratch /configuration/config.js/5
      *
@@ -63,21 +63,21 @@ function (Settings) {
      * dashboard, but this list is used in the "add panel" interface.
      */
     panel_names: [
-      'histogram',
-      'map',
-      'goal',
-      'table',
-      'filtering',
-      'timepicker',
-      'text',
-      'hits',
-      'column',
-      'trends',
-      'bettermap',
-      'query',
-      'terms',
-      'stats',
-      'sparklines'
+      "histogram",
+      "map",
+      "goal",
+      "table",
+      "filtering",
+      "timepicker",
+      "text",
+      "hits",
+      "column",
+      "trends",
+      "bettermap",
+      "query",
+      "terms",
+      "stats",
+      "sparklines"
     ]
   });
 });

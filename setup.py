@@ -3,7 +3,7 @@ import setuptools
 if __name__ == '__main__':
     setuptools.setup(
         name='obedient.elk',
-        version='1.3.0',
+        version='1.4.0',
         url='https://github.com/yandex-sysmon/obedient.elk',
         license='LGPLv3',
         author='Nikolay Bryskin',
@@ -25,7 +25,7 @@ if __name__ == '__main__':
             'test = obedient.elk:test',
         ]},
         install_requires=[
-            'dominator[full] >=15a',
+            'dominator[full] >=15.1a',
             'obedient.zookeeper >=3a',
         ],
     )
