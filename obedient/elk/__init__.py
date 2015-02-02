@@ -334,7 +334,7 @@ def attach_upstreams_to_nginx(nginx, upstreams):
     nginx.links.update({door.container.name: door.urls['default'] for door in nginx.doors.values()})
 
 
-def create_dump_task(elasticsearch):
+def create_dump_task():
     dump = Task(
         name='dump',
         image=SourceImage(
@@ -345,28 +345,8 @@ def create_dump_task(elasticsearch):
                 'ln -s nodejs /usr/bin/node',
                 'npm install elasticdump -g',
             ],
-            files={
-                '/scripts/dump.sh': textwrap.dedent('''
-                    . /scripts/config/dump.env
-                    INDEX=$1
-                    if [ -z "$INDEX"  ]; then
-                        echo "Usage: dump <INDEX>"
-                        exit 1
-                    fi
-                    elasticdump --input=$URL/$INDEX --output=$
-                '''),
-            },
-            command=['/scripts/dump.sh'],
-            entrypoint=['bash'],
+            entrypoint=['/usr/local/bin/elasticdump'],
         ),
-        volumes={
-            'config': ConfigVolume(
-                dest='/scripts/config',
-                files={
-                    'dump.env': TextFile(text='URL={}'.format(elasticsearch.doors['http'].urls['default'])),
-                },
-            ),
-        },
     )
     return dump
 
